@@ -1,0 +1,86 @@
+Written by Jaeyong Yoo
+2011-09-22
+
+
+1. Introduction
+
+
+2. FlowNet software architecture
+
+	- Conceptually, it consists of Frameworks and Algorithms.
+	
+	- Framworks:
+		1. Per-flow Scheduling Framework	(PFSchedFW class)
+		2. Per-flow Shaping Framework		(PFShapeFW class)
+		3. Per-flow MPEG2 Adaptation Framework	(PFMpeg2AdaptFW class)
+
+	- Each framework has a skeleton implementation of abstracted algorithms.
+	  The framework-abstracted-algorithm inclusion-relation are as follows
+
+		1. Per-flow Scheduling Framework includes
+
+			A. Flow Classification Algorithm	(VcFlowClassify class)
+			B. (Flow) Table Algorithm		(VcTable class)
+			C. Scheduling Algorithm			(VcSchedule class)
+			D. Congestion Detection Algorithm	(VcCongestionDetection class)
+				: This Congestion Detection Algorithms are maintained as a pool
+				  and every flow that passes this scheduler use all the algorithms
+				  in the pool and detects congestions. These congestions are
+				  reported to shapers for further actions.
+				  Note that the shaper also has to register itself to the congestion
+				  detection algorithms to set its callback function to them.
+
+		2. Per-flow Shaping Framework includes
+			A. Flow Classification Algorithm	(VcFlowClassify class)
+			B. (Flow) Table Algorithm		(VcTable class)
+			C. Bandwidth Shaping Algorithm		(VcBWShape class)
+		
+		3. Per-flow MPEG2 Adaptation Framework includes
+			A. Flow Classification Algorithm	(VcFlowClassify class)
+			B. (Flow) Table Algorithm		(VcTable class)
+
+
+	- We have the following implemented algorithms
+
+		1. Flow Classification Algorithm
+			A. Vc5TupleClassify	(Name: "5TupleClassify")
+			B. VcNoClassify		(Name: "NoClassify")
+
+		2. (Flow) Table Algorithm
+			A. VcTable		(No name is allocated this one TODO: Fix this) 
+	
+		3. Scheduling Algorithm (Inner-loop)
+			A. VcScheduleBackpressure	(Name: "ScheduleBackpressure")
+			B. VcScheduleNoSchedule		(Name: "ScheduleNoSchedule")
+			C. VcScheduleHorizon		(Name: "ScheduleHorizon")
+			D. VcScheduleWBS		(Name: "ScheduleWBS")
+				- Note that WBS (Weighted Backpressure Scheduling) requires 
+				  "WBS_BETA" and "WBS_GAMMA" for the configuration
+			E. VcScheduleLogWeight		(Name: "ScheduleLogWeight")
+
+		4. Scheduling Algorithm (Outer-loop)
+			A. VcScheduleOuterVirtualpressure	(Name: "ScheduleOuterVirtualpressure")
+			B. VcScheduleOuterNoSchedule		(Name: "ScheduleOuterNoSchedule")
+		
+		5. Congestion Detection Algorithm /* (TODO: make a table for possible combinations of CD and shaping */
+			A. VcCDCORE		(Name: "CDCORE")
+			B. VcCDQueueLoss	(Name: "CDQueueLoss")
+			C. VcCDThreshold	(Name: "CDThreshold")
+			D. VcCDDirect		(Name: "CDDirect") /* only compatible to VcBWShapeProportional */
+		
+		6. Bandwidth Shaping Algorithm
+			A. VcBWShapeByCDCORE	(Name: "ByCDCORE")
+			B. VcBWShapeByCDCORE_CFB	(Name: "ByCDCORE_CFB")
+			C. VcBWShapeNULL	(Name: "NULL")
+			D. VcBWShapeSimple	(Name: "Simple")
+			E. VcBWShapeStaticMpeg2 (Name: "StaticMpeg2")
+			F. VcBWShapeProportional	(Name: "Proportional") /* only compatible to VcCDDirect */
+
+	- In theory, you can combinate any algorithms to operate FlowNet
+
+3. Description of Frameworks
+	- To be written
+
+4. Description of Algorithms
+	- To be written
+

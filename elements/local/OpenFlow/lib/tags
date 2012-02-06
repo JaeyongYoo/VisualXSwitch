@@ -1,0 +1,1648 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACT_VALIDATION_OK	dp_act.hh	46;"	d
+ARP_ETH_HEADER_LEN	packets.hh	268;"	d
+ARP_HRD_ETHERNET	packets.hh	263;"	d
+ARP_OP_REPLY	packets.hh	266;"	d
+ARP_OP_REQUEST	packets.hh	265;"	d
+ARP_PRO_IP	packets.hh	264;"	d
+ARRAY_SIZE	util.hh	76;"	d
+BUFFER_SIZE	socket-util.cc	191;"	d	file:
+BUILD_ASSERT	util.hh	62;"	d
+BUILD_ASSERT	util.hh	70;"	d
+BUILD_ASSERT_DECL	util.hh	66;"	d
+BUILD_ASSERT_DECL	util.hh	71;"	d
+CHAIN_H	chain.hh	35;"	d
+CHAIN_MAX_TABLES	chain.hh	61;"	d
+CLIENT	vconn-ssl.cc	/^    CLIENT,$/;"	e	enum:session_type	file:
+COMPILER_H	compiler.hh	35;"	d
+CONTAINER_OF	util.hh	95;"	d
+CRC32_H	of_crc32.hh	35;"	d
+CRC32_TABLE_BITS	of_crc32.hh	45;"	d
+CRC32_TABLE_SIZE	of_crc32.hh	46;"	d
+CSUM_H	csum.hh	35;"	d
+CTRL_ATTR_FAMILY_ID	netlink-protocol.hh	/^        CTRL_ATTR_FAMILY_ID,$/;"	e	enum:__anon2
+CTRL_ATTR_FAMILY_NAME	netlink-protocol.hh	/^        CTRL_ATTR_FAMILY_NAME,$/;"	e	enum:__anon2
+CTRL_ATTR_HDRSIZE	netlink-protocol.hh	/^        CTRL_ATTR_HDRSIZE,$/;"	e	enum:__anon2
+CTRL_ATTR_MAX	netlink-protocol.hh	148;"	d
+CTRL_ATTR_MAXATTR	netlink-protocol.hh	/^        CTRL_ATTR_MAXATTR,$/;"	e	enum:__anon2
+CTRL_ATTR_OPS	netlink-protocol.hh	/^        CTRL_ATTR_OPS,$/;"	e	enum:__anon2
+CTRL_ATTR_OP_FLAGS	netlink-protocol.hh	/^        CTRL_ATTR_OP_FLAGS,$/;"	e	enum:__anon3
+CTRL_ATTR_OP_ID	netlink-protocol.hh	/^        CTRL_ATTR_OP_ID,$/;"	e	enum:__anon3
+CTRL_ATTR_OP_MAX	netlink-protocol.hh	157;"	d
+CTRL_ATTR_OP_UNSPEC	netlink-protocol.hh	/^        CTRL_ATTR_OP_UNSPEC,$/;"	e	enum:__anon3
+CTRL_ATTR_UNSPEC	netlink-protocol.hh	/^        CTRL_ATTR_UNSPEC,$/;"	e	enum:__anon2
+CTRL_ATTR_VERSION	netlink-protocol.hh	/^        CTRL_ATTR_VERSION,$/;"	e	enum:__anon2
+CTRL_CMD_DELFAMILY	netlink-protocol.hh	/^        CTRL_CMD_DELFAMILY,$/;"	e	enum:__anon1
+CTRL_CMD_DELOPS	netlink-protocol.hh	/^        CTRL_CMD_DELOPS,$/;"	e	enum:__anon1
+CTRL_CMD_GETFAMILY	netlink-protocol.hh	/^        CTRL_CMD_GETFAMILY,$/;"	e	enum:__anon1
+CTRL_CMD_GETOPS	netlink-protocol.hh	/^        CTRL_CMD_GETOPS,$/;"	e	enum:__anon1
+CTRL_CMD_MAX	netlink-protocol.hh	135;"	d
+CTRL_CMD_NEWFAMILY	netlink-protocol.hh	/^        CTRL_CMD_NEWFAMILY,$/;"	e	enum:__anon1
+CTRL_CMD_NEWOPS	netlink-protocol.hh	/^        CTRL_CMD_NEWOPS,$/;"	e	enum:__anon1
+CTRL_CMD_UNSPEC	netlink-protocol.hh	/^        CTRL_CMD_UNSPEC,$/;"	e	enum:__anon1
+Class	vconn-provider.hh	/^    struct pvconn_class *Class;$/;"	m	struct:pvconn	typeref:struct:pvconn::pvconn_class
+Class	vconn-provider.hh	/^    struct vconn_class *Class;$/;"	m	struct:vconn	typeref:struct:vconn::vconn_class
+DHPARAMS_H	dhparams.hh	2;"	d
+DPIF_H	dpif.hh	36;"	d
+DP_ACT_H	dp_act.hh	35;"	d
+DS_EMPTY_INITIALIZER	dynamic-string.hh	61;"	d
+DYNAMIC_STRING_H	dynamic-string.hh	35;"	d
+Delete	ofpstat.hh	/^		uint64_t Delete;$/;"	m	struct:ofpstat::__anon6
+Delete	table.hh	/^    int (*Delete)(class Datapath *dp, struct sw_table *table, $/;"	m	struct:sw_table
+DoublyLink	list.hh	/^class DoublyLink {$/;"	c
+DynamicString	dynamic-string.hh	/^	DynamicString() {};$/;"	f	class:DynamicString
+DynamicString	dynamic-string.hh	/^class DynamicString {$/;"	c
+ERROR_CODE	ofp-print.cc	890;"	d	file:
+ERROR_TYPE	ofp-print.cc	889;"	d	file:
+ETH_ADDR_ARGS	packets.hh	109;"	d
+ETH_ADDR_FMT	packets.hh	107;"	d
+ETH_ADDR_LEN	packets.hh	45;"	d
+ETH_HEADER_LEN	packets.hh	116;"	d
+ETH_PAYLOAD_MAX	packets.hh	118;"	d
+ETH_PAYLOAD_MIN	packets.hh	117;"	d
+ETH_TOTAL_MAX	packets.hh	120;"	d
+ETH_TOTAL_MIN	packets.hh	119;"	d
+ETH_TYPE_ARP	packets.hh	113;"	d
+ETH_TYPE_IP	packets.hh	112;"	d
+ETH_TYPE_VLAN	packets.hh	114;"	d
+ETH_VLAN_TOTAL_MAX	packets.hh	121;"	d
+FATAL_SIGNAL_H	fatal-signal.hh	35;"	d
+FLOW_H	flow.hh	34;"	d
+FOR_EACH_ENABLED_PORT	stp.cc	151;"	d	file:
+FatalSignal	fatal-signal.hh	/^class FatalSignal{$/;"	c
+GENL_HDRLEN	netlink-protocol.hh	107;"	d
+GENL_ID_CTRL	netlink-protocol.hh	122;"	d
+GENL_MAX_ID	netlink-protocol.hh	120;"	d
+GENL_MIN_ID	netlink-protocol.hh	119;"	d
+HASH_H	hash.hh	34;"	d
+ICMP_HEADER_LEN	packets.hh	223;"	d
+INC_IFP_STAT	ofpstat.cc	41;"	d	file:
+IP_ADDR_LEN	packets.hh	206;"	d
+IP_ARGS	packets.hh	184;"	d
+IP_DONT_FRAGMENT	packets.hh	200;"	d
+IP_FMT	packets.hh	183;"	d
+IP_FRAG_OFF_MASK	packets.hh	202;"	d
+IP_HEADER_LEN	packets.hh	208;"	d
+IP_IHL	packets.hh	191;"	d
+IP_IHL_VER	packets.hh	192;"	d
+IP_IS_FRAGMENT	packets.hh	203;"	d
+IP_MORE_FRAGMENTS	packets.hh	201;"	d
+IP_TYPE_ICMP	packets.hh	194;"	d
+IP_TYPE_TCP	packets.hh	195;"	d
+IP_TYPE_UDP	packets.hh	196;"	d
+IP_VER	packets.hh	190;"	d
+IP_VERSION	packets.hh	198;"	d
+IS_POW2	util.hh	79;"	d
+LEAK_CHECKER_H	leak-checker.hh	35;"	d
+LEAK_CHECKER_LONG_OPTIONS	leak-checker.hh	47;"	d
+LEAK_CHECKER_OPTION_ENUMS	leak-checker.hh	44;"	d
+LEAK_CHECKER_OPTION_HANDLERS	leak-checker.hh	50;"	d
+LIST_FOR_EACH	list.hh	78;"	d
+LIST_FOR_EACH_REVERSE	list.hh	82;"	d
+LIST_FOR_EACH_SAFE	list.hh	86;"	d
+LIST_H	list.hh	34;"	d
+LIST_INITIALIZER	list.hh	54;"	d
+LLC_CNTL_SNAP	packets.hh	131;"	d
+LLC_DSAP_SNAP	packets.hh	129;"	d
+LLC_HEADER_LEN	packets.hh	133;"	d
+LLC_SNAP_HEADER_LEN	packets.hh	150;"	d
+LLC_SSAP_SNAP	packets.hh	130;"	d
+MALLOC_LIKE	compiler.hh	42;"	d
+MAX	util.hh	86;"	d
+MAX_HOOKS	fatal-signal.cc	59;"	d	file:
+MAX_MONITORS	rconn.cc	136;"	d	file:
+MAX_PROCESSES	netlink.cc	975;"	d	file:
+MAX_SOCKETS	netlink.cc	972;"	d	file:
+MESSAGE_AGE_INCREMENT	stp.cc	166;"	d	file:
+MIN	util.hh	82;"	d
+NETLINK_ADD_MEMBERSHIP	netlink-protocol.hh	96;"	d
+NETLINK_ADD_MEMBERSHIP	netlink.cc	173;"	d	file:
+NETLINK_DROP_MEMBERSHIP	netlink-protocol.hh	97;"	d
+NETLINK_GENERIC	netlink-protocol.hh	47;"	d
+NETLINK_H	netlink.hh	41;"	d
+NETLINK_PKTINFO	netlink-protocol.hh	98;"	d
+NETLINK_PROTOCOL_H	netlink-protocol.hh	35;"	d
+NLA_ALIGN	netlink-protocol.hh	116;"	d
+NLA_ALIGNTO	netlink-protocol.hh	115;"	d
+NLA_HDRLEN	netlink-protocol.hh	117;"	d
+NLMSG_ALIGN	netlink-protocol.hh	86;"	d
+NLMSG_ALIGNTO	netlink-protocol.hh	85;"	d
+NLMSG_DONE	netlink-protocol.hh	71;"	d
+NLMSG_ERROR	netlink-protocol.hh	70;"	d
+NLMSG_HDRLEN	netlink-protocol.hh	87;"	d
+NLMSG_MIN_TYPE	netlink-protocol.hh	74;"	d
+NLMSG_NOOP	netlink-protocol.hh	69;"	d
+NLMSG_OVERRUN	netlink-protocol.hh	72;"	d
+NLM_F_ACK	netlink-protocol.hh	60;"	d
+NLM_F_ATOMIC	netlink-protocol.hh	65;"	d
+NLM_F_DUMP	netlink-protocol.hh	66;"	d
+NLM_F_ECHO	netlink-protocol.hh	61;"	d
+NLM_F_MATCH	netlink-protocol.hh	64;"	d
+NLM_F_MULTI	netlink-protocol.hh	59;"	d
+NLM_F_REQUEST	netlink-protocol.hh	58;"	d
+NLM_F_ROOT	netlink-protocol.hh	63;"	d
+NL_ATTR_GET_AS	netlink.cc	704;"	d	file:
+NL_A_FLAG	netlink.hh	/^    NL_A_FLAG,$/;"	e	enum:nl_attr_type
+NL_A_NESTED	netlink.hh	/^    NL_A_NESTED,$/;"	e	enum:nl_attr_type
+NL_A_NO_ATTR	netlink.hh	/^    NL_A_NO_ATTR = 0,$/;"	e	enum:nl_attr_type
+NL_A_STRING	netlink.hh	/^    NL_A_STRING,$/;"	e	enum:nl_attr_type
+NL_A_U16	netlink.hh	/^    NL_A_U16,$/;"	e	enum:nl_attr_type
+NL_A_U32	netlink.hh	/^    NL_A_U32,$/;"	e	enum:nl_attr_type
+NL_A_U64	netlink.hh	/^    NL_A_U64,$/;"	e	enum:nl_attr_type
+NL_A_U8	netlink.hh	/^    NL_A_U8,$/;"	e	enum:nl_attr_type
+NL_A_UNSPEC	netlink.hh	/^    NL_A_UNSPEC,$/;"	e	enum:nl_attr_type
+NOT_IMPLEMENTED	util.hh	90;"	d
+NOT_REACHED	util.hh	89;"	d
+NOT_TESTED	util.hh	91;"	d
+NO_RETURN	compiler.hh	37;"	d
+N_ERROR_TYPES	ofp-print.cc	918;"	d	file:
+N_NL_ATTR_TYPES	netlink.hh	/^    N_NL_ATTR_TYPES$/;"	e	enum:nl_attr_type
+NetLink	netlink.hh	/^class NetLink {$/;"	c
+OFPBUF_H	ofpbuf.hh	35;"	d
+OFPFW_NW	switch-flow.cc	140;"	d	file:
+OFPFW_TP	switch-flow.cc	139;"	d	file:
+OFPSTAT_H_	ofpstat.hh	34;"	d
+OFP_PRINT_H	ofp-print.hh	37;"	d
+OF_EXT_MSG_H	of_ext_msg.hh	35;"	d
+OfTime	timeval.hh	/^class OfTime {$/;"	c
+Of_Chain	chain.hh	/^class Of_Chain {$/;"	c
+Of_Crc32	of_crc32.hh	/^class Of_Crc32 {$/;"	c
+Of_Csum	csum.hh	/^class Of_Csum {$/;"	c
+Of_DpAct	dp_act.hh	/^class Of_DpAct {$/;"	c
+Of_Dpif	dpif.hh	/^class Of_Dpif { int dummy; };$/;"	c
+Of_Flow	flow.hh	/^class Of_Flow {$/;"	c
+Of_Hash	hash.hh	/^class Of_Hash {$/;"	c
+Of_LeakChecker	leak-checker.hh	/^class Of_LeakChecker {$/;"	c
+Of_OfExtMsg	of_ext_msg.hh	/^class Of_OfExtMsg {$/;"	c
+Of_OfpPrint	ofp-print.hh	/^class Of_OfpPrint {$/;"	c
+Of_Ofpbuf	ofpbuf.hh	/^class Of_Ofpbuf {$/;"	c
+Of_Ofpstat	ofpstat.hh	/^class Of_Ofpstat$/;"	c
+Of_Pcap	pcap.hh	/^class Of_Pcap {$/;"	c
+Of_PollLoop	poll-loop.hh	/^class Of_PollLoop {$/;"	c
+Of_PrivateMsg	private-msg.hh	/^class Of_PrivateMsg {$/;"	c
+Of_Queue	queue.hh	/^class Of_Queue {$/;"	c
+Of_Random	random.hh	/^class Of_Random{$/;"	c
+Of_Rconn	rconn.hh	/^class Of_Rconn{$/;"	c
+Of_SocketUtils	socket-util.hh	/^class Of_SocketUtils {$/;"	c
+Of_Stp	stp.hh	/^class Of_Stp {$/;"	c
+Of_Svec	svec.hh	/^class Of_Svec {$/;"	c
+Of_SwitchFlow	switch-flow.hh	/^class Of_SwitchFlow {$/;"	c
+Of_TableHash	table.hh	/^class Of_TableHash {$/;"	c
+Of_TableLinear	table.hh	/^class Of_TableLinear {$/;"	c
+Of_Vconn	vconn.hh	/^class Of_Vconn {	int dummy;};$/;"	c
+Of_VconnNetlink	vconn.hh	/^class Of_VconnNetlink { 	int dummy; };$/;"	c
+Of_VconnSsl	vconn-ssl.hh	/^class Of_VconnSsl {$/;"	c
+Of_VconnStream	vconn.hh	/^class Of_VconnStream { 	int dummy; };$/;"	c
+Of_VconnTcp	vconn.hh	/^class Of_VconnTcp { 	int dummy; };$/;"	c
+Of_VconnUnix	vconn.hh	/^class Of_VconnUnix { 	int dummy; };$/;"	c
+PACKED	compiler.hh	39;"	d
+PACKED	pcap.cc	/^} PACKED;$/;"	v	typeref:struct:pcap_hdr
+PACKED	pcap.cc	/^} PACKED;$/;"	v	typeref:struct:pcaprec_hdr
+PACKETS_H	packets.hh	34;"	d
+PCAP_H	pcap.hh	35;"	d
+POLL_LOOP_H	poll-loop.hh	50;"	d
+PRINTF_FORMAT	compiler.hh	40;"	d
+PRIVATE_MSG_H_	private-msg.hh	34;"	d
+PROCESS_BITS	netlink.cc	974;"	d	file:
+PROCESS_MASK	netlink.cc	976;"	d	file:
+Private	ofpbuf.hh	/^    void *Private;              \/* Private pointer for use by owner. *\/$/;"	m	struct:ofpbuf
+Private	table.hh	/^    unsigned long Private[4];$/;"	m	struct:sw_table_position
+QUEUE_H	queue.hh	35;"	d
+RANDOM_H	random.hh	35;"	d
+RCONN_H	rconn.hh	35;"	d
+REPLY	ofp-print.cc	/^    REPLY$/;"	e	enum:stats_direction	file:
+REQUEST	ofp-print.cc	/^    REQUEST,$/;"	e	enum:stats_direction	file:
+ROUND_DOWN	util.hh	78;"	d
+ROUND_UP	util.hh	77;"	d
+SAT_MATH_H	sat-math.hh	35;"	d
+SERVER	vconn-ssl.cc	/^    SERVER$/;"	e	enum:session_type	file:
+SNAP_HEADER_LEN	packets.hh	143;"	d
+SNAP_ORG_ETHERNET	packets.hh	141;"	d
+SOCKET_BITS	netlink.cc	971;"	d	file:
+SOCKET_UTIL_H	socket-util.hh	35;"	d
+SOL_NETLINK	netlink.cc	59;"	d	file:
+STATE	rconn.cc	450;"	d	file:
+STATE	rconn.cc	452;"	d	file:
+STATE	rconn.cc	64;"	d	file:
+STATE	rconn.cc	66;"	d	file:
+STATE	rconn.cc	73;"	d	file:
+STATE	rconn.cc	75;"	d	file:
+STATE	rconn.cc	882;"	d	file:
+STATE	rconn.cc	884;"	d	file:
+STATES	rconn.cc	/^    STATES$/;"	e	enum:state	file:
+STATES	rconn.cc	57;"	d	file:
+STATE_SSL_CONNECTING	vconn-ssl.cc	/^    STATE_SSL_CONNECTING$/;"	e	enum:ssl_state	file:
+STATE_TCP_CONNECTING	vconn-ssl.cc	/^    STATE_TCP_CONNECTING,$/;"	e	enum:ssl_state	file:
+STP_BLOCKING	stp.hh	/^    STP_BLOCKING = 1 << 4        \/* 8.4.1: Initial boot state. *\/$/;"	e	enum:stp_state
+STP_CONFIG_TOPOLOGY_CHANGE	stp.cc	/^    STP_CONFIG_TOPOLOGY_CHANGE = 0x01$/;"	e	enum:stp_config_bpdu_flags	file:
+STP_CONFIG_TOPOLOGY_CHANGE_ACK	stp.cc	/^    STP_CONFIG_TOPOLOGY_CHANGE_ACK = 0x80,$/;"	e	enum:stp_config_bpdu_flags	file:
+STP_DEFAULT_BRIDGE_PRIORITY	stp.hh	60;"	d
+STP_DEFAULT_PORT_PRIORITY	stp.hh	61;"	d
+STP_DISABLED	stp.hh	/^    STP_DISABLED = 1 << 0,       \/* 8.4.5: Disabled by management. *\/$/;"	e	enum:stp_state
+STP_FORWARDING	stp.hh	/^    STP_FORWARDING = 1 << 3,     \/* 8.4.4: Learning and relaying frames. *\/$/;"	e	enum:stp_state
+STP_H	stp.hh	35;"	d
+STP_LEARNING	stp.hh	/^    STP_LEARNING = 1 << 2,       \/* 8.4.3: Learning but not relaying frames. *\/$/;"	e	enum:stp_state
+STP_LISTENING	stp.hh	/^    STP_LISTENING = 1 << 1,      \/* 8.4.2: Not learning or relaying frames. *\/$/;"	e	enum:stp_state
+STP_LLC_CNTL	stp.hh	57;"	d
+STP_LLC_DSAP	stp.hh	56;"	d
+STP_LLC_SSAP	stp.hh	55;"	d
+STP_MAX_PORTS	stp.hh	68;"	d
+STP_PROTOCOL_ID	stp.cc	54;"	d	file:
+STP_PROTOCOL_VERSION	stp.cc	55;"	d	file:
+STP_TYPE_CONFIG	stp.cc	56;"	d	file:
+STP_TYPE_TCN	stp.cc	57;"	d	file:
+STRFTIME_FORMAT	compiler.hh	41;"	d
+SVEC_EMPTY_INITIALIZER	svec.hh	51;"	d
+SVEC_H	svec.hh	35;"	d
+SWITCH_FLOW_H	switch-flow.hh	35;"	d
+TABLE_H	table.hh	38;"	d
+TABLE_HASH_MAX_FLOWS	chain.hh	56;"	d
+TABLE_LINEAR_MAX_FLOWS	chain.hh	55;"	d
+TABLE_MAC_MAX_FLOWS	chain.hh	57;"	d
+TABLE_MAC_NUM_BUCKETS	chain.hh	58;"	d
+TCP_ACK	packets.hh	244;"	d
+TCP_FIN	packets.hh	240;"	d
+TCP_FLAGS	packets.hh	247;"	d
+TCP_HEADER_LEN	packets.hh	250;"	d
+TCP_OFFSET	packets.hh	248;"	d
+TCP_PSH	packets.hh	243;"	d
+TCP_RST	packets.hh	242;"	d
+TCP_SYN	packets.hh	241;"	d
+TCP_URG	packets.hh	245;"	d
+THIS_MODULE	chain.cc	42;"	d	file:
+THIS_MODULE	dpif.cc	56;"	d	file:
+THIS_MODULE	flow.cc	45;"	d	file:
+THIS_MODULE	leak-checker.cc	38;"	d	file:
+THIS_MODULE	netlink.cc	55;"	d	file:
+THIS_MODULE	of_ext_msg.cc	41;"	d	file:
+THIS_MODULE	pcap.cc	43;"	d	file:
+THIS_MODULE	poll-loop.cc	45;"	d	file:
+THIS_MODULE	rconn.cc	50;"	d	file:
+THIS_MODULE	socket-util.cc	54;"	d	file:
+THIS_MODULE	stp.cc	48;"	d	file:
+THIS_MODULE	svec.cc	43;"	d	file:
+THIS_MODULE	switch-flow.cc	46;"	d	file:
+THIS_MODULE	vconn-netlink.cc	57;"	d	file:
+THIS_MODULE	vconn-ssl.cc	62;"	d	file:
+THIS_MODULE	vconn-stream.cc	53;"	d	file:
+THIS_MODULE	vconn-tcp.cc	52;"	d	file:
+THIS_MODULE	vconn-unix.cc	56;"	d	file:
+THIS_MODULE	vconn.cc	52;"	d	file:
+THIS_MODULE	vlog-socket.cc	58;"	d	file:
+THIS_MODULE	vlog.cc	51;"	d	file:
+TIMEVAL_H	timeval.hh	35;"	d
+TIME_MAX	timeval.hh	57;"	d
+TIME_MIN	timeval.hh	58;"	d
+TIME_UPDATE_INTERVAL	timeval.hh	64;"	d
+TYPE_IS_INTEGER	type-props.hh	40;"	d
+TYPE_IS_SIGNED	type-props.hh	41;"	d
+TYPE_MAXIMUM	type-props.hh	46;"	d
+TYPE_MINIMUM	type-props.hh	43;"	d
+TYPE_PROPS_H	type-props.hh	35;"	d
+TYPE_VALUE_BITS	type-props.hh	42;"	d
+UDP_HEADER_LEN	packets.hh	231;"	d
+UNUSED	compiler.hh	38;"	d
+UNUSED	packets.hh	/^static const uint8_t eth_addr_broadcast[ETH_ADDR_LEN] UNUSED$/;"	v
+UTIL_H	util.hh	35;"	d
+Util	util.hh	/^class Util {$/;"	c
+VCONN_H	vconn.hh	35;"	d
+VCONN_PROVIDER_H	vconn-provider.hh	35;"	d
+VCONN_SSL_H	vconn-ssl.hh	34;"	d
+VCONN_SSL_LONG_OPTIONS	vconn-ssl.hh	50;"	d
+VCONN_SSL_LONG_OPTIONS	vconn-ssl.hh	72;"	d
+VCONN_SSL_OPTION_HANDLERS	vconn-ssl.hh	55;"	d
+VCONN_SSL_OPTION_HANDLERS	vconn-ssl.hh	73;"	d
+VCONN_STREAM_H	vconn-stream.hh	35;"	d
+VCS_CONNECTED	vconn.cc	/^    VCS_CONNECTED,              \/* Connection established. *\/$/;"	e	enum:vconn_state	file:
+VCS_CONNECTING	vconn.cc	/^    VCS_CONNECTING,             \/* Underlying vconn is not connected. *\/$/;"	e	enum:vconn_state	file:
+VCS_DISCONNECTED	vconn.cc	/^    VCS_DISCONNECTED            \/* Connection failed or connection closed. *\/$/;"	e	enum:vconn_state	file:
+VCS_RECV_HELLO	vconn.cc	/^    VCS_RECV_HELLO,             \/* Waiting to receive OFPT_HELLO message. *\/$/;"	e	enum:vconn_state	file:
+VCS_SEND_ERROR	vconn.cc	/^    VCS_SEND_ERROR,             \/* Sending OFPT_ERROR message. *\/$/;"	e	enum:vconn_state	file:
+VCS_SEND_HELLO	vconn.cc	/^    VCS_SEND_HELLO,             \/* Waiting to send OFPT_HELLO message. *\/$/;"	e	enum:vconn_state	file:
+VLAN_ETH_HEADER_LEN	packets.hh	169;"	d
+VLAN_HEADER_LEN	packets.hh	162;"	d
+VLAN_PCP_BITMASK	packets.hh	160;"	d
+VLAN_PCP_MASK	packets.hh	158;"	d
+VLAN_PCP_SHIFT	packets.hh	159;"	d
+VLAN_VID_MASK	packets.hh	157;"	d
+VLF_ANY_FACILITY	vlog.hh	/^    VLF_ANY_FACILITY = -1$/;"	e	enum:vlog_facility
+VLF_N_FACILITIES	vlog.hh	/^    VLF_N_FACILITIES,$/;"	e	enum:vlog_facility
+VLL_N_LEVELS	vlog.hh	/^    VLL_N_LEVELS$/;"	e	enum:vlog_level
+VLM_ANY_MODULE	vlog.hh	/^    VLM_ANY_MODULE = -1$/;"	e	enum:vlog_module
+VLM_N_MODULES	vlog.hh	/^    VLM_N_MODULES,$/;"	e	enum:vlog_module
+VLOG	vlog.hh	193;"	d
+VLOG_DBG	vlog.hh	156;"	d
+VLOG_DBG_RL	vlog.hh	176;"	d
+VLOG_EMER	vlog.hh	152;"	d
+VLOG_ERR	vlog.hh	153;"	d
+VLOG_ERR_RL	vlog.hh	173;"	d
+VLOG_FACILITIES	vlog.hh	/^    VLOG_FACILITIES$/;"	e	enum:vlog_facility
+VLOG_FACILITIES	vlog.hh	64;"	d
+VLOG_FACILITY	vlog.cc	83;"	d	file:
+VLOG_FACILITY	vlog.cc	85;"	d	file:
+VLOG_FACILITY	vlog.hh	69;"	d
+VLOG_FACILITY	vlog.hh	71;"	d
+VLOG_H	vlog.hh	35;"	d
+VLOG_INFO	vlog.hh	155;"	d
+VLOG_INFO_RL	vlog.hh	175;"	d
+VLOG_IS_DBG_ENABLED	vlog.hh	165;"	d
+VLOG_IS_EMER_ENABLED	vlog.hh	161;"	d
+VLOG_IS_ERR_ENABLED	vlog.hh	162;"	d
+VLOG_IS_INFO_ENABLED	vlog.hh	164;"	d
+VLOG_IS_WARN_ENABLED	vlog.hh	163;"	d
+VLOG_LEVEL	vlog.cc	57;"	d	file:
+VLOG_LEVEL	vlog.cc	59;"	d	file:
+VLOG_LEVEL	vlog.cc	64;"	d	file:
+VLOG_LEVEL	vlog.cc	66;"	d	file:
+VLOG_LEVEL	vlog.hh	54;"	d
+VLOG_LEVEL	vlog.hh	56;"	d
+VLOG_LEVELS	vlog.hh	/^    VLOG_LEVELS$/;"	e	enum:vlog_level
+VLOG_LEVELS	vlog.hh	47;"	d
+VLOG_LONG_OPTIONS	vlog.hh	180;"	d
+VLOG_MODULE	vlog.cc	71;"	d	file:
+VLOG_MODULE	vlog.cc	73;"	d	file:
+VLOG_MODULE	vlog.hh	81;"	d
+VLOG_MSG_TOKENS	vlog.hh	106;"	d
+VLOG_OPTION_ENUMS	vlog.hh	179;"	d
+VLOG_OPTION_HANDLERS	vlog.hh	183;"	d
+VLOG_RATE_LIMIT_INIT	vlog.hh	110;"	d
+VLOG_RL	vlog.hh	199;"	d
+VLOG_SOCKET_H	vlog-socket.hh	35;"	d
+VLOG_WARN	vlog.hh	154;"	d
+VLOG_WARN_RL	vlog.hh	174;"	d
+WAIT_CONNECT	vconn.hh	/^    WAIT_CONNECT,$/;"	e	enum:vconn_wait_type
+WAIT_RECV	vconn.hh	/^    WAIT_RECV,$/;"	e	enum:vconn_wait_type
+WAIT_SEND	vconn.hh	/^    WAIT_SEND$/;"	e	enum:vconn_wait_type
+XTOXLL_H	xtoxll.hh	34;"	d
+__CTRL_ATTR_MAX	netlink-protocol.hh	/^        __CTRL_ATTR_MAX,$/;"	e	enum:__anon2
+__CTRL_ATTR_OP_MAX	netlink-protocol.hh	/^        __CTRL_ATTR_OP_MAX,$/;"	e	enum:__anon3
+__CTRL_CMD_MAX	netlink-protocol.hh	/^        __CTRL_CMD_MAX,$/;"	e	enum:__anon1
+accept	vconn-provider.hh	/^    int (*accept)(struct pvconn *pvconn, struct vconn **new_vconnp);$/;"	m	struct:pvconn_class
+accept_cb	vconn-stream.cc	/^    int (*accept_cb)(int fd, const struct sockaddr *, size_t sa_len,$/;"	m	struct:pstream_pvconn	file:
+actions	switch-flow.hh	/^    struct ofp_action_header actions[0];$/;"	m	struct:sw_flow_actions	typeref:struct:sw_flow_actions::ofp_action_header
+actions_len	switch-flow.hh	/^    size_t actions_len;$/;"	m	struct:sw_flow_actions
+active	stp.cc	/^    bool active;                 \/* Timer in use? *\/$/;"	m	struct:stp_timer	file:
+add	ofpstat.hh	/^		uint64_t add;$/;"	m	struct:ofpstat::__anon6
+add_table	chain.cc	/^static int add_table(struct sw_chain *chain, struct sw_table *table, int emerg)$/;"	f	file:
+alloc_pid	netlink.cc	/^alloc_pid(uint32_t *pid)$/;"	f	file:
+alloc_xid	vconn.cc	/^alloc_xid(void)$/;"	f	file:
+allocated	dynamic-string.hh	/^    size_t allocated;   \/* Bytes allocated, not including null terminator. *\/$/;"	m	struct:ds
+allocated	ofpbuf.hh	/^    size_t allocated;           \/* Number of bytes allocated. *\/$/;"	m	struct:ofpbuf
+allocated	svec.hh	/^    size_t allocated;$/;"	m	struct:svec
+ar_hln	packets.hh	/^    uint8_t ar_hln;            \/* Hardware address length. *\/$/;"	m	struct:arp_eth_header
+ar_hrd	packets.hh	/^    uint16_t ar_hrd;           \/* Hardware type. *\/$/;"	m	struct:arp_eth_header
+ar_op	packets.hh	/^    uint16_t ar_op;            \/* Opcode. *\/$/;"	m	struct:arp_eth_header
+ar_pln	packets.hh	/^    uint8_t ar_pln;            \/* Protocol address length. *\/$/;"	m	struct:arp_eth_header
+ar_pro	packets.hh	/^    uint16_t ar_pro;           \/* Protocol type. *\/$/;"	m	struct:arp_eth_header
+ar_sha	packets.hh	/^    uint8_t ar_sha[ETH_ADDR_LEN]; \/* Sender hardware address. *\/$/;"	m	struct:arp_eth_header
+ar_spa	packets.hh	/^    uint32_t ar_spa;           \/* Sender protocol address. *\/$/;"	m	struct:arp_eth_header
+ar_tha	packets.hh	/^    uint8_t ar_tha[ETH_ADDR_LEN]; \/* Target hardware address. *\/$/;"	m	struct:arp_eth_header
+ar_tpa	packets.hh	/^    uint32_t ar_tpa;           \/* Target protocol address. *\/$/;"	m	struct:arp_eth_header
+arp_eth_header	packets.hh	/^struct arp_eth_header {$/;"	s
+atexit_handler	fatal-signal.cc	/^atexit_handler(void)$/;"	f	file:
+attr_len_range	netlink.cc	/^static size_t attr_len_range[N_NL_ATTR_TYPES+1][2];\/* = {$/;"	v	file:
+aux	fatal-signal.cc	/^    void *aux;$/;"	m	struct:hook	file:
+aux	poll-loop.cc	/^    void *aux;                  \/* Argument to callback function. *\/$/;"	m	struct:poll_waiter	file:
+aux	stp.cc	/^    void *aux;$/;"	m	struct:stp	file:
+avail_sockets	netlink.cc	/^static uint32_t avail_sockets[ROUND_UP(MAX_SOCKETS, 32)];$/;"	v	file:
+ba_bad_argument	ofpstat.hh	/^		uint64_t ba_bad_argument;$/;"	m	struct:ofpstat::__anon5
+ba_bad_len	ofpstat.hh	/^		uint64_t ba_bad_len;$/;"	m	struct:ofpstat::__anon5
+ba_bad_out_port	ofpstat.hh	/^		uint64_t ba_bad_out_port;$/;"	m	struct:ofpstat::__anon5
+ba_bad_type	ofpstat.hh	/^		uint64_t ba_bad_type;$/;"	m	struct:ofpstat::__anon5
+ba_bad_vendor	ofpstat.hh	/^		uint64_t ba_bad_vendor;$/;"	m	struct:ofpstat::__anon5
+ba_bad_vendor_type	ofpstat.hh	/^		uint64_t ba_bad_vendor_type;$/;"	m	struct:ofpstat::__anon5
+ba_eperm	ofpstat.hh	/^		uint64_t ba_eperm;$/;"	m	struct:ofpstat::__anon5
+backoff	rconn.cc	/^    int backoff;$/;"	m	struct:rconn	file:
+backoff_deadline	rconn.cc	/^    time_t backoff_deadline;$/;"	m	struct:rconn	file:
+backtrace	poll-loop.cc	/^    struct backtrace *backtrace; \/* Optionally, event that created waiter. *\/$/;"	m	struct:poll_waiter	typeref:struct:poll_waiter::backtrace	file:
+bad_action	ofpstat.hh	/^		uint64_t bad_action;$/;"	m	struct:ofpstat::__anon4
+bad_request	ofpstat.hh	/^		uint64_t bad_request;$/;"	m	struct:ofpstat::__anon4
+base	ofpbuf.hh	/^    void *base;                 \/* First byte of area malloc()'d area. *\/$/;"	m	struct:ofpbuf
+bind_path	vlog-socket.cc	/^    char *bind_path;$/;"	m	struct:vlog_client	file:
+block_level	fatal-signal.cc	/^static int block_level = 0;$/;"	v	file:
+block_sigalrm	timeval.cc	/^block_sigalrm(sigset_t *oldsigs)$/;"	f	file:
+boot_time	vlog.cc	/^static long long int boot_time;$/;"	v	file:
+bootstrap_ca_cert	vconn-ssl.cc	/^static bool bootstrap_ca_cert;$/;"	v	file:
+bpdu_type	stp.cc	/^    uint8_t bpdu_type;          \/* One of STP_TYPE_*. *\/$/;"	m	struct:stp_bpdu_header	file:
+br_bad_stat	ofpstat.hh	/^		uint64_t br_bad_stat;$/;"	m	struct:ofpstat::__anon5
+br_bad_type	ofpstat.hh	/^		uint64_t br_bad_type;$/;"	m	struct:ofpstat::__anon5
+br_bad_vendor	ofpstat.hh	/^		uint64_t br_bad_vendor;$/;"	m	struct:ofpstat::__anon5
+br_bad_version	ofpstat.hh	/^		uint64_t br_bad_version;$/;"	m	struct:ofpstat::__anon5
+br_eperm	ofpstat.hh	/^		uint64_t br_eperm;$/;"	m	struct:ofpstat::__anon5
+bridge_forward_delay	stp.cc	/^    int bridge_forward_delay;       \/* 8.5.3.10: forward_delay as root. *\/$/;"	m	struct:stp	file:
+bridge_hello_time	stp.cc	/^    int bridge_hello_time;          \/* 8.5.3.9: hello_time as root. *\/$/;"	m	struct:stp	file:
+bridge_id	stp.cc	/^    stp_identifier bridge_id;       \/* 8.5.3.7: This bridge. *\/$/;"	m	struct:stp	file:
+bridge_id	stp.cc	/^    uint64_t bridge_id;            \/* 8.5.1.3: ID of transmitting bridge. *\/$/;"	m	struct:stp_config_bpdu	file:
+bridge_max_age	stp.cc	/^    int bridge_max_age;             \/* 8.5.3.8: max_age when we're root. *\/$/;"	m	struct:stp	file:
+bucket_mask	table-hash.cc	/^	unsigned int bucket_mask; \/* Number of buckets minus 1. *\/$/;"	m	struct:sw_table_hash	file:
+buckets	table-hash.cc	/^	struct sw_flow **buckets;$/;"	m	struct:sw_table_hash	typeref:struct:sw_table_hash::sw_flow	file:
+burst	vlog.hh	/^    unsigned int burst;         \/* Max cumulative tokens credit. *\/$/;"	m	struct:vlog_rate_limit
+byte_count	switch-flow.hh	/^    uint64_t byte_count;        \/* Number of bytes seen. *\/$/;"	m	struct:sw_flow
+ca_cert_file	vconn-ssl.cc	/^static char *ca_cert_file;$/;"	v	file:
+call_hooks	fatal-signal.cc	/^call_hooks(int sig_nr)$/;"	f	file:
+call_sigprocmask	fatal-signal.cc	/^call_sigprocmask(int how, sigset_t* new_set, sigset_t* old_set)$/;"	f	file:
+chain_create	chain.cc	/^struct sw_chain *chain_create(class Datapath *dp)$/;"	f
+chain_delete	chain.cc	/^int chain_delete(struct sw_chain *chain, const struct sw_flow_key *key,$/;"	f
+chain_destroy	chain.cc	/^void chain_destroy(struct sw_chain *chain)$/;"	f
+chain_has_conflict	chain.cc	/^int chain_has_conflict(struct sw_chain *chain, const struct sw_flow_key *key,$/;"	f
+chain_insert	chain.cc	/^int chain_insert(struct sw_chain *chain, struct sw_flow *flow, int emerg)$/;"	f
+chain_lookup	chain.cc	/^struct sw_flow * chain_lookup(struct sw_chain *chain, const struct sw_flow_key *key, int emerg)$/;"	f
+chain_modify	chain.cc	/^int chain_modify(struct sw_chain *chain, const struct sw_flow_key *key,$/;"	f
+chain_timeout	chain.cc	/^void chain_timeout(struct sw_chain *chain, struct list *deleted)$/;"	f
+change_detection_enabled	stp.cc	/^    bool change_detection_enabled;  \/* 8.5.5.10: Detect topology changes? *\/$/;"	m	struct:stp_port	file:
+check_connection_completion	socket-util.cc	/^check_connection_completion(int fd) $/;"	f
+check_message_type	vconn.cc	/^check_message_type(uint8_t got_type, uint8_t want_type) $/;"	f	file:
+check_ofp_message	vconn.cc	/^check_ofp_message(const struct ofp_header *msg, uint8_t type, size_t size)$/;"	f
+check_ofp_message_array	vconn.cc	/^check_ofp_message_array(const struct ofp_header *msg, uint8_t type,$/;"	f
+check_queue	queue.cc	/^check_queue(struct ofp_queue *q UNUSED)$/;"	f	file:
+check_vconn_classes	vconn.cc	/^check_vconn_classes(void)$/;"	f	file:
+clamp	stp.cc	/^clamp(int x, int min, int max)$/;"	f	file:
+close	vconn-provider.hh	/^    void (*close)(struct pvconn *pvconn);$/;"	m	struct:pvconn_class
+close	vconn-provider.hh	/^    void (*close)(struct vconn *vconn);$/;"	m	struct:vconn_class
+cmd	netlink-protocol.hh	/^    uint8_t cmd;$/;"	m	struct:genlmsghdr
+code	ofp-print.cc	/^    int code;$/;"	m	struct:error_type	file:
+compare_ports	ofp-print.cc	/^compare_ports(const void *a_, const void *b_)$/;"	f	file:
+compare_strings	svec.cc	/^compare_strings(const void *a_, const void *b_)$/;"	f	file:
+config_pending	stp.cc	/^    bool config_pending;            \/* 8.5.5.9: Send BPDU when hold expires? *\/$/;"	m	struct:stp_port	file:
+connect	vconn-provider.hh	/^    int (*connect)(struct vconn *vconn);$/;"	m	struct:vconn_class
+connect_error	vconn-ssl.cc	/^    int connect_error;$/;"	m	struct:ssl_vconn	file:
+connect_path	vlog-socket.cc	/^    char *connect_path;$/;"	m	struct:vlog_client	file:
+cookie	switch-flow.hh	/^    uint64_t cookie;            \/* Opaque controller-issued identifier. *\/$/;"	m	struct:sw_flow
+copy_to_monitor	rconn.cc	/^static void copy_to_monitor(struct rconn *rc, const struct ofpbuf *b)$/;"	f	file:
+crc32	of_crc32.hh	/^struct crc32 {$/;"	s
+crc32	table-hash.cc	/^	struct crc32 crc32;$/;"	m	struct:sw_table_hash	typeref:struct:sw_table_hash::crc32	file:
+crc32_calculate	of_crc32.cc	/^crc32_calculate(const struct crc32 *crc, const void *data_, size_t n_bytes)$/;"	f
+crc32_init	of_crc32.cc	/^crc32_init(struct crc32 *crc, unsigned int polynomial)$/;"	f
+created	switch-flow.hh	/^    uint64_t created;           \/* When the flow was created. *\/$/;"	m	struct:sw_flow
+creation_time	rconn.cc	/^    time_t creation_time;$/;"	m	struct:rconn	file:
+csum	csum.cc	/^csum(const void *data, size_t n)$/;"	f
+csum_add16	csum.cc	/^csum_add16(uint32_t partial, uint16_t New)$/;"	f
+csum_add32	csum.cc	/^csum_add32(uint32_t partial, uint32_t New)$/;"	f
+csum_continue	csum.cc	/^csum_continue(uint32_t partial, const void *data_, size_t n)$/;"	f
+csum_finish	csum.cc	/^csum_finish(uint32_t partial)$/;"	f
+ctx	vconn-ssl.cc	/^static SSL_CTX *ctx;$/;"	v	file:
+d	dp_act.hh	/^	int d;$/;"	m	class:Of_DpAct
+d	of_ext_msg.hh	/^	int d;$/;"	m	class:Of_OfExtMsg
+data	ofpbuf.hh	/^    void *data;                 \/* First byte actually in use. *\/$/;"	m	struct:ofpbuf
+deadline	timeval.cc	/^static time_t deadline = TIME_MIN;$/;"	v	file:
+default_pattern	vlog.cc	/^    bool default_pattern;       \/* Whether current pattern is the default. *\/$/;"	m	struct:facility	file:
+delete_strict	ofpstat.hh	/^		uint64_t delete_strict;$/;"	m	struct:ofpstat::__anon6
+designated_bridge	stp.cc	/^    stp_identifier designated_bridge; \/* 8.5.5.6. *\/$/;"	m	struct:stp_port	file:
+designated_cost	stp.cc	/^    int designated_cost;            \/* 8.5.5.5: Path cost to root on port. *\/$/;"	m	struct:stp_port	file:
+designated_port	stp.cc	/^    int designated_port;            \/* 8.5.5.7: Port to send config msgs on. *\/$/;"	m	struct:stp_port	file:
+designated_root	stp.cc	/^    stp_identifier designated_root; \/* 8.5.3.1: Bridge believed to be root. *\/$/;"	m	struct:stp	file:
+designated_root	stp.cc	/^    stp_identifier designated_root; \/* 8.5.5.4. *\/$/;"	m	struct:stp_port	file:
+destroy	table.hh	/^    void (*destroy)(struct sw_table *table);$/;"	m	struct:sw_table
+disabled	fatal-signal.cc	/^static bool disabled;$/;"	v	file:
+disconnect	rconn.cc	/^disconnect(struct rconn *rc, int error)$/;"	f	file:
+dl_dst	flow.hh	/^    uint8_t dl_dst[6];          \/* Ethernet destination address. *\/$/;"	m	struct:flow
+dl_src	flow.hh	/^    uint8_t dl_src[6];          \/* Ethernet source address. *\/$/;"	m	struct:flow
+dl_type	flow.hh	/^    uint16_t dl_type;           \/* Ethernet frame type. *\/$/;"	m	struct:flow
+dl_vlan	flow.hh	/^    uint16_t dl_vlan;           \/* Input VLAN id. *\/$/;"	m	struct:flow
+dl_vlan_pcp	flow.hh	/^    uint8_t dl_vlan_pcp;        \/* Input VLAN priority. *\/$/;"	m	struct:flow
+do_ca_cert_bootstrap	vconn-ssl.cc	/^do_ca_cert_bootstrap(struct vconn *vconn)$/;"	f	file:
+do_delete	table-hash.cc	/^static void do_delete(struct sw_flow **bucket)$/;"	f	file:
+do_delete	table-linear.cc	/^do_delete(struct sw_flow *flow) $/;"	f	file:
+do_lookup_genl_family	netlink.cc	/^static int do_lookup_genl_family(const char *name) $/;"	f	file:
+do_output	dp_act.cc	/^do_output(class Datapath *dp, struct ofpbuf *buffer, int in_port,$/;"	f	file:
+do_protection	private-msg.cc	/^do_protection(class Datapath *dp)$/;"	f	file:
+do_recv	vconn.cc	/^do_recv(struct vconn *vconn, struct ofpbuf **msgp)$/;"	f	file:
+do_send	vconn.cc	/^static int do_send(struct vconn *vconn, struct ofpbuf *msg)$/;"	f	file:
+do_set_pattern	vlog.cc	/^do_set_pattern(enum vlog_facility facility, const char *pattern) $/;"	f	file:
+do_ssl_init	vconn-ssl.cc	/^do_ssl_init(void)$/;"	f	file:
+do_tx_work	rconn.cc	/^static void do_tx_work(struct rconn *rc)$/;"	f	file:
+do_unlink_files	fatal-signal.cc	/^do_unlink_files(void)$/;"	f	file:
+dp	chain.hh	/^    class Datapath *dp;$/;"	m	struct:sw_chain	typeref:class:sw_chain::Datapath
+dp	private-msg.cc	/^	class Datapath *dp;$/;"	m	struct:emerg_flow_context	typeref:class:emerg_flow_context::Datapath	file:
+dp	vconn-netlink.cc	/^    struct dpif dp;$/;"	m	struct:netlink_vconn	typeref:struct:netlink_vconn::dpif	file:
+dp_idx	vconn-netlink.cc	/^    int dp_idx;$/;"	m	struct:netlink_vconn	file:
+dpif	dpif.hh	/^struct dpif$/;"	s
+dpif_add_dp	dpif.cc	/^dpif_add_dp(struct dpif *dp, int dp_idx, const char *dp_name)$/;"	f
+dpif_add_port	dpif.cc	/^dpif_add_port(struct dpif *dp, int dp_idx, const char *netdev)$/;"	f
+dpif_close	dpif.cc	/^dpif_close(struct dpif *dp) $/;"	f
+dpif_del_dp	dpif.cc	/^dpif_del_dp(struct dpif *dp, int dp_idx, const char *dp_name)$/;"	f
+dpif_del_port	dpif.cc	/^dpif_del_port(struct dpif *dp, int dp_idx, const char *netdev)$/;"	f
+dpif_get_idx	dpif.cc	/^dpif_get_idx(const char *name)$/;"	f
+dpif_open	dpif.cc	/^dpif_open(int subscribe_dp_idx, struct dpif *dp)$/;"	f
+dpif_recv_openflow	dpif.cc	/^dpif_recv_openflow(struct dpif *dp, int dp_idx, struct ofpbuf **bufferp,$/;"	f
+dpif_send_openflow	dpif.cc	/^dpif_send_openflow(struct dpif *dp, int dp_idx, struct ofpbuf *buffer)$/;"	f
+drain_fd	socket-util.cc	/^drain_fd(int fd, size_t n_packets)$/;"	f
+drain_rcvbuf	socket-util.cc	/^drain_rcvbuf(int fd)$/;"	f
+ds	dynamic-string.hh	/^struct ds {$/;"	s
+ds_chomp	dynamic-string.cc	/^ds_chomp(struct ds *ds, int c)$/;"	f
+ds_clear	dynamic-string.cc	/^ds_clear(struct ds *ds) $/;"	f
+ds_cstr	dynamic-string.cc	/^ds_cstr(struct ds *ds)$/;"	f
+ds_destroy	dynamic-string.cc	/^ds_destroy(struct ds *ds)$/;"	f
+ds_get_line	dynamic-string.cc	/^ds_get_line(struct ds *ds, FILE *file)$/;"	f
+ds_init	dynamic-string.cc	/^ds_init(struct ds *ds)$/;"	f
+ds_last	dynamic-string.cc	/^ds_last(const struct ds *ds)$/;"	f
+ds_put_buffer	dynamic-string.cc	/^ds_put_buffer(struct ds *ds, const char *s, size_t n)$/;"	f
+ds_put_char	dynamic-string.cc	/^ds_put_char(struct ds *ds, char c)$/;"	f
+ds_put_char_multiple	dynamic-string.cc	/^ds_put_char_multiple(struct ds *ds, char c, size_t n)$/;"	f
+ds_put_cstr	dynamic-string.cc	/^ds_put_cstr(struct ds *ds, const char *s)$/;"	f
+ds_put_format	dynamic-string.cc	/^ds_put_format(struct ds *ds, const char *format, ...)$/;"	f
+ds_put_format_valist	dynamic-string.cc	/^ds_put_format_valist(struct ds *ds, const char *format, va_list args_)$/;"	f
+ds_put_hex_dump	dynamic-string.cc	/^ds_put_hex_dump(struct ds *ds, const void *buf_, size_t size,$/;"	f
+ds_put_printable	dynamic-string.cc	/^ds_put_printable(struct ds *ds, const char *s, size_t n) $/;"	f
+ds_put_strftime	dynamic-string.cc	/^ds_put_strftime(struct ds *ds, const char *temp, const struct tm *tm)$/;"	f
+ds_put_uninit	dynamic-string.cc	/^ds_put_uninit(struct ds *ds, size_t n)$/;"	f
+ds_reserve	dynamic-string.cc	/^ds_reserve(struct ds *ds, size_t min_length)$/;"	f
+ds_truncate	dynamic-string.cc	/^ds_truncate(struct ds *ds, size_t new_length)$/;"	f
+dummy	chain.hh	/^	int dummy;$/;"	m	class:Of_Chain
+dummy	csum.hh	/^	int dummy;$/;"	m	class:Of_Csum
+dummy	dpif.hh	/^class Of_Dpif { int dummy; };$/;"	m	class:Of_Dpif
+dummy	dynamic-string.hh	/^	int dummy;$/;"	m	class:DynamicString
+dummy	fatal-signal.hh	/^	int dummy;$/;"	m	class:FatalSignal
+dummy	flow.hh	/^	int dummy;$/;"	m	class:Of_Flow
+dummy	hash.hh	/^	int dummy;$/;"	m	class:Of_Hash
+dummy	leak-checker.hh	/^	int dummy;$/;"	m	class:Of_LeakChecker
+dummy	list.hh	/^	int dummy;$/;"	m	class:DoublyLink
+dummy	netlink.hh	/^	int dummy;$/;"	m	class:NetLink
+dummy	of_crc32.hh	/^	int dummy;$/;"	m	class:Of_Crc32
+dummy	ofp-print.hh	/^	int dummy;$/;"	m	class:Of_OfpPrint
+dummy	ofpbuf.hh	/^	int dummy;$/;"	m	class:Of_Ofpbuf
+dummy	ofpstat.hh	/^	int dummy;$/;"	m	class:Of_Ofpstat
+dummy	pcap.hh	/^	int dummy;$/;"	m	class:Of_Pcap
+dummy	poll-loop.hh	/^	int dummy;$/;"	m	class:Of_PollLoop
+dummy	private-msg.hh	/^	int dummy;$/;"	m	class:Of_PrivateMsg
+dummy	queue.hh	/^	int dummy;$/;"	m	class:Of_Queue
+dummy	random.hh	/^	int dummy;$/;"	m	class:Of_Random
+dummy	rconn.hh	/^	int dummy;$/;"	m	class:Of_Rconn
+dummy	socket-util.hh	/^	int dummy;$/;"	m	class:Of_SocketUtils
+dummy	stp.hh	/^	int dummy;$/;"	m	class:Of_Stp
+dummy	svec.hh	/^	int dummy;$/;"	m	class:Of_Svec
+dummy	switch-flow.hh	/^	int dummy;$/;"	m	class:Of_SwitchFlow
+dummy	table.hh	/^	int dummy;$/;"	m	class:Of_TableHash
+dummy	table.hh	/^	int dummy;$/;"	m	class:Of_TableLinear
+dummy	timeval.hh	/^	int dummy;$/;"	m	class:OfTime
+dummy	util.hh	/^	int dummy;$/;"	m	class:Util
+dummy	vconn-ssl.hh	/^	int dummy;$/;"	m	class:Of_VconnSsl
+dummy	vconn.hh	/^class Of_Vconn {	int dummy;};$/;"	m	class:Of_Vconn
+dummy	vconn.hh	/^class Of_VconnNetlink { 	int dummy; };$/;"	m	class:Of_VconnNetlink
+dummy	vconn.hh	/^class Of_VconnStream { 	int dummy; };$/;"	m	class:Of_VconnStream
+dummy	vconn.hh	/^class Of_VconnTcp { 	int dummy; };$/;"	m	class:Of_VconnTcp
+dummy	vconn.hh	/^class Of_VconnUnix { 	int dummy; };$/;"	m	class:Of_VconnUnix
+elapsed_in_this_state	rconn.cc	/^elapsed_in_this_state(const struct rconn *rc)$/;"	f	file:
+elapsed_remainder	stp.cc	/^    int elapsed_remainder;          \/* Left-over msecs from last stp_tick(). *\/$/;"	m	struct:stp	file:
+emerg_flow	switch-flow.hh	/^    uint8_t emerg_flow;         \/* Emergency flow indicator *\/$/;"	m	struct:sw_flow
+emerg_flow_context	private-msg.cc	/^struct emerg_flow_context {$/;"	s	file:
+emerg_table	chain.hh	/^    struct sw_table *emerg_table;$/;"	m	struct:sw_chain	typeref:struct:sw_chain::sw_table
+end	vconn.hh	/^    const uint8_t *pos, *end;$/;"	m	struct:flow_stats_iterator
+error	netlink-protocol.hh	/^        int error;$/;"	m	struct:nlmsgerr
+error	vconn-provider.hh	/^    int error;$/;"	m	struct:vconn
+error_type	ofp-print.cc	/^struct error_type {$/;"	s	file:
+error_types	ofp-print.cc	/^static const struct error_type error_types[] = {$/;"	v	typeref:struct:error_type	file:
+eth_addr_equals	packets.hh	/^static inline bool eth_addr_equals(const uint8_t a[ETH_ADDR_LEN],$/;"	f
+eth_addr_from_uint64	packets.hh	/^static inline void eth_addr_from_uint64(uint64_t x, uint8_t ea[ETH_ADDR_LEN])$/;"	f
+eth_addr_is_broadcast	packets.hh	/^static inline bool eth_addr_is_broadcast(const uint8_t ea[6])$/;"	f
+eth_addr_is_local	packets.hh	/^static inline bool eth_addr_is_local(const uint8_t ea[6]) $/;"	f
+eth_addr_is_multicast	packets.hh	/^static inline bool eth_addr_is_multicast(const uint8_t ea[6])$/;"	f
+eth_addr_is_reserved	packets.hh	/^static inline bool eth_addr_is_reserved(const uint8_t ea[ETH_ADDR_LEN])$/;"	f
+eth_addr_is_zero	packets.hh	/^static inline bool eth_addr_is_zero(const uint8_t ea[6]) $/;"	f
+eth_addr_random	packets.hh	/^static inline void eth_addr_random(uint8_t ea[ETH_ADDR_LEN])$/;"	f
+eth_addr_to_uint64	packets.hh	/^static inline uint64_t eth_addr_to_uint64(const uint8_t ea[ETH_ADDR_LEN])$/;"	f
+eth_dst	packets.hh	/^    uint8_t eth_dst[ETH_ADDR_LEN];$/;"	m	struct:eth_header
+eth_header	packets.hh	/^struct eth_header {$/;"	s
+eth_src	packets.hh	/^    uint8_t eth_src[ETH_ADDR_LEN];$/;"	m	struct:eth_header
+eth_type	packets.hh	/^    uint16_t eth_type;$/;"	m	struct:eth_header
+events	poll-loop.cc	/^    short int events;           \/* Events to wait for (POLLIN, POLLOUT). *\/$/;"	m	struct:poll_waiter	file:
+execute	dp_act.cc	/^    void (*execute)(struct ofpbuf *buffer,$/;"	m	struct:openflow_action	file:
+execute_actions	dp_act.cc	/^void execute_actions(class Datapath *dp, struct ofpbuf *buffer,$/;"	f
+execute_ofpat	dp_act.cc	/^execute_ofpat(struct ofpbuf *buffer, struct sw_flow_key *key, $/;"	f	file:
+execute_vendor	dp_act.cc	/^execute_vendor(struct ofpbuf *buffer UNUSED, const struct sw_flow_key *key UNUSED, $/;"	f	file:
+facilities	vlog.cc	/^static struct facility facilities[VLF_N_FACILITIES] = {$/;"	v	typeref:struct:facility	file:
+facility	vlog.cc	/^struct facility {$/;"	s	file:
+family_policy	netlink.cc	/^static struct nl_policy family_policy[CTRL_ATTR_MAX + 1]; \/* = { $/;"	v	typeref:struct:nl_policy	file:
+fatal_signal_add_file_to_unlink	fatal-signal.cc	/^fatal_signal_add_file_to_unlink(const char *file)$/;"	f
+fatal_signal_add_hook	fatal-signal.cc	/^fatal_signal_add_hook(void (*func)(void *aux), void *aux, bool run_at_exit)$/;"	f
+fatal_signal_block	fatal-signal.cc	/^fatal_signal_block(void)$/;"	f
+fatal_signal_fork	fatal-signal.cc	/^fatal_signal_fork(void)$/;"	f
+fatal_signal_handler	fatal-signal.cc	/^fatal_signal_handler(int sig_nr)$/;"	f
+fatal_signal_remove_file_to_unlink	fatal-signal.cc	/^fatal_signal_remove_file_to_unlink(const char *file)$/;"	f
+fatal_signal_set	fatal-signal.cc	/^static sigset_t fatal_signal_set;$/;"	v	file:
+fatal_signal_unblock	fatal-signal.cc	/^fatal_signal_unblock(void)$/;"	f
+fatal_signals	fatal-signal.cc	/^static const int fatal_signals[] = { SIGTERM, SIGINT, SIGHUP, SIGALRM };$/;"	v	file:
+fd	netlink.cc	/^    int fd;$/;"	m	struct:nl_sock	file:
+fd	poll-loop.cc	/^    int fd;                     \/* File descriptor. *\/$/;"	m	struct:poll_waiter	file:
+fd	vconn-ssl.cc	/^    int fd;$/;"	m	struct:pssl_pvconn	file:
+fd	vconn-ssl.cc	/^    int fd;$/;"	m	struct:ssl_vconn	file:
+fd	vconn-stream.cc	/^    int fd;$/;"	m	struct:pstream_pvconn	file:
+fd	vconn-stream.cc	/^    int fd;$/;"	m	struct:stream_vconn	file:
+fd	vlog-socket.cc	/^    int fd;$/;"	m	struct:vlog_client	file:
+fd	vlog-socket.cc	/^    int fd;$/;"	m	struct:vlog_server	file:
+fetch_braces	vlog.cc	/^fetch_braces(const char *p, const char *def, char *out, size_t out_size)$/;"	f	file:
+files	fatal-signal.cc	/^static char **files;$/;"	v	file:
+final	hash.cc	51;"	d	file:
+find_bucket	table-hash.cc	/^static struct sw_flow **find_bucket(struct sw_table *swt,$/;"	f	file:
+first_changed_port	stp.cc	/^    struct stp_port *first_changed_port;$/;"	m	struct:stp	typeref:struct:stp::stp_port	file:
+first_dropped	vlog.hh	/^    time_t first_dropped;       \/* Time first message was dropped. *\/$/;"	m	struct:vlog_rate_limit
+flags	stp.cc	/^    uint8_t flags;                 \/* STP_CONFIG_* flags. *\/$/;"	m	struct:stp_config_bpdu	file:
+flow	flow.hh	/^struct flow {$/;"	s
+flow	switch-flow.hh	/^    struct flow flow;           \/* Flow data (in network byte order). *\/$/;"	m	struct:sw_flow_key	typeref:struct:sw_flow_key::flow
+flow_alloc	switch-flow.cc	/^flow_alloc(size_t actions_len)$/;"	f
+flow_compare	flow.hh	/^flow_compare(const struct flow *a, const struct flow *b)$/;"	f
+flow_equal	flow.hh	/^flow_equal(const struct flow *a, const struct flow *b)$/;"	f
+flow_extract	flow.cc	/^int flow_extract(struct ofpbuf *packet, uint16_t in_port, struct flow *flow)$/;"	f
+flow_extract_match	switch-flow.cc	/^flow_extract_match(struct sw_flow_key* to, const struct ofp_match* from)$/;"	f
+flow_fields_match	switch-flow.cc	/^flow_fields_match(const struct flow *a, const struct flow *b, uint32_t w,$/;"	f	file:
+flow_fill_match	flow.cc	/^void flow_fill_match(struct ofp_match *to, const struct flow *from,$/;"	f
+flow_free	switch-flow.cc	/^flow_free(struct sw_flow *flow)$/;"	f
+flow_has_out_port	switch-flow.cc	/^int flow_has_out_port(struct sw_flow *flow, uint16_t out_port)$/;"	f
+flow_hash	flow.hh	/^flow_hash(const struct flow *flow, uint32_t basis)$/;"	f
+flow_matches_1wild	switch-flow.cc	/^flow_matches_1wild(const struct sw_flow_key *a, const struct sw_flow_key *b)$/;"	f
+flow_matches_2desc	switch-flow.cc	/^flow_matches_2desc(const struct sw_flow_key *t, const struct sw_flow_key *d,$/;"	f
+flow_matches_2wild	switch-flow.cc	/^flow_matches_2wild(const struct sw_flow_key *a, const struct sw_flow_key *b)$/;"	f
+flow_matches_desc	switch-flow.cc	/^flow_matches_desc(const struct sw_flow_key *t, const struct sw_flow_key *d, $/;"	f
+flow_mod_fail	ofpstat.hh	/^		uint64_t flow_mod_fail;$/;"	m	struct:ofpstat::__anon4
+flow_print	flow.cc	/^void flow_print(FILE *stream, const struct flow *flow) $/;"	f
+flow_replace_acts	switch-flow.cc	/^void flow_replace_acts(struct sw_flow *flow, $/;"	f
+flow_setup_actions	switch-flow.cc	/^flow_setup_actions(struct sw_flow *                    flow,$/;"	f
+flow_stats_first	vconn.cc	/^flow_stats_first(struct flow_stats_iterator *iter,$/;"	f
+flow_stats_iterator	vconn.hh	/^struct flow_stats_iterator {$/;"	s
+flow_stats_next	vconn.cc	/^flow_stats_next(struct flow_stats_iterator *iter)$/;"	f
+flow_timeout	switch-flow.cc	/^bool flow_timeout(struct sw_flow *flow)$/;"	f
+flow_used	switch-flow.cc	/^void flow_used(struct sw_flow *flow, struct ofpbuf *buffer)$/;"	f
+flows	table-linear.cc	/^    struct list flows;$/;"	m	struct:sw_table_linear	typeref:struct:sw_table_linear::list	file:
+flush_queue	rconn.cc	/^flush_queue(struct rconn *rc)$/;"	f	file:
+flush_working	private-msg.cc	/^flush_working(class Datapath *dp)$/;"	f	file:
+fmf_all_tables_full	ofpstat.hh	/^		uint64_t fmf_all_tables_full;$/;"	m	struct:ofpstat::__anon5
+fmf_emerg	ofpstat.hh	/^		uint64_t fmf_emerg;$/;"	m	struct:ofpstat::__anon5
+fmf_eperm	ofpstat.hh	/^		uint64_t fmf_eperm;$/;"	m	struct:ofpstat::__anon5
+fmf_overlap	ofpstat.hh	/^		uint64_t fmf_overlap;$/;"	m	struct:ofpstat::__anon5
+format_log_message	vlog.cc	/^format_log_message(enum vlog_module module, enum vlog_level level,$/;"	f	file:
+forward_delay	stp.cc	/^    int forward_delay;              \/* 8.5.3.6: Delay between state changes. *\/$/;"	m	struct:stp	file:
+forward_delay	stp.cc	/^    uint16_t forward_delay;        \/* 8.5.1.8: State progression delay. *\/$/;"	m	struct:stp_config_bpdu	file:
+forward_delay_timer	stp.cc	/^    struct stp_timer forward_delay_timer; \/* 8.5.6.2: State change timer. *\/$/;"	m	struct:stp_port	typeref:struct:stp_port::stp_timer	file:
+free_pid	netlink.cc	/^free_pid(uint32_t pid)$/;"	f	file:
+func	fatal-signal.cc	/^    void (*func)(void *aux);$/;"	m	struct:hook	file:
+function	poll-loop.cc	/^    poll_fd_func *function;     \/* Callback function, if any, or null. *\/$/;"	m	struct:poll_waiter	file:
+genlmsghdr	netlink-protocol.hh	/^struct genlmsghdr {$/;"	s
+get_max_fds	socket-util.cc	/^get_max_fds(void)$/;"	f
+get_socket_error	socket-util.cc	/^get_socket_error(int fd) $/;"	f
+get_unix_name_len	socket-util.cc	/^get_unix_name_len(socklen_t sun_len)$/;"	f
+hard_timeout	switch-flow.hh	/^    uint16_t hard_timeout;      \/* Hard expiration time (seconds) *\/$/;"	m	struct:sw_flow
+has_ca_cert	vconn-ssl.cc	/^static bool has_private_key, has_certificate, has_ca_cert;$/;"	v	file:
+has_certificate	vconn-ssl.cc	/^static bool has_private_key, has_certificate, has_ca_cert;$/;"	v	file:
+has_conflict	table.hh	/^    int (*has_conflict)(struct sw_table *table, const struct sw_flow_key *key,$/;"	m	struct:sw_table
+has_private_key	vconn-ssl.cc	/^static bool has_private_key, has_certificate, has_ca_cert;$/;"	v	file:
+hash_bytes	hash.cc	/^hash_bytes(const void *p_, size_t n, uint32_t basis)$/;"	f
+hash_words	hash.cc	/^hash_words(const uint32_t *p, size_t n, uint32_t basis)$/;"	f
+head	queue.hh	/^    struct ofpbuf *head;        \/* First queued packet, null if n == 0. *\/$/;"	m	struct:ofp_queue	typeref:struct:ofp_queue::ofpbuf
+header	stp.cc	/^    struct stp_bpdu_header header; \/* Type STP_TYPE_CONFIG. *\/$/;"	m	struct:stp_config_bpdu	typeref:struct:stp_config_bpdu::stp_bpdu_header	file:
+header	stp.cc	/^    struct stp_bpdu_header header; \/* Type STP_TYPE_TCN. *\/$/;"	m	struct:stp_tcn_bpdu	typeref:struct:stp_tcn_bpdu::stp_bpdu_header	file:
+hello_fail	ofpstat.hh	/^		uint64_t hello_fail;$/;"	m	struct:ofpstat::__anon4
+hello_time	stp.cc	/^    int hello_time;                 \/* 8.5.3.5: Time between sending BPDUs. *\/$/;"	m	struct:stp	file:
+hello_time	stp.cc	/^    uint16_t hello_time;           \/* 8.5.1.7: Time between BPDU generation. *\/$/;"	m	struct:stp_config_bpdu	file:
+hello_timer	stp.cc	/^    struct stp_timer hello_timer;   \/* 8.5.4.1: Hello timer. *\/$/;"	m	struct:stp	typeref:struct:stp::stp_timer	file:
+hf_eperm	ofpstat.hh	/^		uint64_t hf_eperm;$/;"	m	struct:ofpstat::__anon5
+hf_incompat	ofpstat.hh	/^		uint64_t hf_incompat;$/;"	m	struct:ofpstat::__anon5
+hold_timer	stp.cc	/^    struct stp_timer hold_timer;        \/* 8.5.6.3: BPDU rate limit timer. *\/$/;"	m	struct:stp_port	typeref:struct:stp_port::stp_timer	file:
+hook	fatal-signal.cc	/^struct hook {$/;"	s	file:
+hooks	fatal-signal.cc	/^static struct hook hooks[MAX_HOOKS];$/;"	v	typeref:struct:hook	file:
+htonll	xtoxll.hh	/^htonll(uint64_t n)$/;"	f
+icmp_code	packets.hh	/^    uint8_t icmp_code;$/;"	m	struct:icmp_header
+icmp_csum	packets.hh	/^    uint16_t icmp_csum;$/;"	m	struct:icmp_header
+icmp_header	packets.hh	/^struct icmp_header {$/;"	s
+icmp_type	packets.hh	/^    uint8_t icmp_type;$/;"	m	struct:icmp_header
+idle_echo_xid	rconn.cc	/^    uint32_t idle_echo_xid;$/;"	m	struct:rconn	file:
+idle_timeout	switch-flow.hh	/^    uint16_t idle_timeout;      \/* Idle time before discarding (seconds). *\/$/;"	m	struct:sw_flow
+in_port	flow.hh	/^    uint16_t in_port;           \/* Input switch port. *\/$/;"	m	struct:flow
+inc_error_notification	ofpstat.cc	/^inc_error_notification(struct ofpstat *ifps, struct ofp_header *hdr)$/;"	f	file:
+inc_flow_manipulation	ofpstat.cc	/^inc_flow_manipulation(struct ofpstat *ifps, struct ofp_header *hdr)$/;"	f	file:
+inc_protocol_message	ofpstat.cc	/^inc_protocol_message(struct ofpstat *ifps, struct ofp_header *hdr)$/;"	f	file:
+incl_len	pcap.cc	/^    uint32_t incl_len;       \/* number of octets of packet saved in file *\/$/;"	m	struct:pcaprec_hdr	file:
+init_attr_len_range	netlink.cc	/^void init_attr_len_range()$/;"	f
+init_of_actions	dp_act.cc	/^void init_of_actions()$/;"	f
+init_openflow_multicast_policy	dpif.cc	/^void init_openflow_multicast_policy()$/;"	f
+init_openflow_policy	dpif.cc	/^void init_openflow_policy() $/;"	f
+inited	timeval.cc	/^static bool inited;$/;"	v	file:
+insert	table.hh	/^    int (*insert)(struct sw_table *table, struct sw_flow *flow);$/;"	m	struct:sw_table
+interpret_ssl_error	vconn-ssl.cc	/^interpret_ssl_error(const char *function, int ret, int error,$/;"	f	file:
+ip	vconn-provider.hh	/^    uint32_t ip;$/;"	m	struct:vconn
+ip_csum	packets.hh	/^    uint16_t ip_csum;$/;"	m	struct:ip_header
+ip_dst	packets.hh	/^    uint32_t ip_dst;$/;"	m	struct:ip_header
+ip_frag_off	packets.hh	/^    uint16_t ip_frag_off;$/;"	m	struct:ip_header
+ip_header	packets.hh	/^struct ip_header {$/;"	s
+ip_id	packets.hh	/^    uint16_t ip_id;$/;"	m	struct:ip_header
+ip_ihl_ver	packets.hh	/^    uint8_t ip_ihl_ver;$/;"	m	struct:ip_header
+ip_proto	packets.hh	/^    uint8_t ip_proto;$/;"	m	struct:ip_header
+ip_src	packets.hh	/^    uint32_t ip_src;$/;"	m	struct:ip_header
+ip_tos	packets.hh	/^    uint8_t ip_tos;$/;"	m	struct:ip_header
+ip_tot_len	packets.hh	/^    uint16_t ip_tot_len;$/;"	m	struct:ip_header
+ip_ttl	packets.hh	/^    uint8_t ip_ttl;$/;"	m	struct:ip_header
+is_admitted_msg	rconn.cc	/^is_admitted_msg(const struct ofpbuf *b)$/;"	f	file:
+is_connected_state	rconn.cc	/^is_connected_state(enum state state) $/;"	f	file:
+iter_flows	table-linear.cc	/^    struct list iter_flows;$/;"	m	struct:sw_table_linear	typeref:struct:sw_table_linear::list	file:
+iter_node	switch-flow.hh	/^    struct list iter_node;$/;"	m	struct:sw_flow	typeref:struct:sw_flow::list
+iterate	table.hh	/^    int (*iterate)(struct sw_table *table,$/;"	m	struct:sw_table
+key	switch-flow.hh	/^    struct sw_flow_key key;$/;"	m	struct:sw_flow	typeref:struct:sw_flow::sw_flow_key
+l2	ofpbuf.hh	/^    void *l2;                   \/* Link-level header. *\/$/;"	m	struct:ofpbuf
+l3	ofpbuf.hh	/^    void *l3;                   \/* Network-level header. *\/$/;"	m	struct:ofpbuf
+l4	ofpbuf.hh	/^    void *l4;                   \/* Transport-level header. *\/$/;"	m	struct:ofpbuf
+l7	ofpbuf.hh	/^    void *l7;                   \/* Application data. *\/$/;"	m	struct:ofpbuf
+last_admitted	rconn.cc	/^    time_t last_admitted;$/;"	m	struct:rconn	file:
+last_connected	rconn.cc	/^    time_t last_connected;$/;"	m	struct:rconn	file:
+last_fill	vlog.hh	/^    time_t last_fill;           \/* Last time tokens added. *\/$/;"	m	struct:vlog_rate_limit
+last_questioned	rconn.cc	/^    time_t last_questioned;$/;"	m	struct:rconn	file:
+last_received	rconn.cc	/^    time_t last_received;$/;"	m	struct:rconn	file:
+leak_checker_claim	leak-checker.cc	/^leak_checker_claim(const void *p UNUSED)$/;"	f
+leak_checker_set_limit	leak-checker.cc	/^leak_checker_set_limit(off_t max_size UNUSED)$/;"	f
+leak_checker_start	leak-checker.cc	/^leak_checker_start(const char *file_name UNUSED)$/;"	f
+leak_checker_usage	leak-checker.cc	/^leak_checker_usage(void)$/;"	f
+length	dynamic-string.hh	/^    size_t length;      \/* Bytes used, not including null terminator. *\/$/;"	m	struct:ds
+level_names	vlog.cc	/^static const char *level_names[VLL_N_LEVELS] = {$/;"	v	file:
+levels	vlog.cc	/^static int levels[VLM_N_MODULES][VLF_N_FACILITIES];$/;"	v	file:
+lib_libopenflow_a_SOURCES	automake.mk	/^lib_libopenflow_a_SOURCES = \\$/;"	m
+list	list.hh	/^struct list$/;"	s
+list_back	list.cc	/^list_back(struct list *list)$/;"	f
+list_front	list.cc	/^list_front(struct list *list)$/;"	f
+list_init	list.cc	/^list_init(struct list *list)$/;"	f
+list_insert	list.cc	/^list_insert(struct list *before, struct list *elem)$/;"	f
+list_is_empty	list.cc	/^list_is_empty(const struct list *list)$/;"	f
+list_pop_back	list.cc	/^list_pop_back(struct list *list)$/;"	f
+list_pop_front	list.cc	/^list_pop_front(struct list *list)$/;"	f
+list_push_back	list.cc	/^list_push_back(struct list *list, struct list *elem)$/;"	f
+list_push_front	list.cc	/^list_push_front(struct list *list, struct list *elem)$/;"	f
+list_remove	list.cc	/^list_remove(struct list *elem)$/;"	f
+list_replace	list.cc	/^list_replace(struct list *element, const struct list *position)$/;"	f
+list_size	list.cc	/^list_size(const struct list *list)$/;"	f
+list_splice	list.cc	/^list_splice(struct list *before, struct list *first, struct list *last)$/;"	f
+listen	vconn-provider.hh	/^    int (*listen)(const char *name, char *suffix, struct pvconn **pvconnp);$/;"	m	struct:pvconn_class
+llc	packets.hh	/^    struct llc_header llc;$/;"	m	struct:llc_snap_header	typeref:struct:llc_snap_header::llc_header
+llc_cntl	packets.hh	/^    uint8_t llc_cntl;$/;"	m	struct:llc_header
+llc_dsap	packets.hh	/^    uint8_t llc_dsap;$/;"	m	struct:llc_header
+llc_header	packets.hh	/^struct llc_header {$/;"	s
+llc_snap_header	packets.hh	/^struct llc_snap_header {$/;"	s
+llc_ssap	packets.hh	/^    uint8_t llc_ssap;$/;"	m	struct:llc_header
+log_ca_cert	vconn-ssl.cc	/^log_ca_cert(const char *file_name, X509 *cert)$/;"	f	file:
+log_file	vlog.cc	/^static FILE *log_file;$/;"	v	file:
+log_file_name	vlog.cc	/^static char *log_file_name;$/;"	v	file:
+log_nlmsg	netlink.cc	/^log_nlmsg(const char *function, int error,$/;"	f	file:
+log_wakeup	poll-loop.cc	/^log_wakeup(const struct backtrace *backtrace, const char *format, ...)$/;"	f
+lookup	table.hh	/^    struct sw_flow *(*lookup)(struct sw_table *table,$/;"	m	struct:sw_table	typeref:struct:sw_table::lookup
+lookup_error_code	ofp-print.cc	/^lookup_error_code(int type, int code)$/;"	f	file:
+lookup_error_type	ofp-print.cc	/^lookup_error_type(int type)$/;"	f	file:
+lookup_ip	socket-util.cc	/^lookup_ip(const char *host_name, struct in_addr *addr) $/;"	f
+lookup_openflow_multicast_group	dpif.cc	/^lookup_openflow_multicast_group(int dp_idx, int *multicast_group)$/;"	f	file:
+magic_number	pcap.cc	/^    uint32_t magic_number;   \/* magic number *\/$/;"	m	struct:pcap_hdr	file:
+make_add_flow	vconn.cc	/^make_add_flow(const struct flow *flow, uint32_t buffer_id,$/;"	f
+make_add_simple_flow	vconn.cc	/^make_add_simple_flow(const struct flow *flow,$/;"	f
+make_buffered_packet_out	vconn.cc	/^make_buffered_packet_out(uint32_t buffer_id,$/;"	f
+make_del_flow	vconn.cc	/^make_del_flow(const struct flow *flow)$/;"	f
+make_echo_reply	vconn.cc	/^make_echo_reply(const struct ofp_header *rq)$/;"	f
+make_echo_request	vconn.cc	/^make_echo_request(void)$/;"	f
+make_flow_mod	vconn.cc	/^make_flow_mod(uint16_t command, const struct flow *flow, size_t actions_len)$/;"	f
+make_nw_mask	switch-flow.cc	/^static uint32_t make_nw_mask(int n_wild_bits)$/;"	f	file:
+make_openflow	vconn.cc	/^make_openflow(size_t openflow_len, uint8_t type, struct ofpbuf **bufferp)$/;"	f
+make_openflow_xid	vconn.cc	/^make_openflow_xid(size_t openflow_len, uint8_t type, uint32_t xid,$/;"	f
+make_sockaddr_un	socket-util.cc	/^make_sockaddr_un(const char *name, struct sockaddr_un* un, socklen_t *un_len)$/;"	f	file:
+make_unbuffered_packet_out	vconn.cc	/^make_unbuffered_packet_out(const struct ofpbuf *packet,$/;"	f
+make_unix_socket	socket-util.cc	/^int make_unix_socket(int style, bool nonblock, bool passcred UNUSED,$/;"	f
+max_age	stp.cc	/^    int max_age;                    \/* 8.5.3.4: Time to drop received data. *\/$/;"	m	struct:stp	file:
+max_age	stp.cc	/^    uint16_t max_age;              \/* 8.5.1.6: Timeout for received data. *\/$/;"	m	struct:stp_config_bpdu	file:
+max_backoff	rconn.cc	/^    int max_backoff;$/;"	m	struct:rconn	file:
+max_files	fatal-signal.cc	/^static size_t n_files, max_files;$/;"	v	file:
+max_flows	table-linear.cc	/^    unsigned int max_flows;$/;"	m	struct:sw_table_linear	file:
+max_flows	table.hh	/^    unsigned int max_flows;      \/* Flow capacity. *\/$/;"	m	struct:sw_table_stats
+max_len	netlink.hh	/^    size_t min_len, max_len;$/;"	m	struct:nl_policy
+max_size	dp_act.cc	/^    size_t max_size;$/;"	m	struct:openflow_action	file:
+message_age	stp.cc	/^    uint16_t message_age;          \/* 8.5.1.5: Age of BPDU at tx time. *\/$/;"	m	struct:stp_config_bpdu	file:
+message_age_timer	stp.cc	/^    struct stp_timer message_age_timer; \/* 8.5.6.1: Age of received info. *\/$/;"	m	struct:stp_port	typeref:struct:stp_port::stp_timer	file:
+min_len	netlink.hh	/^    size_t min_len, max_len;$/;"	m	struct:nl_policy
+min_size	dp_act.cc	/^    size_t min_size;$/;"	m	struct:openflow_action	file:
+min_size	ofp-print.cc	/^    size_t min_size;$/;"	m	struct:openflow_packet	file:
+min_version	vconn-provider.hh	/^    int min_version;$/;"	m	struct:vconn
+min_vlog_levels	vlog.cc	/^enum vlog_level min_vlog_levels[VLM_N_MODULES];$/;"	v	typeref:enum:vlog_level
+mix	hash.cc	41;"	d	file:
+modify	ofpstat.hh	/^		uint64_t modify;$/;"	m	struct:ofpstat::__anon6
+modify	table.hh	/^    int (*modify)(struct sw_table *table, const struct sw_flow_key *key,$/;"	m	struct:sw_table
+modify_strict	ofpstat.hh	/^		uint64_t modify_strict;$/;"	m	struct:ofpstat::__anon6
+modify_vlan_tci	dp_act.cc	/^modify_vlan_tci(struct ofpbuf *buffer, struct sw_flow_key *key,$/;"	f	file:
+module_names	vlog.cc	/^static const char *module_names[VLM_N_MODULES] = { $/;"	v	file:
+monitors	rconn.cc	/^    struct vconn *monitors[8];$/;"	m	struct:rconn	typeref:struct:rconn::vconn	file:
+ms_to_timer	stp.cc	/^ms_to_timer(int ms)$/;"	f	file:
+ms_to_timer_remainder	stp.cc	/^ms_to_timer_remainder(int ms)$/;"	f	file:
+msg	netlink-protocol.hh	/^        struct nlmsghdr msg;$/;"	m	struct:nlmsgerr	typeref:struct:nlmsgerr::nlmsghdr
+n	queue.hh	/^    int n;                      \/* Number of queued packets. *\/$/;"	m	struct:ofp_queue
+n	svec.hh	/^    size_t n;$/;"	m	struct:svec
+n_attempted_connections	rconn.cc	/^    unsigned int n_attempted_connections, n_successful_connections;$/;"	m	struct:rconn	file:
+n_dropped	vlog.hh	/^    unsigned int n_dropped;     \/* Number of messages dropped. *\/$/;"	m	struct:vlog_rate_limit
+n_files	fatal-signal.cc	/^static size_t n_files, max_files;$/;"	v	file:
+n_flows	table-hash.cc	/^	unsigned int n_flows;$/;"	m	struct:sw_table_hash	file:
+n_flows	table-linear.cc	/^    unsigned int n_flows;$/;"	m	struct:sw_table_linear	file:
+n_flows	table.hh	/^    unsigned int n_flows;        \/* Number of active flows. *\/$/;"	m	struct:sw_table_stats
+n_hooks	fatal-signal.cc	/^static size_t n_hooks;$/;"	v	file:
+n_lookup	table.hh	/^    unsigned long int n_lookup;  \/* Number of packets looked up. *\/$/;"	m	struct:sw_table_stats
+n_lookup	table.hh	/^    unsigned long long n_lookup;$/;"	m	struct:sw_table
+n_matched	table.hh	/^    unsigned long int n_matched; \/* Number of packets that have hit. *\/$/;"	m	struct:sw_table_stats
+n_matched	table.hh	/^    unsigned long long n_matched;$/;"	m	struct:sw_table
+n_monitors	rconn.cc	/^    size_t n_monitors;$/;"	m	struct:rconn	file:
+n_successful_connections	rconn.cc	/^    unsigned int n_attempted_connections, n_successful_connections;$/;"	m	struct:rconn	file:
+n_tables	chain.hh	/^    int n_tables;                \/* Number of working tables, not includes$/;"	m	struct:sw_chain
+n_unix_sockets	vconn-unix.cc	/^static int n_unix_sockets;$/;"	v	file:
+n_waiters	poll-loop.cc	/^static size_t n_waiters;$/;"	v	file:
+name	ofp-print.cc	/^    const char *name;$/;"	m	struct:error_type	file:
+name	ofp-print.cc	/^    const char *name;$/;"	m	struct:openflow_packet	file:
+name	rconn.cc	/^    char *name;$/;"	m	struct:rconn	file:
+name	stp.cc	/^    char *name;                     \/* Human-readable name for log messages. *\/$/;"	m	struct:stp	file:
+name	table.hh	/^    const char *name;            \/* Human-readable name. *\/$/;"	m	struct:sw_table_stats
+name	vconn-provider.hh	/^    char *name;$/;"	m	struct:pvconn
+name	vconn-provider.hh	/^    char *name;$/;"	m	struct:vconn
+name	vconn-provider.hh	/^    const char *name;$/;"	m	struct:pvconn_class
+name	vconn-provider.hh	/^    const char *name;$/;"	m	struct:vconn_class
+name	vlog.cc	/^    const char *name;           \/* Name. *\/$/;"	m	struct:facility	file:
+names	svec.hh	/^    char **names;$/;"	m	struct:svec
+netlink_close	vconn-netlink.cc	/^netlink_close(struct vconn *vconn) $/;"	f	file:
+netlink_open	vconn-netlink.cc	/^netlink_open(const char *name, char *suffix, struct vconn **vconnp)$/;"	f	file:
+netlink_recv	vconn-netlink.cc	/^netlink_recv(struct vconn *vconn, struct ofpbuf **bufferp)$/;"	f	file:
+netlink_send	vconn-netlink.cc	/^netlink_send(struct vconn *vconn, struct ofpbuf *buffer) $/;"	f	file:
+netlink_vconn	vconn-netlink.cc	/^struct netlink_vconn$/;"	s	file:
+netlink_vconn_cast	vconn-netlink.cc	/^netlink_vconn_cast(struct vconn *vconn) $/;"	f	file:
+netlink_vconn_class	vconn-netlink.cc	/^struct vconn_class netlink_vconn_class = {$/;"	v	typeref:struct:vconn_class
+netlink_wait	vconn-netlink.cc	/^netlink_wait(struct vconn *vconn, enum vconn_wait_type wait) $/;"	f	file:
+network	pcap.cc	/^    uint32_t network;        \/* data link type *\/$/;"	m	struct:pcap_hdr	file:
+new_pstream_pvconn	vconn-stream.cc	/^new_pstream_pvconn(const char *name, int fd,$/;"	f
+new_queue	of_ext_msg.cc	/^new_queue(struct click_port * port, struct sw_queue * queue,$/;"	f	file:
+new_ssl_vconn	vconn-ssl.cc	/^new_ssl_vconn(const char *name, int fd, enum session_type type,$/;"	f	file:
+new_stream_vconn	vconn-stream.cc	/^new_stream_vconn(const char *name, int fd, int connect_status,$/;"	f
+new_tcp_vconn	vconn-tcp.cc	/^new_tcp_vconn(const char *name, int fd, int connect_status,$/;"	f	file:
+new_waiter	poll-loop.cc	/^new_waiter(int fd, short int events)$/;"	f	file:
+next	list.hh	/^    struct list *next;     \/* Next list element. *\/$/;"	m	struct:list	typeref:struct:list::list
+next	ofpbuf.hh	/^    struct ofpbuf *next;        \/* Next in a list of ofpbufs. *\/$/;"	m	struct:ofpbuf	typeref:struct:ofpbuf::ofpbuf
+next_seq	netlink.cc	/^static uint32_t next_seq;$/;"	v	file:
+next_serial	table-linear.cc	/^    unsigned long int next_serial;$/;"	m	struct:sw_table_linear	file:
+nl_attr_get	netlink.cc	/^nl_attr_get(const struct nlattr *nla) $/;"	f
+nl_attr_get_flag	netlink.cc	/^nl_attr_get_flag(const struct nlattr *nla) $/;"	f
+nl_attr_get_size	netlink.cc	/^nl_attr_get_size(const struct nlattr *nla) $/;"	f
+nl_attr_get_string	netlink.cc	/^nl_attr_get_string(const struct nlattr *nla) $/;"	f
+nl_attr_get_u16	netlink.cc	/^nl_attr_get_u16(const struct nlattr *nla) $/;"	f
+nl_attr_get_u32	netlink.cc	/^nl_attr_get_u32(const struct nlattr *nla) $/;"	f
+nl_attr_get_u64	netlink.cc	/^nl_attr_get_u64(const struct nlattr *nla) $/;"	f
+nl_attr_get_u8	netlink.cc	/^nl_attr_get_u8(const struct nlattr *nla) $/;"	f
+nl_attr_get_unspec	netlink.cc	/^nl_attr_get_unspec(const struct nlattr *nla, size_t size) $/;"	f
+nl_attr_type	netlink.hh	/^enum nl_attr_type$/;"	g
+nl_family	netlink-protocol.hh	/^    sa_family_t nl_family;$/;"	m	struct:sockaddr_nl
+nl_groups	netlink-protocol.hh	/^    uint32_t nl_groups;$/;"	m	struct:sockaddr_nl
+nl_lookup_genl_family	netlink.cc	/^nl_lookup_genl_family(const char *name, int *number) $/;"	f
+nl_msg_genlmsghdr	netlink.cc	/^nl_msg_genlmsghdr(const struct ofpbuf *msg) $/;"	f
+nl_msg_nlmsgerr	netlink.cc	/^nl_msg_nlmsgerr(const struct ofpbuf *msg, int *errorp) $/;"	f
+nl_msg_nlmsghdr	netlink.cc	/^nl_msg_nlmsghdr(const struct ofpbuf *msg) $/;"	f
+nl_msg_put	netlink.cc	/^nl_msg_put(struct ofpbuf *msg, const void *data, size_t size) $/;"	f
+nl_msg_put_flag	netlink.cc	/^nl_msg_put_flag(struct ofpbuf *msg, uint16_t type) $/;"	f
+nl_msg_put_genlmsghdr	netlink.cc	/^nl_msg_put_genlmsghdr(struct ofpbuf *msg, struct nl_sock *sock,$/;"	f
+nl_msg_put_nested	netlink.cc	/^nl_msg_put_nested(struct ofpbuf *msg,$/;"	f
+nl_msg_put_nlmsghdr	netlink.cc	/^nl_msg_put_nlmsghdr(struct ofpbuf *msg, struct nl_sock *sock,$/;"	f
+nl_msg_put_string	netlink.cc	/^nl_msg_put_string(struct ofpbuf *msg, uint16_t type, const char *value)$/;"	f
+nl_msg_put_u16	netlink.cc	/^nl_msg_put_u16(struct ofpbuf *msg, uint16_t type, uint16_t value)$/;"	f
+nl_msg_put_u32	netlink.cc	/^nl_msg_put_u32(struct ofpbuf *msg, uint16_t type, uint32_t value)$/;"	f
+nl_msg_put_u64	netlink.cc	/^nl_msg_put_u64(struct ofpbuf *msg, uint16_t type, uint64_t value)$/;"	f
+nl_msg_put_u8	netlink.cc	/^nl_msg_put_u8(struct ofpbuf *msg, uint16_t type, uint8_t value) $/;"	f
+nl_msg_put_uninit	netlink.cc	/^nl_msg_put_uninit(struct ofpbuf *msg, size_t size) $/;"	f
+nl_msg_put_unspec	netlink.cc	/^nl_msg_put_unspec(struct ofpbuf *msg, uint16_t type,$/;"	f
+nl_msg_put_unspec_uninit	netlink.cc	/^nl_msg_put_unspec_uninit(struct ofpbuf *msg, uint16_t type, size_t size) $/;"	f
+nl_msg_reserve	netlink.cc	/^nl_msg_reserve(struct ofpbuf *msg, size_t size) $/;"	f
+nl_pad	netlink-protocol.hh	/^    unsigned short int nl_pad;$/;"	m	struct:sockaddr_nl
+nl_pid	netlink-protocol.hh	/^    uint32_t nl_pid;$/;"	m	struct:sockaddr_nl
+nl_policy	netlink.hh	/^struct nl_policy$/;"	s
+nl_policy_parse	netlink.cc	/^nl_policy_parse(const struct ofpbuf *msg, size_t nla_offset,$/;"	f
+nl_sock	netlink.cc	/^struct nl_sock$/;"	s	file:
+nl_sock_create	netlink.cc	/^nl_sock_create(int protocol, int multicast_group,$/;"	f
+nl_sock_destroy	netlink.cc	/^nl_sock_destroy(struct nl_sock *sock) $/;"	f
+nl_sock_recv	netlink.cc	/^nl_sock_recv(struct nl_sock *sock, struct ofpbuf **bufp, bool wait) $/;"	f
+nl_sock_send	netlink.cc	/^nl_sock_send(struct nl_sock *sock, const struct ofpbuf *msg, bool wait) $/;"	f
+nl_sock_sendv	netlink.cc	/^nl_sock_sendv(struct nl_sock *sock, const struct iovec iov[], size_t n_iov,$/;"	f
+nl_sock_transact	netlink.cc	/^nl_sock_transact(struct nl_sock *sock,$/;"	f
+nl_sock_wait	netlink.cc	/^nl_sock_wait(const struct nl_sock *sock, short int events)$/;"	f
+nla_len	netlink-protocol.hh	/^    uint16_t nla_len;$/;"	m	struct:nlattr
+nla_type	netlink-protocol.hh	/^    uint16_t nla_type;$/;"	m	struct:nlattr
+nlattr	netlink-protocol.hh	/^struct nlattr {$/;"	s
+nlmsg_flags	netlink-protocol.hh	/^    uint16_t nlmsg_flags;$/;"	m	struct:nlmsghdr
+nlmsg_len	netlink-protocol.hh	/^    uint32_t nlmsg_len;$/;"	m	struct:nlmsghdr
+nlmsg_pid	netlink-protocol.hh	/^    uint32_t nlmsg_pid;$/;"	m	struct:nlmsghdr
+nlmsg_seq	netlink-protocol.hh	/^    uint32_t nlmsg_seq;$/;"	m	struct:nlmsghdr
+nlmsg_to_string	netlink.cc	/^nlmsg_to_string(const struct ofpbuf *buffer)$/;"	f	file:
+nlmsg_type	netlink-protocol.hh	/^    uint16_t nlmsg_type;$/;"	m	struct:nlmsghdr
+nlmsgerr	netlink-protocol.hh	/^struct nlmsgerr$/;"	s
+nlmsghdr	netlink-protocol.hh	/^struct nlmsghdr {$/;"	s
+nlmsghdr_to_string	netlink.cc	/^nlmsghdr_to_string(const struct nlmsghdr *h, struct ds *ds)$/;"	f	file:
+node	poll-loop.cc	/^    struct list node;           \/* Element in global waiters list. *\/$/;"	m	struct:poll_waiter	typeref:struct:poll_waiter::list	file:
+node	switch-flow.hh	/^    struct list node;$/;"	m	struct:sw_flow	typeref:struct:sw_flow::list
+nodist_lib_libopenflow_a_SOURCES	automake.mk	/^nodist_lib_libopenflow_a_SOURCES = lib\/dhparams.c$/;"	m
+now	timeval.cc	/^static struct timeval now;$/;"	v	typeref:struct:timeval	file:
+ntohll	xtoxll.hh	/^ntohll(uint64_t n)$/;"	f
+nw_dst	flow.hh	/^    uint32_t nw_dst;            \/* IP destination address. *\/$/;"	m	struct:flow
+nw_dst_mask	switch-flow.hh	/^    uint32_t nw_dst_mask;       \/* 1-bit in each significant nw_dst bit. *\/$/;"	m	struct:sw_flow_key
+nw_proto	flow.hh	/^    uint8_t nw_proto;           \/* IP protocol. *\/$/;"	m	struct:flow
+nw_src	flow.hh	/^    uint32_t nw_src;            \/* IP source address. *\/$/;"	m	struct:flow
+nw_src_mask	switch-flow.hh	/^    uint32_t nw_src_mask;       \/* 1-bit in each significant nw_src bit. *\/$/;"	m	struct:sw_flow_key
+nw_tos	flow.hh	/^    uint8_t nw_tos;             \/* IPv4 DSCP. *\/$/;"	m	struct:flow
+of_actions	dp_act.cc	/^static struct openflow_action of_actions[OFPAT_ENQUEUE+1] = {$/;"	v	typeref:struct:openflow_action	file:
+of_ext_recv_msg	of_ext_msg.cc	/^int of_ext_recv_msg(class Datapath *dp, const struct rconn_sender *sender,$/;"	f
+ofp_aggregate_stats_reply	ofp-print.cc	/^ofp_aggregate_stats_reply(struct ds *string, const void *body_,$/;"	f	file:
+ofp_aggregate_stats_request	ofp-print.cc	/^ofp_aggregate_stats_request(struct ds *string, const void *oh,$/;"	f	file:
+ofp_desc_stats_reply	ofp-print.cc	/^ofp_desc_stats_reply(struct ds *string, const void *body, size_t len UNUSED,$/;"	f	file:
+ofp_echo	ofp-print.cc	/^ofp_echo(struct ds *string, const void *oh, size_t len, int verbosity)$/;"	f	file:
+ofp_error	util.cc	/^ofp_error(int err_no, const char *format, ...)$/;"	f
+ofp_fatal	util.cc	/^ofp_fatal(int err_no, const char *format, ...)$/;"	f
+ofp_flow_stats_reply	ofp-print.cc	/^ofp_flow_stats_reply(struct ds *string, const void *body_, size_t len,$/;"	f	file:
+ofp_flow_stats_request	ofp-print.cc	/^ofp_flow_stats_request(struct ds *string, const void *oh, size_t len UNUSED,$/;"	f	file:
+ofp_hex_dump	util.cc	/^ofp_hex_dump(FILE *stream, const void *buf_, size_t size,$/;"	f
+ofp_match_to_string	ofp-print.cc	/^ofp_match_to_string(const struct ofp_match *om, int verbosity)$/;"	f
+ofp_message_type_to_string	ofp-print.cc	/^ofp_message_type_to_string(uint8_t type)$/;"	f
+ofp_packet_in	ofp-print.cc	/^ofp_packet_in(struct ds *string, const void *oh, size_t len, int verbosity)$/;"	f	file:
+ofp_packet_out	ofp-print.cc	/^static void ofp_packet_out(struct ds *string, const void *oh, size_t len,$/;"	f	file:
+ofp_packet_to_string	ofp-print.cc	/^ofp_packet_to_string(const void *data, size_t len, size_t total_len UNUSED)$/;"	f
+ofp_port_stats_reply	ofp-print.cc	/^ofp_port_stats_reply(struct ds *string, const void *body, size_t len,$/;"	f	file:
+ofp_print	ofp-print.cc	/^ofp_print(FILE *stream, const void *oh, size_t len, int verbosity)$/;"	f
+ofp_print_action	ofp-print.cc	/^ofp_print_action(struct ds *string, const struct ofp_action_header *ah, $/;"	f	file:
+ofp_print_actions	ofp-print.cc	/^ofp_print_actions(struct ds *string, const struct ofp_action_header *action,$/;"	f	file:
+ofp_print_error_msg	ofp-print.cc	/^ofp_print_error_msg(struct ds *string, const void *oh, size_t len, $/;"	f	file:
+ofp_print_flow_mod	ofp-print.cc	/^ofp_print_flow_mod(struct ds *string, const void *oh, size_t len, $/;"	f	file:
+ofp_print_flow_removed	ofp-print.cc	/^ofp_print_flow_removed(struct ds *string, const void *oh, size_t len UNUSED, $/;"	f	file:
+ofp_print_match	ofp-print.cc	/^ofp_print_match(struct ds *f, const struct ofp_match *om, int verbosity)$/;"	f	file:
+ofp_print_packet	ofp-print.cc	/^ofp_print_packet(FILE *stream, const void *data, size_t len, size_t total_len)$/;"	f
+ofp_print_phy_port	ofp-print.cc	/^ofp_print_phy_port(struct ds *string, const struct ofp_phy_port *port)$/;"	f	file:
+ofp_print_port_features	ofp-print.cc	/^static void ofp_print_port_features(struct ds *string, uint32_t features)$/;"	f	file:
+ofp_print_port_mod	ofp-print.cc	/^ofp_print_port_mod(struct ds *string, const void *oh, size_t len UNUSED,$/;"	f	file:
+ofp_print_port_name	ofp-print.cc	/^static void ofp_print_port_name(struct ds *string, uint16_t port) $/;"	f	file:
+ofp_print_port_status	ofp-print.cc	/^ofp_print_port_status(struct ds *string, const void *oh, size_t len UNUSED,$/;"	f	file:
+ofp_print_rate_shaping	ofp-print.cc	/^ofp_print_rate_shaping(struct ds *string, const void *oh, size_t len UNUSED, int verbosity UNUSED)$/;"	f	file:
+ofp_print_switch_config	ofp-print.cc	/^ofp_print_switch_config(struct ds *string, const void *oh, size_t len UNUSED,$/;"	f	file:
+ofp_print_switch_features	ofp-print.cc	/^ofp_print_switch_features(struct ds *string, const void *oh, size_t len,$/;"	f	file:
+ofp_queue	queue.hh	/^struct ofp_queue {$/;"	s
+ofp_queue_stats_reply	ofp-print.cc	/^ofp_queue_stats_reply(struct ds *string, const void *body, size_t len,$/;"	f	file:
+ofp_stats_reply	ofp-print.cc	/^ofp_stats_reply(struct ds *string, const void *oh, size_t len, int verbosity)$/;"	f	file:
+ofp_stats_request	ofp-print.cc	/^ofp_stats_request(struct ds *string, const void *oh, size_t len, int verbosity)$/;"	f	file:
+ofp_table_stats_reply	ofp-print.cc	/^ofp_table_stats_reply(struct ds *string, const void *body, size_t len,$/;"	f	file:
+ofp_to_string	ofp-print.cc	/^ofp_to_string(const void *oh_, size_t len, int verbosity)$/;"	f
+ofp_vendor	ofp-print.cc	/^ofp_vendor(struct ds *string UNUSED, const void *oh, size_t len UNUSED, int verbosity UNUSED)$/;"	f	file:
+ofpbuf	ofpbuf.hh	/^struct ofpbuf {$/;"	s
+ofpbuf_at	ofpbuf.cc	/^void *ofpbuf_at(const struct ofpbuf *b, size_t offset, size_t size) $/;"	f
+ofpbuf_at_assert	ofpbuf.cc	/^void *ofpbuf_at_assert(const struct ofpbuf *b, size_t offset, size_t size) $/;"	f
+ofpbuf_clear	ofpbuf.cc	/^void ofpbuf_clear(struct ofpbuf *b) $/;"	f
+ofpbuf_clone	ofpbuf.cc	/^struct ofpbuf *ofpbuf_clone(const struct ofpbuf *buffer)$/;"	f
+ofpbuf_clone_data	ofpbuf.cc	/^struct ofpbuf * ofpbuf_clone_data(const void *data, size_t size)$/;"	f
+ofpbuf_delete	ofpbuf.cc	/^void ofpbuf_delete(struct ofpbuf *b) $/;"	f
+ofpbuf_end	ofpbuf.cc	/^void *ofpbuf_end(const struct ofpbuf *b) $/;"	f
+ofpbuf_from_packet	ofpbuf.cc	/^struct ofpbuf* ofpbuf_from_packet(Packet* p)$/;"	f
+ofpbuf_headroom	ofpbuf.cc	/^size_t ofpbuf_headroom(struct ofpbuf *b) $/;"	f
+ofpbuf_init	ofpbuf.cc	/^ofpbuf_init(struct ofpbuf *b, size_t size)$/;"	f
+ofpbuf_new	ofpbuf.cc	/^struct ofpbuf *ofpbuf_new(size_t size)$/;"	f
+ofpbuf_prealloc_headroom	ofpbuf.cc	/^void ofpbuf_prealloc_headroom(struct ofpbuf *b, size_t size) $/;"	f
+ofpbuf_prealloc_tailroom	ofpbuf.cc	/^void ofpbuf_prealloc_tailroom(struct ofpbuf *b, size_t size) $/;"	f
+ofpbuf_pull	ofpbuf.cc	/^void *ofpbuf_pull(struct ofpbuf *b, size_t size) $/;"	f
+ofpbuf_push	ofpbuf.cc	/^void *ofpbuf_push(struct ofpbuf *b, const void *p, size_t size) $/;"	f
+ofpbuf_push_uninit	ofpbuf.cc	/^void *ofpbuf_push_uninit(struct ofpbuf *b, size_t size) $/;"	f
+ofpbuf_put	ofpbuf.cc	/^void *ofpbuf_put(struct ofpbuf *b, const void *p, size_t size) $/;"	f
+ofpbuf_put_uninit	ofpbuf.cc	/^void *ofpbuf_put_uninit(struct ofpbuf *b, size_t size) $/;"	f
+ofpbuf_put_zeros	ofpbuf.cc	/^void *ofpbuf_put_zeros(struct ofpbuf *b, size_t size)$/;"	f
+ofpbuf_reinit	ofpbuf.cc	/^void ofpbuf_reinit(struct ofpbuf *b, size_t size)$/;"	f
+ofpbuf_reserve	ofpbuf.cc	/^void ofpbuf_reserve(struct ofpbuf *b, size_t size) $/;"	f
+ofpbuf_tail	ofpbuf.cc	/^void *ofpbuf_tail(const struct ofpbuf *b) $/;"	f
+ofpbuf_tailroom	ofpbuf.cc	/^size_t ofpbuf_tailroom(struct ofpbuf *b) $/;"	f
+ofpbuf_to_packet	ofpbuf.cc	/^Packet* ofpbuf_to_packet(struct ofpbuf* b)$/;"	f
+ofpbuf_try_pull	ofpbuf.cc	/^void *ofpbuf_try_pull(struct ofpbuf *b, size_t size) $/;"	f
+ofpbuf_uninit	ofpbuf.cc	/^ofpbuf_uninit(struct ofpbuf *b) $/;"	f
+ofpbuf_use	ofpbuf.cc	/^ofpbuf_use(struct ofpbuf *b, void *base, size_t allocated)$/;"	f
+ofps_barrier_reply	ofpstat.hh	/^	uint64_t ofps_barrier_reply;$/;"	m	struct:ofpstat
+ofps_barrier_request	ofpstat.hh	/^	uint64_t ofps_barrier_request;$/;"	m	struct:ofpstat
+ofps_echo_reply	ofpstat.hh	/^	uint64_t ofps_echo_reply;$/;"	m	struct:ofpstat
+ofps_echo_request	ofpstat.hh	/^	uint64_t ofps_echo_request;$/;"	m	struct:ofpstat
+ofps_error	ofpstat.hh	/^	uint64_t ofps_error;$/;"	m	struct:ofpstat
+ofps_error_code	ofpstat.hh	/^	} ofps_error_code;$/;"	m	struct:ofpstat	typeref:struct:ofpstat::__anon5
+ofps_error_type	ofpstat.hh	/^	} ofps_error_type;$/;"	m	struct:ofpstat	typeref:struct:ofpstat::__anon4
+ofps_feats_reply	ofpstat.hh	/^	uint64_t ofps_feats_reply;$/;"	m	struct:ofpstat
+ofps_feats_request	ofpstat.hh	/^	uint64_t ofps_feats_request;$/;"	m	struct:ofpstat
+ofps_flow_mod	ofpstat.hh	/^	uint64_t ofps_flow_mod;$/;"	m	struct:ofpstat
+ofps_flow_mod_ops	ofpstat.hh	/^	} ofps_flow_mod_ops;$/;"	m	struct:ofpstat	typeref:struct:ofpstat::__anon6
+ofps_flow_removed	ofpstat.hh	/^	uint64_t ofps_flow_removed;$/;"	m	struct:ofpstat
+ofps_get_config_reply	ofpstat.hh	/^	uint64_t ofps_get_config_reply;$/;"	m	struct:ofpstat
+ofps_get_config_request	ofpstat.hh	/^	uint64_t ofps_get_config_request;$/;"	m	struct:ofpstat
+ofps_hello	ofpstat.hh	/^	uint64_t ofps_hello;$/;"	m	struct:ofpstat
+ofps_packet_in	ofpstat.hh	/^	uint64_t ofps_packet_in;$/;"	m	struct:ofpstat
+ofps_packet_out	ofpstat.hh	/^	uint64_t ofps_packet_out;$/;"	m	struct:ofpstat
+ofps_port_mod	ofpstat.hh	/^	uint64_t ofps_port_mod;$/;"	m	struct:ofpstat
+ofps_port_status	ofpstat.hh	/^	uint64_t ofps_port_status;$/;"	m	struct:ofpstat
+ofps_rcvd	rconn.cc	/^    struct ofpstat ofps_rcvd;$/;"	m	struct:rconn	typeref:struct:rconn::ofpstat	file:
+ofps_rcvd	vconn-provider.hh	/^    struct ofpstat ofps_rcvd;$/;"	m	struct:vconn	typeref:struct:vconn::ofpstat
+ofps_sent	rconn.cc	/^    struct ofpstat ofps_sent;$/;"	m	struct:rconn	typeref:struct:rconn::ofpstat	file:
+ofps_sent	vconn-provider.hh	/^    struct ofpstat ofps_sent;$/;"	m	struct:vconn	typeref:struct:vconn::ofpstat
+ofps_set_config	ofpstat.hh	/^	uint64_t ofps_set_config;$/;"	m	struct:ofpstat
+ofps_stats_reply	ofpstat.hh	/^	uint64_t ofps_stats_reply;$/;"	m	struct:ofpstat
+ofps_stats_request	ofpstat.hh	/^	uint64_t ofps_stats_request;$/;"	m	struct:ofpstat
+ofps_total	ofpstat.hh	/^	uint64_t ofps_total;$/;"	m	struct:ofpstat
+ofps_unknown	ofpstat.hh	/^	uint64_t ofps_unknown;$/;"	m	struct:ofpstat
+ofps_vendor	ofpstat.hh	/^	uint64_t ofps_vendor;$/;"	m	struct:ofpstat
+ofpstat	ofpstat.hh	/^struct ofpstat {$/;"	s
+ofpstat_inc_protocol_stat	ofpstat.cc	/^ofpstat_inc_protocol_stat(struct ofpstat *ifps, struct ofp_header *hdr)$/;"	f
+open	vconn-provider.hh	/^    int (*open)(const char *name, char *suffix, struct vconn **vconnp);$/;"	m	struct:vconn_class
+openflow_action	dp_act.cc	/^struct openflow_action {$/;"	s	file:
+openflow_family	dpif.cc	/^static int openflow_family;$/;"	v	file:
+openflow_multicast_policy	dpif.cc	/^static struct nl_policy openflow_multicast_policy[DP_GENL_A_DP_NAME+1];$/;"	v	typeref:struct:nl_policy	file:
+openflow_packet	ofp-print.cc	/^struct openflow_packet {$/;"	s	file:
+openflow_policy	dpif.cc	/^static struct nl_policy openflow_policy[DP_GENL_A_OPENFLOW+1];$/;"	v	typeref:struct:nl_policy	file:
+optional	netlink.hh	/^    bool optional;$/;"	m	struct:nl_policy
+orig_len	pcap.cc	/^    uint32_t orig_len;       \/* actual length of packet *\/$/;"	m	struct:pcaprec_hdr	file:
+out_of_memory	util.cc	/^out_of_memory(void) $/;"	f
+packet_count	switch-flow.hh	/^    uint64_t packet_count;      \/* Number of packets seen. *\/$/;"	m	struct:sw_flow
+packet_in_ofpbuf	ofpbuf.cc	/^Packet* packet_in_ofpbuf(struct ofpbuf* b)$/;"	f
+packet_to_ofpbuf	ofpbuf.cc	/^struct ofpbuf* packet_to_ofpbuf( Packet* p)$/;"	f
+packet_to_ofpbuf_with_headroom	ofpbuf.cc	/^struct ofpbuf* packet_to_ofpbuf_with_headroom( Packet* p, int head_room )$/;"	f
+packets	ofp-print.cc	/^static const struct openflow_packet packets[] = {$/;"	v	typeref:struct:openflow_packet	file:
+packets_received	rconn.cc	/^    unsigned int packets_received;$/;"	m	struct:rconn	file:
+packets_sent	rconn.cc	/^    unsigned int packets_sent;$/;"	m	struct:rconn	file:
+pad	flow.hh	/^    uint8_t pad[3];$/;"	m	struct:flow
+path	vlog-socket.cc	/^    char *path;$/;"	m	struct:vlog_server	file:
+path_cost	stp.cc	/^    int path_cost;                  \/* 8.5.5.3: Cost of tx\/rx on this port. *\/$/;"	m	struct:stp_port	file:
+pattern	vlog.cc	/^    char *pattern;              \/* Current pattern. *\/$/;"	m	struct:facility	file:
+pcap_hdr	pcap.cc	/^struct pcap_hdr {$/;"	s	file:
+pcap_open	pcap.cc	/^pcap_open(const char *file_name, const char *mode)$/;"	f
+pcap_read	pcap.cc	/^pcap_read(FILE *file, struct ofpbuf **bufp)$/;"	f
+pcap_read_header	pcap.cc	/^pcap_read_header(FILE *file)$/;"	f
+pcap_write	pcap.cc	/^pcap_write(FILE *file, struct ofpbuf *buf)$/;"	f
+pcap_write_header	pcap.cc	/^pcap_write_header(FILE *file)$/;"	f
+pcaprec_hdr	pcap.cc	/^struct pcaprec_hdr {$/;"	s	file:
+pid	netlink.cc	/^    uint32_t pid;$/;"	m	struct:nl_sock	file:
+poll_block	poll-loop.cc	/^void poll_block()$/;"	f
+poll_cancel	poll-loop.cc	/^poll_cancel(struct poll_waiter *pw)$/;"	f
+poll_fd_callback	poll-loop.cc	/^poll_fd_callback(int fd, short int events, poll_fd_func *function, void *aux)$/;"	f
+poll_fd_func	poll-loop.hh	/^typedef void poll_fd_func(int fd, short int revents, void *aux);$/;"	t
+poll_fd_wait	poll-loop.cc	/^poll_fd_wait(int fd, short int events)$/;"	f
+poll_immediate_wake	poll-loop.cc	/^poll_immediate_wake(void)$/;"	f
+poll_server	vlog-socket.cc	/^poll_server(int fd UNUSED, short int events UNUSED, void *server_)$/;"	f	file:
+poll_timer_wait	poll-loop.cc	/^poll_timer_wait(int msec)$/;"	f
+poll_waiter	poll-loop.cc	/^struct poll_waiter {$/;"	s	file:
+pollfd	poll-loop.cc	/^    struct pollfd *pollfd;      \/* Pointer to element of the pollfds array$/;"	m	struct:poll_waiter	typeref:struct:poll_waiter::pollfd	file:
+port_add_queue	of_ext_msg.cc	/^port_add_queue(struct click_port *p, uint32_t queue_id,$/;"	f	file:
+port_delete_queue	of_ext_msg.cc	/^port_delete_queue(struct click_port *p UNUSED, struct sw_queue *q)$/;"	f	file:
+port_id	stp.cc	/^    int port_id;                    \/* 8.5.5.1: Unique port identifier. *\/$/;"	m	struct:stp_port	file:
+port_id	stp.cc	/^    uint16_t port_id;              \/* 8.5.1.4: Port transmitting the BPDU. *\/$/;"	m	struct:stp_config_bpdu	file:
+ports	stp.cc	/^    struct stp_port ports[STP_MAX_PORTS];$/;"	m	struct:stp	typeref:struct:stp::stp_port	file:
+pos	vconn.hh	/^    const uint8_t *pos, *end;$/;"	m	struct:flow_stats_iterator
+prev	list.hh	/^    struct list *prev;     \/* Previous list element. *\/$/;"	m	struct:list	typeref:struct:list::list
+print_and_free	ofp-print.cc	/^print_and_free(FILE *stream, char *string) $/;"	f	file:
+print_flow	switch-flow.cc	/^print_flow(const struct sw_flow_key *key)$/;"	f
+print_ip_netmask	ofp-print.cc	/^print_ip_netmask(struct ds *string, const char *leader, uint32_t ip,$/;"	f	file:
+print_port_stat	ofp-print.cc	/^static void print_port_stat(struct ds *string, const char *leader, $/;"	f	file:
+print_stats	ofp-print.cc	/^print_stats(struct ds *string, int type, const void *body, size_t body_len,$/;"	f	file:
+print_wild	ofp-print.cc	/^static void print_wild(struct ds *string, const char *leader, int is_wild,$/;"	f	file:
+printer	ofp-print.cc	/^    void (*printer)(struct ds *, const void *, size_t len, int verbosity);$/;"	m	struct:openflow_packet	file:
+priority	switch-flow.hh	/^    uint16_t priority;          \/* Only used on entries with wildcards. *\/$/;"	m	struct:sw_flow
+private_recv_msg	private-msg.cc	/^private_recv_msg(class Datapath *dp, const struct rconn_sender *sender UNUSED,$/;"	f
+probably_admitted	rconn.cc	/^    bool probably_admitted;$/;"	m	struct:rconn	file:
+probe_interval	rconn.cc	/^    int probe_interval;         \/* Secs of inactivity before sending probe. *\/$/;"	m	struct:rconn	file:
+program_name	util.cc	/^const char *program_name;$/;"	v
+protection_callback	private-msg.cc	/^protection_callback(struct sw_flow *flow, void *private_)$/;"	f	file:
+protocol_id	stp.cc	/^    uint16_t protocol_id;       \/* STP_PROTOCOL_ID. *\/$/;"	m	struct:stp_bpdu_header	file:
+protocol_version	stp.cc	/^    uint8_t protocol_version;   \/* STP_PROTOCOL_VERSION. *\/$/;"	m	struct:stp_bpdu_header	file:
+pssl_accept	vconn-ssl.cc	/^pssl_accept(struct pvconn *pvconn, struct vconn **new_vconnp)$/;"	f	file:
+pssl_close	vconn-ssl.cc	/^pssl_close(struct pvconn *pvconn)$/;"	f	file:
+pssl_open	vconn-ssl.cc	/^pssl_open(const char *name, char *suffix, struct pvconn **pvconnp)$/;"	f	file:
+pssl_pvconn	vconn-ssl.cc	/^struct pssl_pvconn$/;"	s	file:
+pssl_pvconn_cast	vconn-ssl.cc	/^pssl_pvconn_cast(struct pvconn *pvconn)$/;"	f	file:
+pssl_pvconn_class	vconn-ssl.cc	/^struct pvconn_class pssl_pvconn_class = {$/;"	v	typeref:struct:pvconn_class
+pssl_wait	vconn-ssl.cc	/^pssl_wait(struct pvconn *pvconn)$/;"	f	file:
+pstream_accept	vconn-stream.cc	/^pstream_accept(struct pvconn *pvconn, struct vconn **new_vconnp)$/;"	f	file:
+pstream_close	vconn-stream.cc	/^pstream_close(struct pvconn *pvconn)$/;"	f	file:
+pstream_pvconn	vconn-stream.cc	/^struct pstream_pvconn$/;"	s	file:
+pstream_pvconn_cast	vconn-stream.cc	/^pstream_pvconn_cast(struct pvconn *pvconn)$/;"	f	file:
+pstream_pvconn_class	vconn-stream.cc	/^static struct pvconn_class pstream_pvconn_class = {$/;"	v	typeref:struct:pvconn_class	file:
+pstream_wait	vconn-stream.cc	/^pstream_wait(struct pvconn *pvconn)$/;"	f	file:
+ptcp_accept	vconn-tcp.cc	/^ptcp_accept(int fd, const struct sockaddr *sa, size_t sa_len,$/;"	f	file:
+ptcp_open	vconn-tcp.cc	/^ptcp_open(const char *name, char *suffix, struct pvconn **pvconnp)$/;"	f	file:
+ptcp_pvconn_class	vconn-tcp.cc	/^struct pvconn_class ptcp_pvconn_class = {$/;"	v	typeref:struct:pvconn_class
+pull_arp	flow.cc	/^static struct arp_header * pull_arp(struct ofpbuf *packet)$/;"	f	file:
+pull_eth	flow.cc	/^static struct eth_header * pull_eth(struct ofpbuf *packet) $/;"	f	file:
+pull_icmp	flow.cc	/^static struct icmp_header * pull_icmp(struct ofpbuf *packet) $/;"	f	file:
+pull_ip	flow.cc	/^static struct ip_header * pull_ip(struct ofpbuf *packet)$/;"	f	file:
+pull_tcp	flow.cc	/^static struct tcp_header * pull_tcp(struct ofpbuf *packet) $/;"	f	file:
+pull_udp	flow.cc	/^static struct udp_header * pull_udp(struct ofpbuf *packet) $/;"	f	file:
+pull_vlan	flow.cc	/^static struct vlan_header * pull_vlan(struct ofpbuf *packet)$/;"	f	file:
+punix_accept	vconn-unix.cc	/^punix_accept(int fd, const struct sockaddr *sa, size_t sa_len,$/;"	f	file:
+punix_open	vconn-unix.cc	/^static int punix_open(const char *name UNUSED, char *suffix, struct pvconn **pvconnp)$/;"	f	file:
+punix_pvconn_class	vconn-unix.cc	/^struct pvconn_class punix_pvconn_class = {$/;"	v	typeref:struct:pvconn_class
+put_openflow	vconn.cc	/^put_openflow(size_t openflow_len, uint8_t type, struct ofpbuf *buffer)$/;"	f
+put_openflow_xid	vconn.cc	/^put_openflow_xid(size_t openflow_len, uint8_t type, uint32_t xid,$/;"	f
+pvconn	vconn-provider.hh	/^struct pvconn {$/;"	s
+pvconn	vconn-ssl.cc	/^    struct pvconn pvconn;$/;"	m	struct:pssl_pvconn	typeref:struct:pssl_pvconn::pvconn	file:
+pvconn	vconn-stream.cc	/^    struct pvconn pvconn;$/;"	m	struct:pstream_pvconn	typeref:struct:pstream_pvconn::pvconn	file:
+pvconn_accept	vconn.cc	/^pvconn_accept(struct pvconn *pvconn, int min_version, struct vconn **new_vconn)$/;"	f
+pvconn_assert_class	vconn-provider.hh	/^static inline void pvconn_assert_class(const struct pvconn *pvconn,$/;"	f
+pvconn_class	vconn-provider.hh	/^struct pvconn_class {$/;"	s
+pvconn_classes	vconn.cc	/^static struct pvconn_class *pvconn_classes[] = {$/;"	v	typeref:struct:pvconn_class	file:
+pvconn_close	vconn.cc	/^void pvconn_close(struct pvconn *pvconn)$/;"	f
+pvconn_init	vconn.cc	/^pvconn_init(struct pvconn *pvconn, struct pvconn_class *Class,$/;"	f
+pvconn_open	vconn.cc	/^int pvconn_open(const char *name, struct pvconn **pvconnp)$/;"	f
+pvconn_wait	vconn.cc	/^pvconn_wait(struct pvconn *pvconn)$/;"	f
+query_datapath	dpif.cc	/^query_datapath(int *dp_idx, int *multicast_group, const char *dp_name)$/;"	f	file:
+question_connectivity	rconn.cc	/^question_connectivity(struct rconn *rc) $/;"	f	file:
+questionable_connectivity	rconn.cc	/^    bool questionable_connectivity;$/;"	m	struct:rconn	file:
+queue_advance_head	queue.cc	/^queue_advance_head(struct ofp_queue *q, struct ofpbuf *next)$/;"	f
+queue_clear	queue.cc	/^queue_clear(struct ofp_queue *q)$/;"	f
+queue_destroy	queue.cc	/^queue_destroy(struct ofp_queue *q)$/;"	f
+queue_init	queue.cc	/^queue_init(struct ofp_queue *q)$/;"	f
+queue_pop_head	queue.cc	/^queue_pop_head(struct ofp_queue *q)$/;"	f
+queue_push_tail	queue.cc	/^queue_push_tail(struct ofp_queue *q, struct ofpbuf *b)$/;"	f
+random_bytes	random.cc	/^random_bytes(void *p_, size_t n)$/;"	f
+random_init	random.cc	/^random_init(void)$/;"	f
+random_range	random.cc	/^random_range(int max) $/;"	f
+random_uint16	random.cc	/^random_uint16(void)$/;"	f
+random_uint32	random.cc	/^random_uint32(void)$/;"	f
+random_uint8	random.cc	/^random_uint8(void)$/;"	f
+rate	vlog.hh	/^    unsigned int rate;          \/* Tokens per second. *\/$/;"	m	struct:vlog_rate_limit
+rconn	rconn.cc	/^struct rconn {$/;"	s	file:
+rconn_add_monitor	rconn.cc	/^void rconn_add_monitor(struct rconn *rc, struct vconn *vconn)$/;"	f
+rconn_connect	rconn.cc	/^rconn_connect(struct rconn *rc, const char *name)$/;"	f
+rconn_connect_unreliably	rconn.cc	/^rconn_connect_unreliably(struct rconn *rc,$/;"	f
+rconn_create	rconn.cc	/^rconn_create(int probe_interval, int max_backoff)$/;"	f
+rconn_destroy	rconn.cc	/^rconn_destroy(struct rconn *rc)$/;"	f
+rconn_disconnect	rconn.cc	/^rconn_disconnect(struct rconn *rc)$/;"	f
+rconn_failure_duration	rconn.cc	/^rconn_failure_duration(const struct rconn *rconn)$/;"	f
+rconn_get_attempted_connections	rconn.cc	/^rconn_get_attempted_connections(const struct rconn *rc)$/;"	f
+rconn_get_backoff	rconn.cc	/^rconn_get_backoff(const struct rconn *rc)$/;"	f
+rconn_get_connection_seqno	rconn.cc	/^rconn_get_connection_seqno(const struct rconn *rc)$/;"	f
+rconn_get_creation_time	rconn.cc	/^rconn_get_creation_time(const struct rconn *rc)$/;"	f
+rconn_get_ip	rconn.cc	/^rconn_get_ip(const struct rconn *rconn) $/;"	f
+rconn_get_last_connection	rconn.cc	/^rconn_get_last_connection(const struct rconn *rc)$/;"	f
+rconn_get_name	rconn.cc	/^rconn_get_name(const struct rconn *rc)$/;"	f
+rconn_get_state	rconn.cc	/^rconn_get_state(const struct rconn *rc)$/;"	f
+rconn_get_state_elapsed	rconn.cc	/^rconn_get_state_elapsed(const struct rconn *rc)$/;"	f
+rconn_get_successful_connections	rconn.cc	/^rconn_get_successful_connections(const struct rconn *rc)$/;"	f
+rconn_get_total_time_connected	rconn.cc	/^rconn_get_total_time_connected(const struct rconn *rc)$/;"	f
+rconn_is_alive	rconn.cc	/^rconn_is_alive(const struct rconn *rconn)$/;"	f
+rconn_is_connected	rconn.cc	/^rconn_is_connected(const struct rconn *rconn)$/;"	f
+rconn_is_connectivity_questionable	rconn.cc	/^rconn_is_connectivity_questionable(struct rconn *rconn)$/;"	f
+rconn_new	rconn.cc	/^rconn_new(const char *name, int inactivity_probe_interval, int max_backoff)$/;"	f
+rconn_new_from_vconn	rconn.cc	/^rconn_new_from_vconn(const char *name, struct vconn *vconn) $/;"	f
+rconn_packets_received	rconn.cc	/^rconn_packets_received(const struct rconn *rc)$/;"	f
+rconn_packets_sent	rconn.cc	/^rconn_packets_sent(const struct rconn *rc)$/;"	f
+rconn_recv	rconn.cc	/^rconn_recv(struct rconn *rc)$/;"	f
+rconn_recv_wait	rconn.cc	/^rconn_recv_wait(struct rconn *rc)$/;"	f
+rconn_run	rconn.cc	/^rconn_run(struct rconn *rc)$/;"	f
+rconn_run_wait	rconn.cc	/^rconn_run_wait(struct rconn *rc)$/;"	f
+rconn_send	rconn.cc	/^int rconn_send(struct rconn *rc, struct ofpbuf *b, int *n_queued)$/;"	f
+rconn_send_with_limit	rconn.cc	/^int rconn_send_with_limit(struct rconn *rc, struct ofpbuf *b,$/;"	f
+rconn_update_protocol_stat	rconn.cc	/^rconn_update_protocol_stat(struct rconn *rconn,$/;"	f
+read_cert_file	vconn-ssl.cc	/^read_cert_file(const char *file_name, X509 ***certs, size_t *n_certs)$/;"	f	file:
+reason	switch-flow.hh	/^    uint8_t reason;             \/* Reason flow removed (one of OFPRR_*). *\/$/;"	m	struct:sw_flow
+recalc_csum16	csum.cc	/^recalc_csum16(uint16_t old_csum, uint16_t old_u16, uint16_t new_u16)$/;"	f
+recalc_csum32	csum.cc	/^recalc_csum32(uint16_t old_csum, uint32_t old_u32, uint32_t new_u32)$/;"	f
+reconnect	rconn.cc	/^reconnect(struct rconn *rc)$/;"	f	file:
+reconnectable	vconn-provider.hh	/^    bool reconnectable;$/;"	m	struct:vconn
+recv	vconn-provider.hh	/^    int (*recv)(struct vconn *vconn, struct ofpbuf **msgp);$/;"	m	struct:vconn_class
+recv_of_exp_queue_delete	of_ext_msg.cc	/^static void recv_of_exp_queue_delete(class Datapath *dp,$/;"	f	file:
+recv_of_exp_queue_modify	of_ext_msg.cc	/^recv_of_exp_queue_modify(class Datapath *dp,$/;"	f	file:
+recv_of_set_dp_desc	of_ext_msg.cc	/^recv_of_set_dp_desc(class Datapath *dp,$/;"	f	file:
+recv_with_creds	vlog-socket.cc	/^recv_with_creds(const struct vlog_server *server,$/;"	f	file:
+refresh_if_ticked	timeval.cc	/^refresh_if_ticked(void)$/;"	f	file:
+reliable	rconn.cc	/^    bool reliable;$/;"	m	struct:rconn	file:
+reserved	netlink-protocol.hh	/^    uint16_t reserved;$/;"	m	struct:genlmsghdr
+rl	dpif.cc	/^static struct vlog_rate_limit rl = VLOG_RATE_LIMIT_INIT(5, 60);$/;"	v	typeref:struct:vlog_rate_limit	file:
+rl	netlink.cc	/^static struct vlog_rate_limit rl = VLOG_RATE_LIMIT_INIT(60, 600);$/;"	v	typeref:struct:vlog_rate_limit	file:
+rl	vconn-ssl.cc	/^static struct vlog_rate_limit rl = VLOG_RATE_LIMIT_INIT(10, 25);$/;"	v	typeref:struct:vlog_rate_limit	file:
+rl	vconn-stream.cc	/^static struct vlog_rate_limit rl = VLOG_RATE_LIMIT_INIT(10, 25);$/;"	v	typeref:struct:vlog_rate_limit	file:
+rl	vconn.cc	/^static struct vlog_rate_limit rl = VLOG_RATE_LIMIT_INIT(600, 600);$/;"	v	typeref:struct:vlog_rate_limit	file:
+root_id	stp.cc	/^    uint64_t root_id;              \/* 8.5.1.1: Bridge believed to be root. *\/$/;"	m	struct:stp_config_bpdu	file:
+root_path_cost	stp.cc	/^    uint32_t root_path_cost;       \/* 8.5.1.2: Cost of path to root. *\/$/;"	m	struct:stp_config_bpdu	file:
+root_path_cost	stp.cc	/^    unsigned int root_path_cost;    \/* 8.5.3.2: Cost of path to root. *\/$/;"	m	struct:stp	file:
+root_port	stp.cc	/^    struct stp_port *root_port;     \/* 8.5.3.3: Lowest cost port to root. *\/$/;"	m	struct:stp	typeref:struct:stp::stp_port	file:
+rot	hash.cc	39;"	d	file:
+rq_forward_delay	stp.cc	/^    int rq_forward_delay;           \/* User-requested forward delay, in ms. *\/$/;"	m	struct:stp	file:
+rq_hello_time	stp.cc	/^    int rq_hello_time;              \/* User-requested hello time, in ms. *\/$/;"	m	struct:stp	file:
+rq_max_age	stp.cc	/^    int rq_max_age;                 \/* User-requested max age, in ms. *\/$/;"	m	struct:stp	file:
+run_ACTIVE	rconn.cc	/^static void run_ACTIVE(struct rconn *rc)$/;"	f	file:
+run_BACKOFF	rconn.cc	/^run_BACKOFF(struct rconn *rc)$/;"	f	file:
+run_CONNECTING	rconn.cc	/^run_CONNECTING(struct rconn *rc)$/;"	f	file:
+run_IDLE	rconn.cc	/^run_IDLE(struct rconn *rc)$/;"	f	file:
+run_VOID	rconn.cc	/^run_VOID(struct rconn *rc UNUSED)$/;"	f	file:
+run_at_exit	fatal-signal.cc	/^    bool run_at_exit;$/;"	m	struct:hook	file:
+running_cb	poll-loop.cc	/^static struct poll_waiter *running_cb;$/;"	v	typeref:struct:poll_waiter	file:
+rx_want	vconn-ssl.cc	/^    int rx_want, tx_want;$/;"	m	struct:ssl_vconn	file:
+rxbuf	vconn-ssl.cc	/^    struct ofpbuf *rxbuf;$/;"	m	struct:ssl_vconn	typeref:struct:ssl_vconn::ofpbuf	file:
+rxbuf	vconn-stream.cc	/^    struct ofpbuf *rxbuf;$/;"	m	struct:stream_vconn	typeref:struct:stream_vconn::ofpbuf	file:
+sat_add	sat-math.hh	/^sat_add(unsigned int x, unsigned int y)$/;"	f
+sat_mul	sat-math.hh	/^sat_mul(unsigned int x, unsigned int y)$/;"	f
+sat_sub	sat-math.hh	/^sat_sub(unsigned int x, unsigned int y)$/;"	f
+saved_signal_mask	fatal-signal.cc	/^static sigset_t saved_signal_mask;$/;"	v	file:
+search_name_array	vlog.cc	/^search_name_array(const char *target, const char **names, size_t n_names) $/;"	f	file:
+sem_waiters	poll-loop.cc	/^sem_t sem_waiters;$/;"	v
+send	vconn-provider.hh	/^    int (*send)(struct vconn *vconn, struct ofpbuf *msg);$/;"	m	struct:vconn_class
+send_bpdu	stp.cc	/^    void (*send_bpdu)(struct ofpbuf *bpdu, int port_no, void *aux);$/;"	m	struct:stp	file:
+send_flow_rem	switch-flow.hh	/^    uint8_t send_flow_rem;      \/* Send a flow removed to the controller *\/$/;"	m	struct:sw_flow
+send_mgmt_command	dpif.cc	/^send_mgmt_command(struct dpif *dp, int dp_idx, int command, const char *arg)$/;"	f	file:
+seqno	rconn.cc	/^    unsigned int seqno;$/;"	m	struct:rconn	file:
+serial	switch-flow.hh	/^    unsigned long int serial;$/;"	m	struct:sw_flow
+session_type	vconn-ssl.cc	/^enum session_type {$/;"	g	file:
+set_bridge_id	stp.cc	/^set_bridge_id(struct stp *stp, stp_identifier new_bridge_id)$/;"	f	file:
+set_dl_addr	dp_act.cc	/^set_dl_addr(struct ofpbuf *buffer, struct sw_flow_key *key UNUSED, $/;"	f	file:
+set_facility_level	vlog.cc	/^set_facility_level(enum vlog_facility facility, enum vlog_module module,$/;"	f	file:
+set_nonblocking	socket-util.cc	/^set_nonblocking(int fd)$/;"	f
+set_nw_addr	dp_act.cc	/^set_nw_addr(struct ofpbuf *buffer, struct sw_flow_key *key, $/;"	f	file:
+set_nw_tos	dp_act.cc	/^set_nw_tos(struct ofpbuf *buffer, struct sw_flow_key *key, $/;"	f	file:
+set_program_name	util.cc	/^void set_program_name(const char *argv0)$/;"	f
+set_socket_priority	socket-util.cc	/^set_socket_priority(int fd, int priority)$/;"	f
+set_tp_port	dp_act.cc	/^set_tp_port(struct ofpbuf *buffer, struct sw_flow_key *key, $/;"	f	file:
+set_vlan_pcp	dp_act.cc	/^set_vlan_pcp(struct ofpbuf *buffer, struct sw_flow_key *key, $/;"	f	file:
+set_vlan_vid	dp_act.cc	/^set_vlan_vid(struct ofpbuf *buffer, struct sw_flow_key *key, $/;"	f	file:
+sf_acts	switch-flow.hh	/^    struct sw_flow_actions *sf_acts;$/;"	m	struct:sw_flow	typeref:struct:sw_flow::sw_flow_actions
+show_queue_get_config_reply	ofp-print.cc	/^show_queue_get_config_reply(struct ds *string, const void *oh,$/;"	f	file:
+show_queue_props	ofp-print.cc	/^show_queue_props(struct ds *string, const struct ofp_packet_queue *queue_desc)$/;"	f	file:
+sigalrm_handler	timeval.cc	/^sigalrm_handler(int sig_nr)$/;"	f	file:
+sigfigs	pcap.cc	/^    uint32_t sigfigs;        \/* accuracy of timestamps *\/$/;"	m	struct:pcap_hdr	file:
+size	ofpbuf.hh	/^    size_t size;                \/* Number of bytes in use. *\/$/;"	m	struct:ofpbuf
+snap	packets.hh	/^    struct snap_header snap;$/;"	m	struct:llc_snap_header	typeref:struct:llc_snap_header::snap_header
+snap_header	packets.hh	/^struct snap_header {$/;"	s
+snap_org	packets.hh	/^    uint8_t snap_org[3];$/;"	m	struct:snap_header
+snap_type	packets.hh	/^    uint16_t snap_type;$/;"	m	struct:snap_header
+snaplen	pcap.cc	/^    uint32_t snaplen;        \/* max length of captured packets *\/$/;"	m	struct:pcap_hdr	file:
+sock	dpif.hh	/^    struct nl_sock *sock;$/;"	m	struct:dpif	typeref:struct:dpif::nl_sock
+sockaddr_nl	netlink-protocol.hh	/^struct sockaddr_nl {$/;"	s
+ssl	vconn-ssl.cc	/^    SSL *ssl;$/;"	m	struct:ssl_vconn	file:
+ssl_clear_txbuf	vconn-ssl.cc	/^ssl_clear_txbuf(struct ssl_vconn *sslv)$/;"	f	file:
+ssl_close	vconn-ssl.cc	/^ssl_close(struct vconn *vconn)$/;"	f	file:
+ssl_connect	vconn-ssl.cc	/^ssl_connect(struct vconn *vconn)$/;"	f	file:
+ssl_do_tx	vconn-ssl.cc	/^ssl_do_tx(struct vconn *vconn)$/;"	f	file:
+ssl_init	vconn-ssl.cc	/^ssl_init(void)$/;"	f	file:
+ssl_open	vconn-ssl.cc	/^ssl_open(const char *name, char *suffix, struct vconn **vconnp)$/;"	f	file:
+ssl_recv	vconn-ssl.cc	/^ssl_recv(struct vconn *vconn, struct ofpbuf **bufferp)$/;"	f	file:
+ssl_register_tx_waiter	vconn-ssl.cc	/^ssl_register_tx_waiter(struct vconn *vconn)$/;"	f	file:
+ssl_send	vconn-ssl.cc	/^ssl_send(struct vconn *vconn, struct ofpbuf *buffer)$/;"	f	file:
+ssl_state	vconn-ssl.cc	/^enum ssl_state {$/;"	g	file:
+ssl_tx_poll_callback	vconn-ssl.cc	/^ssl_tx_poll_callback(int fd UNUSED, short int revents UNUSED, void *vconn_)$/;"	f	file:
+ssl_vconn	vconn-ssl.cc	/^struct ssl_vconn$/;"	s	file:
+ssl_vconn_cast	vconn-ssl.cc	/^ssl_vconn_cast(struct vconn *vconn)$/;"	f	file:
+ssl_vconn_class	vconn-ssl.cc	/^struct vconn_class ssl_vconn_class = {$/;"	v	typeref:struct:vconn_class
+ssl_wait	vconn-ssl.cc	/^ssl_wait(struct vconn *vconn, enum vconn_wait_type wait)$/;"	f	file:
+ssl_wants_io	vconn-ssl.cc	/^ssl_wants_io(int ssl_error)$/;"	f	file:
+state	rconn.cc	/^    enum state state;$/;"	m	struct:rconn	typeref:enum:rconn::state	file:
+state	rconn.cc	/^enum state {$/;"	g	file:
+state	stp.cc	/^    enum stp_state state;           \/* 8.5.5.2: Current state. *\/$/;"	m	struct:stp_port	typeref:enum:stp_port::stp_state	file:
+state	vconn-provider.hh	/^    int state;$/;"	m	struct:vconn
+state	vconn-ssl.cc	/^    enum ssl_state state;$/;"	m	struct:ssl_vconn	typeref:enum:ssl_vconn::ssl_state	file:
+state_changed	stp.cc	/^    bool state_changed;$/;"	m	struct:stp_port	file:
+state_entered	rconn.cc	/^    time_t state_entered;$/;"	m	struct:rconn	file:
+state_name	rconn.cc	/^state_name(enum state state)$/;"	f	file:
+state_transition	rconn.cc	/^state_transition(struct rconn *rc, enum state state)$/;"	f	file:
+stats	table.hh	/^    void (*stats)(struct sw_table *table, struct sw_table_stats *stats);$/;"	m	struct:sw_table
+stats_direction	ofp-print.cc	/^enum stats_direction {$/;"	g	file:
+stp	stp.cc	/^    struct stp *stp;$/;"	m	struct:stp_port	typeref:struct:stp_port::stp	file:
+stp	stp.cc	/^struct stp {$/;"	s	file:
+stp_acknowledge_topology_change	stp.cc	/^stp_acknowledge_topology_change(struct stp_port *p)$/;"	f	file:
+stp_become_designated_port	stp.cc	/^stp_become_designated_port(struct stp_port *p)$/;"	f	file:
+stp_become_root_bridge	stp.cc	/^stp_become_root_bridge(struct stp *stp)$/;"	f	file:
+stp_bpdu_header	stp.cc	/^struct stp_bpdu_header {$/;"	s	file:
+stp_config_bpdu	stp.cc	/^struct stp_config_bpdu {$/;"	s	file:
+stp_config_bpdu_flags	stp.cc	/^enum stp_config_bpdu_flags {$/;"	g	file:
+stp_config_bpdu_generation	stp.cc	/^stp_config_bpdu_generation(struct stp *stp)$/;"	f	file:
+stp_configuration_update	stp.cc	/^stp_configuration_update(struct stp *stp)$/;"	f	file:
+stp_create	stp.cc	/^stp_create(const char *name, stp_identifier bridge_id,$/;"	f
+stp_designated_port_selection	stp.cc	/^stp_designated_port_selection(struct stp *stp)$/;"	f	file:
+stp_destroy	stp.cc	/^stp_destroy(struct stp *stp)$/;"	f
+stp_eth_addr	stp.cc	/^const uint8_t stp_eth_addr[ETH_ADDR_LEN]$/;"	v
+stp_forward_delay_timer_expiry	stp.cc	/^stp_forward_delay_timer_expiry(struct stp_port *p)$/;"	f	file:
+stp_forward_in_state	stp.cc	/^stp_forward_in_state(enum stp_state state)$/;"	f
+stp_get_bridge_id	stp.cc	/^stp_get_bridge_id(const struct stp *stp)$/;"	f
+stp_get_changed_port	stp.cc	/^stp_get_changed_port(struct stp *stp, struct stp_port **portp)$/;"	f
+stp_get_designated_root	stp.cc	/^stp_get_designated_root(const struct stp *stp)$/;"	f
+stp_get_forward_delay	stp.cc	/^stp_get_forward_delay(const struct stp *stp)$/;"	f
+stp_get_hello_time	stp.cc	/^stp_get_hello_time(const struct stp *stp)$/;"	f
+stp_get_max_age	stp.cc	/^stp_get_max_age(const struct stp *stp)$/;"	f
+stp_get_name	stp.cc	/^stp_get_name(const struct stp *stp)$/;"	f
+stp_get_port	stp.cc	/^stp_get_port(struct stp *stp, int port_no)$/;"	f
+stp_get_root_path_cost	stp.cc	/^stp_get_root_path_cost(const struct stp *stp)$/;"	f
+stp_get_root_port	stp.cc	/^stp_get_root_port(struct stp *stp)$/;"	f
+stp_hello_timer_expiry	stp.cc	/^stp_hello_timer_expiry(struct stp *stp)$/;"	f	file:
+stp_hold_timer_expiry	stp.cc	/^stp_hold_timer_expiry(struct stp_port *p)$/;"	f	file:
+stp_identifier	stp.hh	/^typedef uint64_t stp_identifier;$/;"	t
+stp_initialize_port	stp.cc	/^stp_initialize_port(struct stp_port *p, enum stp_state state)$/;"	f	file:
+stp_is_designated_for_some_port	stp.cc	/^stp_is_designated_for_some_port(const struct stp *stp)$/;"	f	file:
+stp_is_designated_port	stp.cc	/^stp_is_designated_port(const struct stp_port *p)$/;"	f	file:
+stp_is_root_bridge	stp.cc	/^stp_is_root_bridge(const struct stp *stp)$/;"	f
+stp_learn_in_state	stp.cc	/^stp_learn_in_state(enum stp_state state)$/;"	f
+stp_make_blocking	stp.cc	/^stp_make_blocking(struct stp_port *p)$/;"	f	file:
+stp_make_forwarding	stp.cc	/^stp_make_forwarding(struct stp_port *p)$/;"	f	file:
+stp_message_age_timer_expiry	stp.cc	/^stp_message_age_timer_expiry(struct stp_port *p)$/;"	f	file:
+stp_next_enabled_port	stp.cc	/^stp_next_enabled_port(const struct stp *stp, const struct stp_port *port)$/;"	f	file:
+stp_port	stp.cc	/^struct stp_port {$/;"	s	file:
+stp_port_disable	stp.cc	/^stp_port_disable(struct stp_port *p)$/;"	f
+stp_port_disable_change_detection	stp.cc	/^stp_port_disable_change_detection(struct stp_port *p)$/;"	f
+stp_port_enable	stp.cc	/^stp_port_enable(struct stp_port *p)$/;"	f
+stp_port_enable_change_detection	stp.cc	/^stp_port_enable_change_detection(struct stp_port *p)$/;"	f
+stp_port_get_state	stp.cc	/^stp_port_get_state(const struct stp_port *p)$/;"	f
+stp_port_get_stp	stp.cc	/^stp_port_get_stp(struct stp_port *p)$/;"	f
+stp_port_no	stp.cc	/^stp_port_no(const struct stp_port *p)$/;"	f
+stp_port_set_path_cost	stp.cc	/^stp_port_set_path_cost(struct stp_port *p, uint16_t path_cost)$/;"	f
+stp_port_set_priority	stp.cc	/^stp_port_set_priority(struct stp_port *p, uint8_t new_priority)$/;"	f
+stp_port_set_speed	stp.cc	/^stp_port_set_speed(struct stp_port *p, unsigned int speed)$/;"	f
+stp_port_state_selection	stp.cc	/^stp_port_state_selection(struct stp *stp)$/;"	f	file:
+stp_received_bpdu	stp.cc	/^stp_received_bpdu(struct stp_port *p, const void *bpdu, size_t bpdu_size)$/;"	f
+stp_received_config_bpdu	stp.cc	/^stp_received_config_bpdu(struct stp *stp, struct stp_port *p,$/;"	f
+stp_received_tcn_bpdu	stp.cc	/^stp_received_tcn_bpdu(struct stp *stp, struct stp_port *p)$/;"	f
+stp_record_config_information	stp.cc	/^stp_record_config_information(struct stp_port *p,$/;"	f	file:
+stp_record_config_timeout_values	stp.cc	/^stp_record_config_timeout_values(struct stp *stp,$/;"	f	file:
+stp_root_selection	stp.cc	/^stp_root_selection(struct stp *stp)$/;"	f	file:
+stp_send_bpdu	stp.cc	/^stp_send_bpdu(struct stp_port *p, const void *bpdu, size_t bpdu_size)$/;"	f	file:
+stp_set_bridge_id	stp.cc	/^stp_set_bridge_id(struct stp *stp, stp_identifier bridge_id)$/;"	f
+stp_set_bridge_priority	stp.cc	/^stp_set_bridge_priority(struct stp *stp, uint16_t new_priority)$/;"	f
+stp_set_forward_delay	stp.cc	/^stp_set_forward_delay(struct stp *stp, int ms)$/;"	f
+stp_set_hello_time	stp.cc	/^stp_set_hello_time(struct stp *stp, int ms)$/;"	f
+stp_set_max_age	stp.cc	/^stp_set_max_age(struct stp *stp, int ms)$/;"	f
+stp_set_port_state	stp.cc	/^stp_set_port_state(struct stp_port *p, enum stp_state state)$/;"	f	file:
+stp_start_timer	stp.cc	/^stp_start_timer(struct stp_timer *timer, int value)$/;"	f	file:
+stp_state	stp.hh	/^enum stp_state {$/;"	g
+stp_state_name	stp.cc	/^stp_state_name(enum stp_state state)$/;"	f
+stp_stop_timer	stp.cc	/^stp_stop_timer(struct stp_timer *timer)$/;"	f	file:
+stp_supersedes_port_info	stp.cc	/^stp_supersedes_port_info(const struct stp_port *p,$/;"	f	file:
+stp_supersedes_root	stp.cc	/^stp_supersedes_root(const struct stp_port *root, const struct stp_port *p)$/;"	f	file:
+stp_tcn_bpdu	stp.cc	/^struct stp_tcn_bpdu {$/;"	s	file:
+stp_tcn_timer_expiry	stp.cc	/^stp_tcn_timer_expiry(struct stp *stp)$/;"	f	file:
+stp_tick	stp.cc	/^stp_tick(struct stp *stp, int ms)$/;"	f
+stp_timer	stp.cc	/^struct stp_timer {$/;"	s	file:
+stp_timer_expired	stp.cc	/^stp_timer_expired(struct stp_timer *timer, int elapsed, int timeout)$/;"	f	file:
+stp_topology_change_acknowledged	stp.cc	/^stp_topology_change_acknowledged(struct stp *stp)$/;"	f	file:
+stp_topology_change_detection	stp.cc	/^stp_topology_change_detection(struct stp *stp)$/;"	f	file:
+stp_topology_change_timer_expiry	stp.cc	/^stp_topology_change_timer_expiry(struct stp *stp)$/;"	f	file:
+stp_transmit_config	stp.cc	/^stp_transmit_config(struct stp_port *p)$/;"	f	file:
+stp_transmit_tcn	stp.cc	/^stp_transmit_tcn(struct stp *stp)$/;"	f	file:
+stp_update_bridge_timers	stp.cc	/^stp_update_bridge_timers(struct stp *stp)$/;"	f	file:
+str_to_int	util.cc	/^str_to_int(const char *s, int base, int *i)$/;"	f
+str_to_llong	util.cc	/^str_to_llong(const char *s, int base, long long *x)$/;"	f
+str_to_long	util.cc	/^str_to_long(const char *s, int base, long *li)$/;"	f
+str_to_uint	util.cc	/^str_to_uint(const char *s, int base, unsigned int *u)$/;"	f
+str_to_ullong	util.cc	/^str_to_ullong(const char *s, int base, unsigned long long *ull)$/;"	f
+str_to_ulong	util.cc	/^str_to_ulong(const char *s, int base, unsigned long *ul)$/;"	f
+stream_clear_txbuf	vconn-stream.cc	/^stream_clear_txbuf(struct stream_vconn *s)$/;"	f	file:
+stream_close	vconn-stream.cc	/^stream_close(struct vconn *vconn)$/;"	f	file:
+stream_connect	vconn-stream.cc	/^stream_connect(struct vconn *vconn)$/;"	f	file:
+stream_do_tx	vconn-stream.cc	/^stream_do_tx(int fd UNUSED, short int revents UNUSED, void *vconn_)$/;"	f	file:
+stream_recv	vconn-stream.cc	/^stream_recv(struct vconn *vconn, struct ofpbuf **bufferp)$/;"	f	file:
+stream_send	vconn-stream.cc	/^static int stream_send(struct vconn *vconn, struct ofpbuf *buffer)$/;"	f	file:
+stream_vconn	vconn-stream.cc	/^struct stream_vconn$/;"	s	file:
+stream_vconn_cast	vconn-stream.cc	/^stream_vconn_cast(struct vconn *vconn)$/;"	f	file:
+stream_vconn_class	vconn-stream.cc	/^static struct vconn_class stream_vconn_class = {$/;"	v	typeref:struct:vconn_class	file:
+stream_wait	vconn-stream.cc	/^stream_wait(struct vconn *vconn, enum vconn_wait_type wait)$/;"	f	file:
+string	dynamic-string.hh	/^    char *string;       \/* Null-terminated string. *\/$/;"	m	struct:ds
+strip_vlan	dp_act.cc	/^strip_vlan(struct ofpbuf *buffer, struct sw_flow_key *key, $/;"	f	file:
+strlcpy	util.cc	/^strlcpy(char *dst, const char *src, size_t size)$/;"	f
+subtable	table-hash.cc	/^	struct sw_table *subtable[2];$/;"	m	struct:sw_table_hash2	typeref:struct:sw_table_hash2::sw_table	file:
+svec	svec.hh	/^struct svec {$/;"	s
+svec_add	svec.cc	/^svec_add(struct svec *svec, const char *name)$/;"	f
+svec_add_nocopy	svec.cc	/^svec_add_nocopy(struct svec *svec, char *name)$/;"	f
+svec_append	svec.cc	/^svec_append(struct svec *svec, const struct svec *other)$/;"	f
+svec_back	svec.cc	/^svec_back(const struct svec *svec)$/;"	f
+svec_clear	svec.cc	/^svec_clear(struct svec *svec) $/;"	f
+svec_contains	svec.cc	/^svec_contains(const struct svec *svec, const char *name)$/;"	f
+svec_destroy	svec.cc	/^svec_destroy(struct svec *svec)$/;"	f
+svec_diff	svec.cc	/^svec_diff(const struct svec *a, const struct svec *b,$/;"	f
+svec_equal	svec.cc	/^svec_equal(const struct svec *a, const struct svec *b)$/;"	f
+svec_expand	svec.cc	/^svec_expand(struct svec *svec)$/;"	f	file:
+svec_find	svec.cc	/^svec_find(const struct svec *svec, const char *name)$/;"	f
+svec_get_duplicate	svec.cc	/^svec_get_duplicate(const struct svec *svec)$/;"	f
+svec_init	svec.cc	/^svec_init(struct svec *svec)$/;"	f
+svec_is_sorted	svec.cc	/^svec_is_sorted(const struct svec *svec)$/;"	f
+svec_is_unique	svec.cc	/^svec_is_unique(const struct svec *svec)$/;"	f
+svec_join	svec.cc	/^svec_join(const struct svec *svec, const char *delimiter)$/;"	f
+svec_parse_words	svec.cc	/^svec_parse_words(struct svec *svec, const char *words)$/;"	f
+svec_pop_back	svec.cc	/^svec_pop_back(struct svec *svec)$/;"	f
+svec_print	svec.cc	/^svec_print(const struct svec *svec, const char *title)$/;"	f
+svec_sort	svec.cc	/^svec_sort(struct svec *svec)$/;"	f
+svec_sort_unique	svec.cc	/^svec_sort_unique(struct svec *svec)$/;"	f
+svec_swap	svec.cc	/^svec_swap(struct svec *a, struct svec *b)$/;"	f
+svec_terminate	svec.cc	/^svec_terminate(struct svec *svec)$/;"	f
+svec_unique	svec.cc	/^svec_unique(struct svec *svec)$/;"	f
+sw_chain	chain.hh	/^struct sw_chain {$/;"	s
+sw_flow	switch-flow.hh	/^struct sw_flow {$/;"	s
+sw_flow_actions	switch-flow.hh	/^struct sw_flow_actions {$/;"	s
+sw_flow_key	switch-flow.hh	/^struct sw_flow_key {$/;"	s
+sw_table	table.hh	/^struct sw_table {$/;"	s
+sw_table_hash	table-hash.cc	/^struct sw_table_hash {$/;"	s	file:
+sw_table_hash2	table-hash.cc	/^struct sw_table_hash2 {$/;"	s	file:
+sw_table_linear	table-linear.cc	/^struct sw_table_linear {$/;"	s	file:
+sw_table_position	table.hh	/^struct sw_table_position {$/;"	s
+sw_table_stats	table.hh	/^struct sw_table_stats {$/;"	s
+swt	table-hash.cc	/^	struct sw_table swt;$/;"	m	struct:sw_table_hash	typeref:struct:sw_table_hash::sw_table	file:
+swt	table-hash.cc	/^	struct sw_table swt;$/;"	m	struct:sw_table_hash2	typeref:struct:sw_table_hash2::sw_table	file:
+swt	table-linear.cc	/^    struct sw_table swt;$/;"	m	struct:sw_table_linear	typeref:struct:sw_table_linear::sw_table	file:
+syslog_levels	vlog.cc	/^static int syslog_levels[VLL_N_LEVELS] = {$/;"	v	file:
+table	of_crc32.hh	/^    unsigned int table[CRC32_TABLE_SIZE];$/;"	m	struct:crc32
+table_hash2_create	table-hash.cc	/^struct sw_table *table_hash2_create(unsigned int poly0, unsigned int buckets0,$/;"	f
+table_hash2_delete	table-hash.cc	/^static int table_hash2_delete(class Datapath *dp, struct sw_table *swt,$/;"	f	file:
+table_hash2_destroy	table-hash.cc	/^static void table_hash2_destroy(struct sw_table *swt)$/;"	f	file:
+table_hash2_has_conflict	table-hash.cc	/^static int table_hash2_has_conflict(struct sw_table *swt, $/;"	f	file:
+table_hash2_insert	table-hash.cc	/^static int table_hash2_insert(struct sw_table *swt, struct sw_flow *flow)$/;"	f	file:
+table_hash2_iterate	table-hash.cc	/^static int table_hash2_iterate(struct sw_table *swt,$/;"	f	file:
+table_hash2_lookup	table-hash.cc	/^static struct sw_flow *table_hash2_lookup(struct sw_table *swt,$/;"	f	file:
+table_hash2_modify	table-hash.cc	/^static int table_hash2_modify(struct sw_table *swt, $/;"	f	file:
+table_hash2_stats	table-hash.cc	/^static void table_hash2_stats(struct sw_table *swt,$/;"	f	file:
+table_hash2_timeout	table-hash.cc	/^static void table_hash2_timeout(struct sw_table *swt, struct list *deleted)$/;"	f	file:
+table_hash_create	table-hash.cc	/^struct sw_table *table_hash_create(unsigned int polynomial,$/;"	f
+table_hash_delete	table-hash.cc	/^static int table_hash_delete(class Datapath *dp, struct sw_table *swt,$/;"	f	file:
+table_hash_destroy	table-hash.cc	/^static void table_hash_destroy(struct sw_table *swt)$/;"	f	file:
+table_hash_has_conflict	table-hash.cc	/^static int table_hash_has_conflict(struct sw_table *swt,$/;"	f	file:
+table_hash_insert	table-hash.cc	/^static int table_hash_insert(struct sw_table *swt, struct sw_flow *flow)$/;"	f	file:
+table_hash_iterate	table-hash.cc	/^static int table_hash_iterate(struct sw_table *swt,$/;"	f	file:
+table_hash_lookup	table-hash.cc	/^static struct sw_flow *table_hash_lookup(struct sw_table *swt,$/;"	f	file:
+table_hash_modify	table-hash.cc	/^static int table_hash_modify(struct sw_table *swt, $/;"	f	file:
+table_hash_stats	table-hash.cc	/^static void table_hash_stats(struct sw_table *swt,$/;"	f	file:
+table_hash_timeout	table-hash.cc	/^static void table_hash_timeout(struct sw_table *swt, struct list *deleted)$/;"	f	file:
+table_linear_create	table-linear.cc	/^struct sw_table *table_linear_create(unsigned int max_flows)$/;"	f
+table_linear_delete	table-linear.cc	/^static int table_linear_delete(class Datapath *dp, struct sw_table *swt,$/;"	f	file:
+table_linear_destroy	table-linear.cc	/^static void table_linear_destroy(struct sw_table *swt)$/;"	f	file:
+table_linear_has_conflict	table-linear.cc	/^static int table_linear_has_conflict(struct sw_table *swt,$/;"	f	file:
+table_linear_insert	table-linear.cc	/^static int table_linear_insert(struct sw_table *swt, struct sw_flow *flow)$/;"	f	file:
+table_linear_iterate	table-linear.cc	/^static int table_linear_iterate(struct sw_table *swt,$/;"	f	file:
+table_linear_lookup	table-linear.cc	/^static struct sw_flow *table_linear_lookup(struct sw_table *swt,$/;"	f	file:
+table_linear_modify	table-linear.cc	/^static int table_linear_modify(struct sw_table *swt,$/;"	f	file:
+table_linear_stats	table-linear.cc	/^static void table_linear_stats(struct sw_table *swt,$/;"	f	file:
+table_linear_timeout	table-linear.cc	/^static void table_linear_timeout(struct sw_table *swt, struct list *deleted)$/;"	f	file:
+tables	chain.hh	/^    struct sw_table *tables[CHAIN_MAX_TABLES];$/;"	m	struct:sw_chain	typeref:struct:sw_chain::sw_table
+tail	queue.hh	/^    struct ofpbuf *tail;        \/* Last queued packet, null if n == 0. *\/$/;"	m	struct:ofp_queue	typeref:struct:ofp_queue::ofpbuf
+tcn_timer	stp.cc	/^    struct stp_timer tcn_timer;     \/* 8.5.4.2: Topology change timer. *\/$/;"	m	struct:stp	typeref:struct:stp::stp_timer	file:
+tcp_ack	packets.hh	/^    uint32_t tcp_ack;$/;"	m	struct:tcp_header
+tcp_csum	packets.hh	/^    uint16_t tcp_csum;$/;"	m	struct:tcp_header
+tcp_ctl	packets.hh	/^    uint16_t tcp_ctl;$/;"	m	struct:tcp_header
+tcp_dst	packets.hh	/^    uint16_t tcp_dst;$/;"	m	struct:tcp_header
+tcp_header	packets.hh	/^struct tcp_header {$/;"	s
+tcp_open	vconn-tcp.cc	/^tcp_open(const char *name, char *suffix, struct vconn **vconnp)$/;"	f	file:
+tcp_seq	packets.hh	/^    uint32_t tcp_seq;$/;"	m	struct:tcp_header
+tcp_src	packets.hh	/^    uint16_t tcp_src;$/;"	m	struct:tcp_header
+tcp_urg	packets.hh	/^    uint16_t tcp_urg;$/;"	m	struct:tcp_header
+tcp_vconn_class	vconn-tcp.cc	/^struct vconn_class tcp_vconn_class = {$/;"	v	typeref:struct:vconn_class
+tcp_winsz	packets.hh	/^    uint16_t tcp_winsz;$/;"	m	struct:tcp_header
+thiszone	pcap.cc	/^    int32_t thiszone;        \/* GMT to local correction *\/$/;"	m	struct:pcap_hdr	file:
+tick	timeval.cc	/^static volatile sig_atomic_t tick;$/;"	v	file:
+time_add	timeval.cc	/^time_add(time_t a, time_t b)$/;"	f	file:
+time_alarm	timeval.cc	/^time_alarm(unsigned int secs)$/;"	f
+time_init	timeval.cc	/^time_init(void)$/;"	f
+time_msec	timeval.cc	/^time_msec(void)$/;"	f
+time_now	timeval.cc	/^time_now(void)$/;"	f
+time_poll	timeval.cc	/^time_poll(struct pollfd *pollfds, int n_pollfds, int timeout)$/;"	f
+time_refresh	timeval.cc	/^time_refresh(void)$/;"	f
+timed_out	rconn.cc	/^timed_out(const struct rconn *rc)$/;"	f	file:
+timeout	poll-loop.cc	/^static int timeout = -1;$/;"	v	file:
+timeout	rconn.cc	/^timeout(const struct rconn *rc)$/;"	f	file:
+timeout	table.hh	/^    void (*timeout)(struct sw_table *table, struct list *deleted);$/;"	m	struct:sw_table
+timeout_ACTIVE	rconn.cc	/^timeout_ACTIVE(const struct rconn *rc)$/;"	f	file:
+timeout_BACKOFF	rconn.cc	/^timeout_BACKOFF(const struct rconn *rc)$/;"	f	file:
+timeout_CONNECTING	rconn.cc	/^timeout_CONNECTING(const struct rconn *rc)$/;"	f	file:
+timeout_IDLE	rconn.cc	/^timeout_IDLE(const struct rconn *rc)$/;"	f	file:
+timeout_VOID	rconn.cc	/^timeout_VOID(const struct rconn *rc UNUSED)$/;"	f	file:
+timer_to_ms	stp.cc	/^timer_to_ms(int timer)$/;"	f	file:
+tmp_dh_callback	vconn-ssl.cc	/^tmp_dh_callback(SSL *ssl UNUSED, int is_export UNUSED, int keylength)$/;"	f	file:
+tokens	vlog.hh	/^    unsigned int tokens;        \/* Current number of tokens. *\/$/;"	m	struct:vlog_rate_limit
+topology_change	stp.cc	/^    bool topology_change;           \/* 8.5.3.12: Received topology change? *\/$/;"	m	struct:stp	file:
+topology_change_ack	stp.cc	/^    bool topology_change_ack;       \/* 8.5.5.8: Flag for next config BPDU. *\/$/;"	m	struct:stp_port	file:
+topology_change_detected	stp.cc	/^    bool topology_change_detected;  \/* 8.5.3.11: Detected a topology change? *\/$/;"	m	struct:stp	file:
+topology_change_timer	stp.cc	/^    struct stp_timer topology_change_timer; \/* 8.5.4.3. *\/$/;"	m	struct:stp	typeref:struct:stp::stp_timer	file:
+total_time_connected	rconn.cc	/^    unsigned long int total_time_connected;$/;"	m	struct:rconn	file:
+tp_dst	flow.hh	/^    uint16_t tp_dst;            \/* TCP\/UDP destination port. *\/$/;"	m	struct:flow
+tp_src	flow.hh	/^    uint16_t tp_src;            \/* TCP\/UDP source port. *\/$/;"	m	struct:flow
+try_send	rconn.cc	/^static int try_send(struct rconn *rc)$/;"	f	file:
+ts_sec	pcap.cc	/^    uint32_t ts_sec;         \/* timestamp seconds *\/$/;"	m	struct:pcaprec_hdr	file:
+ts_usec	pcap.cc	/^    uint32_t ts_usec;        \/* timestamp microseconds *\/$/;"	m	struct:pcaprec_hdr	file:
+tx_waiter	vconn-ssl.cc	/^    struct poll_waiter *tx_waiter;$/;"	m	struct:ssl_vconn	typeref:struct:ssl_vconn::poll_waiter	file:
+tx_waiter	vconn-stream.cc	/^    struct poll_waiter *tx_waiter;$/;"	m	struct:stream_vconn	typeref:struct:stream_vconn::poll_waiter	file:
+tx_want	vconn-ssl.cc	/^    int rx_want, tx_want;$/;"	m	struct:ssl_vconn	file:
+txbuf	vconn-ssl.cc	/^    struct ofpbuf *txbuf;$/;"	m	struct:ssl_vconn	typeref:struct:ssl_vconn::ofpbuf	file:
+txbuf	vconn-stream.cc	/^    struct ofpbuf *txbuf;$/;"	m	struct:stream_vconn	typeref:struct:stream_vconn::ofpbuf	file:
+txq	rconn.cc	/^    struct ofp_queue txq;$/;"	m	struct:rconn	typeref:struct:rconn::ofp_queue	file:
+type	netlink.hh	/^    enum nl_attr_type type;$/;"	m	struct:nl_policy	typeref:enum:nl_policy::nl_attr_type
+type	ofp-print.cc	/^    int type;$/;"	m	struct:error_type	file:
+type	ofp-print.cc	/^    uint8_t type;$/;"	m	struct:openflow_packet	file:
+type	vconn-ssl.cc	/^    enum session_type type;$/;"	m	struct:ssl_vconn	typeref:enum:ssl_vconn::session_type	file:
+udp_csum	packets.hh	/^    uint16_t udp_csum;$/;"	m	struct:udp_header
+udp_dst	packets.hh	/^    uint16_t udp_dst;$/;"	m	struct:udp_header
+udp_header	packets.hh	/^struct udp_header {$/;"	s
+udp_len	packets.hh	/^    uint16_t udp_len;$/;"	m	struct:udp_header
+udp_src	packets.hh	/^    uint16_t udp_src;$/;"	m	struct:udp_header
+unblock_sigalrm	timeval.cc	/^unblock_sigalrm(const sigset_t *oldsigs)$/;"	f	file:
+unix_open	vconn-unix.cc	/^unix_open(const char *name, char *suffix, struct vconn **vconnp)$/;"	f	file:
+unix_vconn_class	vconn-unix.cc	/^struct vconn_class unix_vconn_class = {$/;"	v	typeref:struct:vconn_class
+unknown	ofpstat.hh	/^		uint64_t unknown;$/;"	m	struct:ofpstat::__anon4
+unknown	ofpstat.hh	/^		uint64_t unknown;$/;"	m	struct:ofpstat::__anon5
+unknown	ofpstat.hh	/^		uint64_t unknown;$/;"	m	struct:ofpstat::__anon6
+unlink_files	fatal-signal.cc	/^unlink_files(void *aux UNUSED)$/;"	f	file:
+update_min_level	vlog.cc	/^update_min_level(enum vlog_module module)$/;"	f	file:
+update_openflow_length	vconn.cc	/^update_openflow_length(struct ofpbuf *buffer) $/;"	f
+used	switch-flow.hh	/^    uint64_t used;              \/* Last used time. *\/$/;"	m	struct:sw_flow
+va_copy	util.hh	54;"	d
+va_copy	util.hh	56;"	d
+validate	dp_act.cc	/^    uint16_t (*validate)(class Datapath *dp, $/;"	m	struct:openflow_action	file:
+validate_actions	dp_act.cc	/^validate_actions(class Datapath *dp, const struct sw_flow_key *key,$/;"	f
+validate_ofpat	dp_act.cc	/^validate_ofpat(class Datapath *dp, const struct sw_flow_key *key, $/;"	f	file:
+validate_output	dp_act.cc	/^validate_output(class Datapath *dp UNUSED, const struct sw_flow_key *key, $/;"	f	file:
+validate_queue	dp_act.cc	/^validate_queue(class Datapath *dp UNUSED, const struct sw_flow_key *key UNUSED,$/;"	f	file:
+validate_vendor	dp_act.cc	/^validate_vendor(class Datapath *dp UNUSED, const struct sw_flow_key *key UNUSED, $/;"	f	file:
+value	stp.cc	/^    int value;                   \/* Current value of timer, counting up. *\/$/;"	m	struct:stp_timer	file:
+vconn	rconn.cc	/^    struct vconn *vconn;$/;"	m	struct:rconn	typeref:struct:rconn::vconn	file:
+vconn	vconn-netlink.cc	/^    struct vconn vconn;$/;"	m	struct:netlink_vconn	typeref:struct:netlink_vconn::vconn	file:
+vconn	vconn-provider.hh	/^struct vconn {$/;"	s
+vconn	vconn-ssl.cc	/^    struct vconn vconn;$/;"	m	struct:ssl_vconn	typeref:struct:ssl_vconn::vconn	file:
+vconn	vconn-stream.cc	/^    struct vconn vconn;$/;"	m	struct:stream_vconn	typeref:struct:stream_vconn::vconn	file:
+vconn_assert_class	vconn-provider.hh	/^static inline void vconn_assert_class(const struct vconn *vconn,$/;"	f
+vconn_class	vconn-provider.hh	/^struct vconn_class {$/;"	s
+vconn_classes	vconn.cc	/^static struct vconn_class *vconn_classes[] = {$/;"	v	typeref:struct:vconn_class	file:
+vconn_close	vconn.cc	/^vconn_close(struct vconn *vconn)$/;"	f
+vconn_connect	vconn.cc	/^vconn_connect(struct vconn *vconn)$/;"	f
+vconn_connect_wait	vconn.cc	/^vconn_connect_wait(struct vconn *vconn)$/;"	f
+vconn_get_ip	vconn.cc	/^vconn_get_ip(const struct vconn *vconn) $/;"	f
+vconn_get_name	vconn.cc	/^vconn_get_name(const struct vconn *vconn)$/;"	f
+vconn_init	vconn.cc	/^vconn_init(struct vconn *vconn, struct vconn_class *Class, int connect_status,$/;"	f
+vconn_is_reconnectable	vconn.cc	/^vconn_is_reconnectable(const struct vconn *vconn)$/;"	f
+vconn_open	vconn.cc	/^vconn_open(const char *name, int min_version, struct vconn **vconnp)$/;"	f
+vconn_open_block	vconn.cc	/^vconn_open_block(const char *name, int min_version, struct vconn **vconnp)$/;"	f
+vconn_recv	vconn.cc	/^vconn_recv(struct vconn *vconn, struct ofpbuf **msgp)$/;"	f
+vconn_recv_block	vconn.cc	/^vconn_recv_block(struct vconn *vconn, struct ofpbuf **msgp)$/;"	f
+vconn_recv_wait	vconn.cc	/^vconn_recv_wait(struct vconn *vconn)$/;"	f
+vconn_recv_xid	vconn.cc	/^vconn_recv_xid(struct vconn *vconn, uint32_t xid, struct ofpbuf **replyp)$/;"	f
+vconn_send	vconn.cc	/^int vconn_send(struct vconn *vconn, struct ofpbuf *msg)$/;"	f
+vconn_send_block	vconn.cc	/^int vconn_send_block(struct vconn *vconn, struct ofpbuf *msg)$/;"	f
+vconn_send_wait	vconn.cc	/^vconn_send_wait(struct vconn *vconn)$/;"	f
+vconn_ssl_is_configured	vconn-ssl.cc	/^vconn_ssl_is_configured(void) $/;"	f
+vconn_ssl_is_configured	vconn-ssl.hh	/^static inline bool vconn_ssl_is_configured(void) $/;"	f
+vconn_ssl_set_ca_cert_file	vconn-ssl.cc	/^vconn_ssl_set_ca_cert_file(const char *file_name, bool bootstrap)$/;"	f
+vconn_ssl_set_certificate_file	vconn-ssl.cc	/^vconn_ssl_set_certificate_file(const char *file_name)$/;"	f
+vconn_ssl_set_peer_ca_cert_file	vconn-ssl.cc	/^vconn_ssl_set_peer_ca_cert_file(const char *file_name)$/;"	f
+vconn_ssl_set_private_key_file	vconn-ssl.cc	/^vconn_ssl_set_private_key_file(const char *file_name)$/;"	f
+vconn_state	vconn.cc	/^enum vconn_state {$/;"	g	file:
+vconn_transact	vconn.cc	/^vconn_transact(struct vconn *vconn, struct ofpbuf *request,$/;"	f
+vconn_usage	vconn.cc	/^vconn_usage(bool active, bool passive, bool bootstrap UNUSED)$/;"	f
+vconn_wait	vconn.cc	/^vconn_wait(struct vconn *vconn, enum vconn_wait_type wait)$/;"	f
+vconn_wait_type	vconn.hh	/^enum vconn_wait_type {$/;"	g
+vcs_connecting	vconn.cc	/^vcs_connecting(struct vconn *vconn) $/;"	f	file:
+vcs_recv_hello	vconn.cc	/^vcs_recv_hello(struct vconn *vconn)$/;"	f	file:
+vcs_send_error	vconn.cc	/^vcs_send_error(struct vconn *vconn)$/;"	f	file:
+vcs_send_hello	vconn.cc	/^vcs_send_hello(struct vconn *vconn)$/;"	f	file:
+vendor_stat	ofp-print.cc	/^vendor_stat(struct ds *string, const void *body, size_t len,$/;"	f	file:
+version	netlink-protocol.hh	/^    uint8_t version;$/;"	m	struct:genlmsghdr
+version	vconn-provider.hh	/^    int version;$/;"	m	struct:vconn
+version_major	pcap.cc	/^    uint16_t version_major;  \/* major version number *\/$/;"	m	struct:pcap_hdr	file:
+version_minor	pcap.cc	/^    uint16_t version_minor;  \/* minor version number *\/$/;"	m	struct:pcap_hdr	file:
+veth_dst	packets.hh	/^    uint8_t veth_dst[ETH_ADDR_LEN];$/;"	m	struct:vlan_eth_header
+veth_next_type	packets.hh	/^    uint16_t veth_next_type;$/;"	m	struct:vlan_eth_header
+veth_src	packets.hh	/^    uint8_t veth_src[ETH_ADDR_LEN];$/;"	m	struct:vlan_eth_header
+veth_tci	packets.hh	/^    uint16_t veth_tci;          \/* Lowest 12 bits are VLAN ID. *\/$/;"	m	struct:vlan_eth_header
+veth_type	packets.hh	/^    uint16_t veth_type;         \/* Always htons(ETH_TYPE_VLAN). *\/$/;"	m	struct:vlan_eth_header
+vlan_eth_header	packets.hh	/^struct vlan_eth_header {$/;"	s
+vlan_header	packets.hh	/^struct vlan_header {$/;"	s
+vlan_next_type	packets.hh	/^    uint16_t vlan_next_type;$/;"	m	struct:vlan_header
+vlan_pull_tag	dp_act.cc	/^vlan_pull_tag(struct ofpbuf *buffer)$/;"	f	file:
+vlan_tci	packets.hh	/^    uint16_t vlan_tci;          \/* Lowest 12 bits are VLAN ID. *\/$/;"	m	struct:vlan_header
+vlog	vlog.cc	/^vlog(enum vlog_module module, enum vlog_level level, const char *message, ...)$/;"	f
+vlog_client	vlog-socket.cc	/^struct vlog_client {$/;"	s	file:
+vlog_client_close	vlog-socket.cc	/^vlog_client_close(struct vlog_client *client)$/;"	f
+vlog_client_connect	vlog-socket.cc	/^vlog_client_connect(const char *path, struct vlog_client **clientp)$/;"	f
+vlog_client_recv	vlog-socket.cc	/^vlog_client_recv(struct vlog_client *client, char **reply)$/;"	f
+vlog_client_send	vlog-socket.cc	/^vlog_client_send(struct vlog_client *client, const char *request)$/;"	f
+vlog_client_target	vlog-socket.cc	/^vlog_client_target(const struct vlog_client *client)$/;"	f
+vlog_client_transact	vlog-socket.cc	/^vlog_client_transact(struct vlog_client *client,$/;"	f
+vlog_exit	vlog.cc	/^vlog_exit(void) $/;"	f
+vlog_facility	vlog.hh	/^enum vlog_facility {$/;"	g
+vlog_get_facility_name	vlog.cc	/^vlog_get_facility_name(enum vlog_facility facility) $/;"	f
+vlog_get_facility_val	vlog.cc	/^vlog_get_facility_val(const char *name) $/;"	f
+vlog_get_level	vlog.cc	/^vlog_get_level(enum vlog_module module, enum vlog_facility facility) $/;"	f
+vlog_get_level_name	vlog.cc	/^vlog_get_level_name(enum vlog_level level)$/;"	f
+vlog_get_level_val	vlog.cc	/^vlog_get_level_val(const char *name) $/;"	f
+vlog_get_levels	vlog.cc	/^vlog_get_levels(void)$/;"	f
+vlog_get_log_file	vlog.cc	/^vlog_get_log_file(void)$/;"	f
+vlog_get_module_name	vlog.cc	/^const char *vlog_get_module_name(enum vlog_module module) $/;"	f
+vlog_get_module_val	vlog.cc	/^vlog_get_module_val(const char *name) $/;"	f
+vlog_init	vlog.cc	/^vlog_init(void) $/;"	f
+vlog_is_enabled	vlog.cc	/^vlog_is_enabled(enum vlog_module module, enum vlog_level level)$/;"	f
+vlog_level	vlog.hh	/^enum vlog_level {$/;"	g
+vlog_module	vlog.hh	/^enum vlog_module {$/;"	g
+vlog_rate_limit	vlog.cc	/^vlog_rate_limit(enum vlog_module module, enum vlog_level level,$/;"	f
+vlog_rate_limit	vlog.hh	/^struct vlog_rate_limit {$/;"	s
+vlog_reopen_log_file	vlog.cc	/^vlog_reopen_log_file(void)$/;"	f
+vlog_server	vlog-socket.cc	/^struct vlog_server {$/;"	s	file:
+vlog_server_close	vlog-socket.cc	/^vlog_server_close(struct vlog_server *server)$/;"	f
+vlog_server_listen	vlog-socket.cc	/^vlog_server_listen(const char *path, struct vlog_server **serverp)$/;"	f
+vlog_set_levels	vlog.cc	/^vlog_set_levels(enum vlog_module module, enum vlog_facility facility,$/;"	f
+vlog_set_levels_from_string	vlog.cc	/^vlog_set_levels_from_string(const char *s_)$/;"	f
+vlog_set_log_file	vlog.cc	/^vlog_set_log_file(const char *file_name)$/;"	f
+vlog_set_pattern	vlog.cc	/^vlog_set_pattern(enum vlog_facility facility, const char *pattern)$/;"	f
+vlog_set_verbosity	vlog.cc	/^vlog_set_verbosity(const char *arg)$/;"	f
+vlog_usage	vlog.cc	/^vlog_usage(void) $/;"	f
+vlog_valist	vlog.cc	/^vlog_valist(enum vlog_module module, enum vlog_level level,$/;"	f
+wait	vconn-provider.hh	/^    void (*wait)(struct pvconn *pvconn);$/;"	m	struct:pvconn_class
+wait	vconn-provider.hh	/^    void (*wait)(struct vconn *vconn, enum vconn_wait_type type);$/;"	m	struct:vconn_class
+waiter	vlog-socket.cc	/^    struct poll_waiter *waiter;$/;"	m	struct:vlog_server	typeref:struct:vlog_server::poll_waiter	file:
+waiters	poll-loop.cc	/^static struct list waiters = LIST_INITIALIZER(&waiters);$/;"	v	typeref:struct:list	file:
+want_to_poll_events	vconn-ssl.cc	/^want_to_poll_events(int want)$/;"	f	file:
+wildcards	switch-flow.hh	/^    uint32_t wildcards;         \/* Wildcard fields (in host byte order). *\/$/;"	m	struct:sw_flow_key
+wildcards	table.hh	/^    uint32_t wildcards;          \/* Bitmap of OFPFW_* wildcards that are$/;"	m	struct:sw_table_stats
+x2nrealloc	util.cc	/^x2nrealloc(void *p, size_t *n, size_t s)$/;"	f
+xasprintf	util.cc	/^xasprintf(const char *format, ...)$/;"	f
+xcalloc	util.cc	/^xcalloc(size_t count, size_t size) $/;"	f
+xmalloc	util.cc	/^xmalloc(size_t size) $/;"	f
+xmemdup	util.cc	/^xmemdup(const void *p_, size_t size)$/;"	f
+xmemdup0	util.cc	/^xmemdup0(const char *p_, size_t length)$/;"	f
+xrealloc	util.cc	/^xrealloc(void *p, size_t size) $/;"	f
+xstrdup	util.cc	/^xstrdup(const char *s) $/;"	f
+xvasprintf	util.cc	/^xvasprintf(const char *format, va_list args)$/;"	f
+~DynamicString	dynamic-string.hh	/^	~DynamicString() {};$/;"	f	class:DynamicString

@@ -1,0 +1,43 @@
+CHANGELOG: This is a short log for the changes in each version. 
+	   For more information, read README and find 
+	   "2020-00-00[Self-Teaching] FlowNet Click Element Script.ppt" 
+	   powerpoint material. 
+
+
+* FlowNet-v0.5.1
+	- First branch of FlowNet
+
+
+* FlowNet-v0.5.2 (2011-09-16)
+
+	- Clean the MPEG2 parsing (written by SangHoon Park) and apply open-source-code MPEG2 analyzer
+
+	- Add an algorithm "congestion detection (CD) based shape with cross-flow balancing" for BW shaping
+	
+	- Add scheduling algorithms :log-weight, virtual-pressure, shadow-queuing
+
+* FlowNet-v0.6.0 (2011-09-27)
+	
+	- Scheduling Framework Major Change
+		
+		* New inner-loop backpressure scheduler (DAMPING-SCHEDULE: rename required)
+	
+		* Support inner-loop and outer-loop control (All the existing schedulers become inner-loop controls)
+		
+		* For outer-loop control, we monitor and manipulate MAC-layer params (requires MadWiFi version <= 0.9.x)
+
+		* Scheduling framework maintains multiple congestion detection algorithm pools and activate them at the same time.
+		  The shapers can register what congestion detection algorithm they want to get a congestion indiciation callback event.
+
+	- Add several CD algorithms: CD_Threshold, CD_Proportional, etc
+
+	- Change the name of BWShapeByCD (also BWShapeByCD_CFB) to BWShapeByCDCORE since now other shaping algorithms depend on CD (Congestion Detection)
+		
+* FlowNet-v0.6.1 (2012-01-30)
+
+	- Now, FlowNet-v0.6.1 includes VxS. (NOTE: this inclusion may cause the confusion but, at the moment, 
+	  we do not strictly separate between FlowNet and others. It is more likely FlowNet is the main project that includes all).
+	
+	- OpenFlow applies patches for 64bit architecture. For this, we move from shallow copy to deep copy of OpenFlow-Click-Packet-Translation 
+
+	- Got rid of CD_Proportional and make another type of CD (CD_Direct) that is one and the only compatible one to VcBWShapeProportional

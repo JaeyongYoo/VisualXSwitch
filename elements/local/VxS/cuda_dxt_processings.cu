@@ -411,7 +411,7 @@ __device__ void scaleColorBlock(const uint * input, uint * output, ushort3 avg_m
 		uint32_t total_dxt_blocks, uint32_t orig_width, uint32_t target_width, uint32_t blockOffset)
 {
 	// gid is the coordination to the after processed (pixel block id)
-	int gid = blockDim.x * (BlockOffset + blockIdx.x) + threadIdx.x; 
+	int gid = blockDim.x * (blockOffset + blockIdx.x) + threadIdx.x; 
 	if( gid >= total_dxt_blocks ) return;
 
 	uint source;
@@ -424,7 +424,7 @@ __device__ void scaleColorBlock(const uint * input, uint * output, ushort3 avg_m
                         source = 0;
                         for(int k=0;k<2;k++) {
                                 for(int l=0;l<2;l++) {
-					source = input[((bid+threadIdx.x)/(orig_width>>3)*8+(2*i)+k)*orig_width + ((bid+threadIdx.x)%(orig_width>>3)*8)+2*j+l];
+					source = input[((gid+threadIdx.x)/(orig_width>>3)*8+(2*i)+k)*orig_width + ((gid+threadIdx.x)%(orig_width>>3)*8)+2*j+l];
 
                                 avg_mask[threadIdx.x].x = avg_mask[threadIdx.x].x + ((source >> 16) & 0xff);
                                 avg_mask[threadIdx.x].y = avg_mask[threadIdx.x].y + ((source >> 8) & 0xff);
@@ -432,8 +432,9 @@ __device__ void scaleColorBlock(const uint * input, uint * output, ushort3 avg_m
 				}
 			}
 
-			output[ ((bid+threadIdx.x)/(target_width>>2)*4+i)*target_width + (((bid+threadIdx.x)%(target_width>>2))*4)+j] = (0xff << 24)| ((avg_mask[threadIdx.x].x/4) << 16) | ((avg_mask[threadIdx.x].y/4) << 8) | ((avg_mask[threadIdx.x].z/4) );
-
+			output[ ((gid+threadIdx.x)/(target_width>>2)*4+i)*target_width + (((gid+threadIdx.x)%(target_width>>2))*4)+j] = (0xff << 24)| ((avg_mask[threadIdx.x].x/4) << 16) | ((avg_mask[threadIdx.x].y/4) << 8) | ((avg_mask[threadIdx.x].z/4) );
+		}
+	}
 }
 
 
@@ -443,7 +444,7 @@ __global__ void ckernel_frame_resize(uint32_t *input, uint32_t *output, uint32_t
 {
 
 	// temporal variable for 2x2 average mask
-	__shared__ uint3 avg_mask[NUM_THREADS];
+	__shared__ ushort3 avg_mask[NUM_THREADS];
 
 	int i;
 	int total_pixels = 16;
@@ -451,7 +452,7 @@ __global__ void ckernel_frame_resize(uint32_t *input, uint32_t *output, uint32_t
 	int orig_pixel_position;
 	int tmp_residual_width;
 
-	scaleColorBlock(input, output, avg_mask[NUM_THREADS], total_dxt_blocks,
+	scaleColorBlock(input, output, avg_mask, total_dxt_blocks,
 			orig_width, target_width, blockOffset);
 
 	/*

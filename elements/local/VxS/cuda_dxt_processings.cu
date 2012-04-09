@@ -407,12 +407,43 @@ extern "C" void dxt_decompress_to_rgb4(uint32_t *d_data, uint32_t *d_result)
  * also, the total_dxt_blocks is the one "AFTER" the processing,
  * thus, it means that gid is the coordination to the frame of "AFTER" processed
  ******************************************************************************************************/
-__global__ void ckernel_frame_resize(uint32_t *input, uint32_t *output, uint32_t total_dxt_blocks, 
-		uint32_t orig_width, uint32_t orig_height, uint32_t target_width, uint32_t target_height )
+__device__ void scaleColorBlock(const uint * input, uint * output, ushort3 avg_mask[NUM_THREADS], 
+		uint32_t total_dxt_blocks, uint32_t orig_width, uint32_t target_width, uint32_t blockOffset)
 {
 	// gid is the coordination to the after processed (pixel block id)
-	int gid = blockDim.x * blockIdx.x + threadIdx.x; 
+	int gid = blockDim.x * (BlockOffset + blockIdx.x) + threadIdx.x; 
 	if( gid >= total_dxt_blocks ) return;
+
+	uint source;
+
+        for (int i=0;i<4;i++) {
+                for(int j=0;j<4;j++) {
+                        avg_mask[threadIdx.x].x = 0;
+                        avg_mask[threadIdx.x].y = 0;
+                        avg_mask[threadIdx.x].z = 0;
+                        source = 0;
+                        for(int k=0;k<2;k++) {
+                                for(int l=0;l<2;l++) {
+					source = input[((bid+threadIdx.x)/(orig_width>>3)*8+(2*i)+k)*orig_width + ((bid+threadIdx.x)%(orig_width>>3)*8)+2*j+l];
+
+                                avg_mask[threadIdx.x].x = avg_mask[threadIdx.x].x + ((source >> 16) & 0xff);
+                                avg_mask[threadIdx.x].y = avg_mask[threadIdx.x].y + ((source >> 8) & 0xff);
+                                avg_mask[threadIdx.x].z = avg_mask[threadIdx.x].z + ((source) & 0xff);
+				}
+			}
+
+			output[ ((bid+threadIdx.x)/(target_width>>2)*4+i)*target_width + (((bid+threadIdx.x)%(target_width>>2))*4)+j] = (0xff << 24)| ((avg_mask[threadIdx.x].x/4) << 16) | ((avg_mask[threadIdx.x].y/4) << 8) | ((avg_mask[threadIdx.x].z/4) );
+
+}
+
+
+__global__ void ckernel_frame_resize(uint32_t *input, uint32_t *output, uint32_t total_dxt_blocks, 
+		uint32_t orig_width, uint32_t orig_height, uint32_t target_width, uint32_t target_height,
+		uint32_t blockOffset)
+{
+
+	// temporal variable for 2x2 average mask
+	__shared__ uint3 avg_mask[NUM_THREADS];
 
 	int i;
 	int total_pixels = 16;
@@ -420,16 +451,21 @@ __global__ void ckernel_frame_resize(uint32_t *input, uint32_t *output, uint32_t
 	int orig_pixel_position;
 	int tmp_residual_width;
 
+	scaleColorBlock(input, output, avg_mask[NUM_THREADS], total_dxt_blocks,
+			orig_width, target_width, blockOffset);
+
+	/*
 	for( i = 0; i<total_pixels; i++ ) {
 		pixel_position = gid * total_pixels + i;
-		/* first compute the height */
+		// first compute the height 
 		orig_pixel_position = (pixel_position / target_width) * orig_width;
-		/* then compute the width */
+		// then compute the width 
 		tmp_residual_width = pixel_position % target_width;
 		orig_pixel_position = pixel_position + tmp_residual_width;
 
 		output[pixel_position] = input[orig_pixel_position];
 	}
+	*/
 }
 
 extern "C" int frame_resize(uint32_t *d_data, uint32_t *d_result, uint32_t total_dxt_blocks, 
@@ -439,12 +475,29 @@ extern "C" int frame_resize(uint32_t *d_data, uint32_t *d_result, uint32_t total
 	if( orig_width/2 != target_width ||
 		orig_height/2 != target_height ) return -1;
 
+	//uint mpcount = deviceProp.multiProcessorCount;
+        uint mpcount = 16;
+        const uint memSize = IMAGE_WIDTH * IMAGE_HEIGHT / 2;
+
+        // Determine launch configuration and run timed computation numIterations times
+        uint blocks = ((target_width + 3) / 4) * ((target_height + 3) / 4); // rounds up by 1 block in each dim if %4 != 0
+
+        // Restrict the numbers of blocks to launch on low end GPUs to avoid kernel timeout
+        int blocksPerLaunch = min(blocks, 768 * mpcount);
+
+        for( int j=0; j<(int)blocks; j+=blocksPerLaunch ) {
+
+		ckernel_frame_resize<<<min(blocksPerLaunch, blocks-j), NUM_THREADS>>>(d_data, d_result, 
+			total_dxt_blocks, orig_width, orig_height, target_width, target_height, j );
+        }
+
+	/*
 	uint32_t total_cuda_blocks = total_dxt_blocks / NUM_THREADS;
 	if( total_dxt_blocks % NUM_THREADS ) total_cuda_blocks ++;
 
 	ckernel_frame_resize<<<total_cuda_blocks, NUM_THREADS>>>(d_data, d_result, total_dxt_blocks, 
 			orig_width, orig_height, target_width, target_height );
-
+	*/
 	cudaThreadSynchronize();
 	return 0;
 }

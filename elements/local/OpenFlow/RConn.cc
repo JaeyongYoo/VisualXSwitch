@@ -139,8 +139,7 @@ static void remote_run(class RConn *rconnElement, struct rconn_remote *r)
 			rconnElement->parse_control_input( r, oh->xid, buffer->data, buffer->size);
 
 		} else {
-			// jyyoo TODO:
-			fprintf(stderr, "receive too short Datapath message [formalize me]\n");
+			click_chatter("Error: receive too short Datapath message\n");
 		}
 		ofpbuf_delete(buffer);
 	}
@@ -169,9 +168,12 @@ static int send_openflow_buffer_to_remote(struct ofpbuf *buffer, struct rconn_re
         int retval = rconn_send_with_limit(remote->rconn, buffer, &remote->n_txq,
                         TXQ_LIMIT);
         if (retval) {
-                fprintf(stderr, "send to %s failed: %s [formalize me]",
-                                rconn_get_name(remote->rconn), strerror(retval));
-        }
+		click_chatter("Error: send to \"%s\" failed: %s %s\n",
+                                rconn_get_name(remote->rconn), 
+				strerror(retval),
+				retval == EAGAIN ? "(too much control messages)" : ""  );
+        } else {
+	}
         return retval;
 }
 

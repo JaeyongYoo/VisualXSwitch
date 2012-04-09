@@ -123,6 +123,35 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 	switch( type ) {
 
 		/* FIXME: need a mapping between OFPAT_* and computes (in the list) */
+		case OFPAT_VXS_COPY_BRANCH:
+		{
+			struct ofp_action_vxs_copy_branch *vcb = (struct ofp_action_vxs_copy_branch *)ah;
+			uint32_t iterations=ntohl(vcb->num_copy);
+			uint32_t steps1 = ntohl(vcb->branch_pos1);
+			uint32_t steps2 = ntohl(vcb->branch_pos2);
+			uint32_t i;
+			if( iterations >= 1 ) {
+				VxSInNetworkTask *copied_task = task->clone();
+			
+				/* TODO: modify output port and network header */
+				for( i = 0; i<steps1; i++ ) {
+					copied_task->getNextActionHeader(); /* just remove the actions */
+				}
+				_task_queue_incoming->pushTask( copied_task );
+			}
+			if( iterations >= 2 ) {
+				VxSInNetworkTask *copied_task = task->clone();
+			
+				/* TODO: modify output port and network header */
+				for( i = 0; i<steps2; i++ ) {
+					copied_task->getNextActionHeader(); /* just remove the actions */
+				}
+				_task_queue_incoming->pushTask( copied_task );
+			}
+			break;
+		}
+
+
 		case OFPAT_VXS_DXTComp:
 		{
 			VxSInNetworkCompute *c = lookupCompute("CUDA_DXTC");

@@ -27,8 +27,8 @@ public:
 
 	int setActionHeader( const uint8_t *d, uint32_t size );
 	uint8_t *getNextActionHeader();
-	
 	virtual void print_to_chatter();
+	virtual VxSInNetworkSegment * clone() = 0;
 
 private:
 	/* 

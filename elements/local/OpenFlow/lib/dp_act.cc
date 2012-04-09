@@ -311,7 +311,7 @@ struct openflow_action {
 			size_t actions_len);
 };
 
-static struct openflow_action of_actions[OFPAT_VXS_YUV2RGB+1] = {
+static struct openflow_action of_actions[OFPAT_VXS_COPY_BRANCH+1] = {
 };
 
 void init_of_actions()

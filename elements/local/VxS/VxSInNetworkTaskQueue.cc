@@ -54,6 +54,24 @@ void VxSInNetworkTask::print_to_chatter()
 	click_chatter("\n");
 }
 
+VxSInNetworkTask * VxSInNetworkTask::clone()
+{
+	VxSInNetworkTask *cloned_task;
+	cloned_task = new VxSInNetworkTask();
+	cloned_task->copy(this);
+	return cloned_task;
+}
+
+void VxSInNetworkTask::copy(VxSInNetworkTask *task)
+{
+	memcpy( network_headers, task->getNetworkHeaders(), VXS_MAX_NETWORK_HEADER );
+	network_header_len = task->getNetworkHeaderLen();
+	in_port = task->getInPort();
+	out_port = task->getOutPort();
+	flow = task->getFlow();
+	segment = task->getSegment()->clone();
+}
+
 /**
  * implementation of VxSInNetworkTaskQueue
  */

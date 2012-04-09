@@ -1285,8 +1285,10 @@ void Datapath::output_packet(Packet *packet, uint16_t out_port, uint32_t queue_i
 error:
 	packet->kill();
 	Timestamp now = Timestamp::now();
-	click_chatter("%{timestamp} %{element}: can't forward to bad port:queue(%d:%d)\n", 
-			&now, this, out_port, queue_id);
+	click_chatter("%{timestamp} %{element}: can't forward to bad port:queue(%d:%d) %s\n", 
+			&now, this, out_port, queue_id,
+			out_port == 0xfffe ? "(we don't accept local port)" : ""
+			);
 }
 
 /*

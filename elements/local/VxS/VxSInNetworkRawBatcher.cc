@@ -207,7 +207,21 @@ Packet * VxSInNetworkRawSegment::packetize(uint32_t data_size, uint8_t *network_
 	return p_head;
 }
 
+VxSInNetworkSegment * VxSInNetworkRawSegment::clone()
+{
+	VxSInNetworkRawSegment *rsaw = new VxSInNetworkRawSegment( _segment_size );
+	rsaw->copy( this );
+	return rsaw;
+}
 
+void VxSInNetworkRawSegment::copy(VxSInNetworkRawSegment *raw)
+{
+	memcpy( _segment, raw->getSegment(), _segment_size );
+	_written_size = raw->getWrittenSize();
+	_Bpb = raw->getBytePerPixelBlocks();
+	_height = raw->getHeight();
+	_width = raw->getWidth();
+}
 /**
  * implementation of VxSInNetworkRawBatcher
  */
@@ -455,7 +469,7 @@ int VxSInNetworkRawBatcher::recvFromTaskQueue(Datapath *dp)
 	VxSInNetworkRawSegment *rawSegment = (VxSInNetworkRawSegment *) task->getSegment();
 
 	Packet *p = NULL;
-	p = rawSegment->packetize(1400, task->getNetworkHeader(), task->getNetworkHeaderLen() );
+	p = rawSegment->packetize(1400, task->getNetworkHeaders(), task->getNetworkHeaderLen() );
 
 
 	Packet *tmp;

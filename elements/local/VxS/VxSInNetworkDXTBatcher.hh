@@ -12,6 +12,7 @@ class VxSInNetworkDXTSegment : public VxSInNetworkSegment {
 public:
 	VxSInNetworkDXTSegment();
 	~VxSInNetworkDXTSegment();
+	VxSInNetworkSegment *clone() { return NULL; }; /* not yet implemented */
 };
 
 class VxSInNetworkDXTBatcher : public VxSInNetworkFlowBatcher {

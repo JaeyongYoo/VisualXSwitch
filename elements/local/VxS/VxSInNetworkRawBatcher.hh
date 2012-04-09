@@ -27,10 +27,6 @@ private:
 	uint32_t _height;
 	uint32_t _width;
 
-	/* number of pixel blocks */
-	uint32_t _current_num_pixel_blocks;	/* depends on written size */
-	uint32_t _max_num_pixel_blocks;		/* depends on _height and _width */
-
 public:
 	VxSInNetworkRawSegment(uint32_t seg_size);
 	~VxSInNetworkRawSegment();
@@ -64,7 +60,9 @@ public:
 	 */
 	uint32_t getNumberOfPackets(uint32_t packet_size);
 	Packet * packetize(uint32_t data_size, uint8_t *network_header, uint32_t network_header_len);
-	
+
+	VxSInNetworkSegment * clone();
+	void copy(VxSInNetworkRawSegment *raw);
 };
 
 /**

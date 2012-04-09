@@ -125,7 +125,6 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 		/* FIXME: need a mapping between OFPAT_* and computes (in the list) */
 		case OFPAT_VXS_DXTComp:
 		{
-//			click_chatter("JYD: TASK: OFPAT_VXS_DXTComp:\n");
 			VxSInNetworkCompute *c = lookupCompute("CUDA_DXTC");
 			if( c == NULL ) {
 				click_chatter("Error: CUDA_DXTC not found\n");
@@ -145,7 +144,6 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 
 		case OFPAT_VXS_DXTDecomp:
 		{
-//			click_chatter("JYD: TASK: OFPAT_VXS_DXTDecomp:\n");
 			VxSInNetworkCompute *c = lookupCompute("CUDA_DXTD");
 			if( c == NULL ) {
 				click_chatter("Error: CUDA_DXTD not found\n");
@@ -164,7 +162,6 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 
 		case OFPAT_VXS_FrameResize:
 		{
-//			click_chatter("JYD: TASK: OFPAT_VXS_FrameResize:\n");
 			VxSInNetworkCompute *c = lookupCompute("FRAME_RESIZE");
 			if( c == NULL ) {
 				click_chatter("Error: CUDA_DXTC not found\n");
@@ -183,7 +180,6 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 
 		case OFPAT_VXS_YUV2RGB:
 		{
-//			click_chatter("JYD: TASK: OFPAT_VXS_YUV2RGB:\n");
 			VxSInNetworkCompute *c = lookupCompute("YUV2_TO_RGB4");
 			if( c == NULL ) {
 				click_chatter("Error: CUDA_DXTC not found\n");
@@ -202,7 +198,6 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 
 		case OFPAT_OUTPUT:
 		{
-//			click_chatter("JYD: TASK: OFPAT_OUTPUT\n");
 			sendToOutputTaskQueue(task, ah);
 			break;
 		}
@@ -212,8 +207,6 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			break;
 	}
 
-//	if( s ) 
-//		click_chatter("\t\tJYD: TASK RESULT: segment_size=%d\n", s->getWrittenSize());
 	return 0;
 }
 

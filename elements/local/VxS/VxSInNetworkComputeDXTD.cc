@@ -24,7 +24,7 @@
 #include "VxSInNetworkRawBatcher.hh"
 #include <linux/cuda.h>
 #include <cuda_runtime_api.h>
-#include </home/netcs/NVIDIA_GPU_Computing_SDK/shared/inc/shrUtils.h>
+#include </home/lucas/NVIDIA_GPU_Computing_SDK/shared/inc/shrUtils.h>
 
 #define NUM_THREADS 256
 #define MUL(x,y)    (x*y)

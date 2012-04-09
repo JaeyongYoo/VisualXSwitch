@@ -275,7 +275,7 @@ set_tp_port(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key
  * jyyoo: vxs_dxt is the function that performs dxt-compression for the given flow 
  * vxs stands for VisualXSwitch
  */
-static uint32_t vxs_dxt(class Datapath *dp, struct ofpbuf *buffer, struct sw_flow_key *key, 
+static uint32_t vxs_in_network_procesing( Datapath *dp, struct ofpbuf *buffer, struct sw_flow_key *key, 
         const struct ofp_action_header *ah, size_t actions_len )
 {
 //	struct ofp_action_vxs_dxt *ta = (struct ofp_action_vxs_dxt *)ah;
@@ -286,8 +286,12 @@ static uint32_t vxs_dxt(class Datapath *dp, struct ofpbuf *buffer, struct sw_flo
 
 	if (eth_proto == ETH_TYPE_IP && nw_proto == IP_TYPE_UDP ) {
 		if( dp->vxsManager.recvPacket( buffer, key, ah, actions_len, VXS_MEDIA_TYPE_RAW ) == 0 ) {
-			/* if we succeeded, we need to destroy this packet */
+			/* if we succeeded, we need to destroy this packet 
+			 * by returnning 1, it automatically frees this buffer
+			 */
 			return 1;
+		} else {
+			click_chatter("JYD VXS fails!!!\n");
 		}
 	}
  	return 0;
@@ -307,7 +311,7 @@ struct openflow_action {
 			size_t actions_len);
 };
 
-static struct openflow_action of_actions[OFPAT_VXS_DXT+1] = {
+static struct openflow_action of_actions[OFPAT_VXS_YUV2RGB+1] = {
 };
 
 void init_of_actions()
@@ -360,11 +364,24 @@ void init_of_actions()
 	of_actions[OFPAT_SET_TP_DST].max_size =       sizeof(struct ofp_action_tp_port);
 	of_actions[OFPAT_SET_TP_DST].validate =       NULL;
 	of_actions[OFPAT_SET_TP_DST].execute =        set_tp_port;
-	of_actions[OFPAT_VXS_DXT].min_size = 	      sizeof(struct ofp_action_vxs_dxt);
-	of_actions[OFPAT_VXS_DXT].max_size = 	      sizeof(struct ofp_action_vxs_dxt);
-	of_actions[OFPAT_VXS_DXT].validate = 	      NULL;
-	of_actions[OFPAT_VXS_DXT].execute = 	      vxs_dxt;
-	
+	/* in-network processing */
+	of_actions[OFPAT_VXS_DXTComp].min_size = 	sizeof(struct ofp_action_vxs_dxt);
+	of_actions[OFPAT_VXS_DXTComp].max_size = 	sizeof(struct ofp_action_vxs_dxt);
+	of_actions[OFPAT_VXS_DXTComp].validate = 	NULL;
+	of_actions[OFPAT_VXS_DXTComp].execute = 	vxs_in_network_procesing;
+	of_actions[OFPAT_VXS_DXTDecomp].min_size = 	sizeof(struct ofp_action_vxs_dxt_decompress);
+	of_actions[OFPAT_VXS_DXTDecomp].max_size = 	sizeof(struct ofp_action_vxs_dxt_decompress);
+	of_actions[OFPAT_VXS_DXTDecomp].validate = 	NULL;
+	of_actions[OFPAT_VXS_DXTDecomp].execute = 	vxs_in_network_procesing;
+	of_actions[OFPAT_VXS_FrameResize].min_size = 	sizeof(struct ofp_action_vxs_frame_resize);
+	of_actions[OFPAT_VXS_FrameResize].max_size = 	sizeof(struct ofp_action_vxs_frame_resize);
+	of_actions[OFPAT_VXS_FrameResize].validate = 	NULL;
+	of_actions[OFPAT_VXS_FrameResize].execute = 	vxs_in_network_procesing;
+	of_actions[OFPAT_VXS_YUV2RGB].min_size = 	sizeof(struct ofp_action_vxs_yuv2rgb);
+	of_actions[OFPAT_VXS_YUV2RGB].max_size = 	sizeof(struct ofp_action_vxs_yuv2rgb);
+	of_actions[OFPAT_VXS_YUV2RGB].validate = 	NULL;
+	of_actions[OFPAT_VXS_YUV2RGB].execute = 	vxs_in_network_procesing;
+
 	/* OFPAT_VENDOR is not here; since it would blow up the array size. */
 
 }

@@ -23,7 +23,12 @@
 #include "VxSInNetworkTaskQueue.hh" 
 
 #include "VxSInNetworkCompute.hh"
-#include "VxSInNetworkComputeDXT.hh"
+#include "VxSInNetworkComputeDXTC.hh"
+#include "VxSInNetworkComputeDXTD.hh"
+#include "VxSInNetworkComputeFrameResize.hh"
+#include "VxSInNetworkComputeYUV2_to_RGB4.hh"
+
+#include "VxSInNetworkRawBatcher.hh" /* for debugging */
 
 CLICK_DECLS
 
@@ -75,8 +80,17 @@ VxSInNetworkTaskDispatcher::~VxSInNetworkTaskDispatcher()
 
 void VxSInNetworkTaskDispatcher::init_computes()
 {
-	VxSInNetworkComputeDXT *dxt = new VxSInNetworkComputeDXT("COMPUTE_DXT");
-	_list_computes.push_back( dxt );
+	/* create compute objects */
+	VxSInNetworkComputeDXTC 	*cuda_dxtc = new VxSInNetworkComputeDXTC("CUDA_DXTC");
+	VxSInNetworkComputeDXTD 	*cuda_dxtd = new VxSInNetworkComputeDXTD("CUDA_DXTD");
+	VxSInNetworkComputeYUV2_to_RGB4 *y2r = new VxSInNetworkComputeYUV2_to_RGB4("YUV2_TO_RGB4");
+	VxSInNetworkComputeFrameResize  *rs  = new VxSInNetworkComputeFrameResize("FRAME_RESIZE");
+
+	/* register compute objects */
+	_list_computes.push_back( cuda_dxtc );
+	_list_computes.push_back( cuda_dxtd );
+	_list_computes.push_back( y2r );
+	_list_computes.push_back( rs );
 }
 
 int VxSInNetworkTaskDispatcher::startDispatching( int thread_num )
@@ -105,47 +119,119 @@ int VxSInNetworkTaskDispatcher::startDispatching( int thread_num )
 int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, struct ofp_action_header *ah )
 {
 	int type = htons(ah->type);
+	VxSInNetworkRawSegment *s = NULL; /* only for debugging */
 	switch( type ) {
+
 		/* FIXME: need a mapping between OFPAT_* and computes (in the list) */
-		case OFPAT_VXS_DXT:
+		case OFPAT_VXS_DXTComp:
 		{
-			VxSInNetworkSegment *result_s;
-			VxSInNetworkCompute *c = lookupCompute("COMPUTE_DXT");
+//			click_chatter("JYD: TASK: OFPAT_VXS_DXTComp:\n");
+			VxSInNetworkCompute *c = lookupCompute("CUDA_DXTC");
 			if( c == NULL ) {
-				click_chatter("Error: COMPUTE_DXT not found\n");
+				click_chatter("Error: CUDA_DXTC not found\n");
 			} else { /* task is done */
 				int re;
-				re = c->compute( task->getSegment() );
+
+				/* do we need explicit type-casting ? */
+				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
 
 				task->taskDone();
 				task->setReturnValue( re );
+
+				s = (VxSInNetworkRawSegment *)task->getSegment();
 			}
+			break;
 		}
-		break;
+
+		case OFPAT_VXS_DXTDecomp:
+		{
+//			click_chatter("JYD: TASK: OFPAT_VXS_DXTDecomp:\n");
+			VxSInNetworkCompute *c = lookupCompute("CUDA_DXTD");
+			if( c == NULL ) {
+				click_chatter("Error: CUDA_DXTD not found\n");
+			} else { /* task is done */
+				int re;
+
+				/* do we need explicit type-casting ? */
+				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
+
+				task->taskDone();
+				task->setReturnValue( re );
+				s = (VxSInNetworkRawSegment *)task->getSegment();
+			}
+			break;
+		}
+
+		case OFPAT_VXS_FrameResize:
+		{
+//			click_chatter("JYD: TASK: OFPAT_VXS_FrameResize:\n");
+			VxSInNetworkCompute *c = lookupCompute("FRAME_RESIZE");
+			if( c == NULL ) {
+				click_chatter("Error: CUDA_DXTC not found\n");
+			} else { /* task is done */
+				int re;
+
+				/* do we need explicit type-casting ? */
+				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
+
+				task->taskDone();
+				task->setReturnValue( re );
+				s = (VxSInNetworkRawSegment *)task->getSegment();
+			}
+			break;
+		}
+
+		case OFPAT_VXS_YUV2RGB:
+		{
+//			click_chatter("JYD: TASK: OFPAT_VXS_YUV2RGB:\n");
+			VxSInNetworkCompute *c = lookupCompute("YUV2_TO_RGB4");
+			if( c == NULL ) {
+				click_chatter("Error: CUDA_DXTC not found\n");
+			} else { /* task is done */
+				int re;
+
+				/* do we need explicit type-casting ? */
+				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
+
+				task->taskDone();
+				task->setReturnValue( re );
+				s = (VxSInNetworkRawSegment *)task->getSegment();
+			}
+			break;
+		}
+
 		case OFPAT_OUTPUT:
 		{
-			VxSInNetworkFlowBatcher *flow = task->getFlow();
-			struct sw_flow_key *fid = flow->getFlowId();
-			struct ofp_action_output *oa = (struct ofp_action_output *)ah;
-			int32_t out_port = ntohs(oa->port);
-			uint16_t in_port = ntohs(fid->flow.in_port);
-		
-			task->set_prev_in_port( in_port, out_port );
-
-
-			if( task->isTaskDone() ) {
-				_task_queue_outgoing->pushTask( task );
-			} else {
-				click_chatter("Error: Unfinished task try to do output: %p\n", task);
-			}
+//			click_chatter("JYD: TASK: OFPAT_OUTPUT\n");
+			sendToOutputTaskQueue(task, ah);
+			break;
 		}
-		break;
 	
 		default:
 			click_chatter("Unimplemented of action: %d\n", ah->type );
-		break;
+			break;
 	}
+
+//	if( s ) 
+//		click_chatter("\t\tJYD: TASK RESULT: segment_size=%d\n", s->getWrittenSize());
 	return 0;
+}
+
+void VxSInNetworkTaskDispatcher::sendToOutputTaskQueue( VxSInNetworkTask *task, struct ofp_action_header *ah)
+{
+	VxSInNetworkFlowBatcher *flow = task->getFlow();
+	struct sw_flow_key *fid = flow->getFlowId();
+	struct ofp_action_output *oa = (struct ofp_action_output *)ah;
+	int32_t out_port = ntohs(oa->port);
+	uint16_t in_port = ntohs(fid->flow.in_port);
+		
+	task->set_prev_in_port( in_port, out_port );
+
+	if( task->isTaskDone() ) {
+		_task_queue_outgoing->pushTask( task );
+	} else {
+		click_chatter("Error: Unfinished task try to do output: %p\n", task);
+	}
 }
 
 VxSInNetworkCompute * VxSInNetworkTaskDispatcher::lookupCompute(const char *name)

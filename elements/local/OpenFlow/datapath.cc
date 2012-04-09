@@ -1263,6 +1263,7 @@ void Datapath::output_packet(Packet *packet, uint16_t out_port, uint32_t queue_i
 			if( port->click_port_num == 0 ) {
 				printf("Error: datapacket is sent to RConn, may be collapse!\n");
 			}
+
 			output(port->click_port_num).push( packet );
 		}
 
@@ -1277,6 +1278,8 @@ void Datapath::output_packet(Packet *packet, uint16_t out_port, uint32_t queue_i
 		} else {
 			port->tx_dropped++;
 		}
+	} else {
+		goto error;
 	}
 	return;
 error:

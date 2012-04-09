@@ -5,6 +5,9 @@
 #include <click/element.hh>
 #include "VxSInNetworkBatchManager.hh"
 
+
+#define VXS_MAX_DXT_CUDA_MEM_SIZE 2048*4096*4 /* 4-byte RGB with 4K */
+
 #define VSX_MAX_COMPUTE_NAME 64
 
 CLICK_DECLS

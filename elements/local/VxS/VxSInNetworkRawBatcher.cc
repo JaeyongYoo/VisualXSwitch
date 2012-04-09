@@ -31,6 +31,15 @@
         
 CLICK_DECLS
 
+int g_delete_segment_cnt = 0;
+int g_delete_task_cnt = 0;
+int g_malloc_segment_cnt = 0;
+int g_free_segment_cnt = 0;
+
+
+int g_new_segment_cnt = 0;
+int g_new_task_cnt = 0;
+
 /* XXX: if you include this into FlowNet build tree, delete the below two functions */
 /* supposed to receive IP hdr including packet */
 static void checksumIP( Packet* p, int offset )
@@ -63,6 +72,7 @@ VxSInNetworkRawSegment::VxSInNetworkRawSegment(uint32_t seg_size)
 {
 	_segment_size = seg_size;
 	_segment = (uint8_t *)malloc( seg_size );
+	g_malloc_segment_cnt ++;
 	if( _segment == NULL ) {
 		click_chatter("Error: out of memory: requesting size=%d\n", seg_size);
 		exit(-1);
@@ -80,6 +90,7 @@ VxSInNetworkRawSegment::~VxSInNetworkRawSegment()
 		click_chatter("JYD =====> freeing a segment: _segment = %p\n", _segment );
 #endif
 		free( _segment );
+		g_free_segment_cnt ++;
 		_segment = NULL;
 	}
 }
@@ -92,20 +103,27 @@ uint32_t VxSInNetworkRawSegment::push(uint8_t *data, int size)
 	memcpy( _segment + _written_size, data, copy_size );
 	_written_size += copy_size;
 
-	/* compute the number of pixel blocks */
-	_num_pixel_blocks = _written_size / _src_Bpb;
-
 	/* is it an error case? */
-	if( _written_size % _src_Bpb ) {
+	if( _written_size % _Bpb ) {
 		click_chatter("Warning: written size is not the division of src_Bpb\n");
 	}
 
 	return copy_size;
 }
 
+uint32_t VxSInNetworkRawSegment::prepareSegment( uint32_t required_size )
+{
+	if( _segment_size >= required_size ) return 0;
+	/* if the size is smaller, then we free and re-allocate */
+	free( _segment );
+	_segment = (uint8_t *) malloc( required_size );
+	if( _segment > 0 ) return 0;
+	return 1;
+}
+
 uint32_t VxSInNetworkRawSegment::getNumberOfPackets(uint32_t packet_size) 
 {
-	uint32_t contents= int(packet_size / _proc_Bpb) * _proc_Bpb;
+	uint32_t contents= int(packet_size / _Bpb) * _Bpb;
 	return _written_size / contents + (_written_size%contents ? 1 : 0); 
 }
 Packet * VxSInNetworkRawSegment::packetize(uint32_t data_size, uint8_t *network_header, uint32_t network_header_len )
@@ -123,7 +141,7 @@ Packet * VxSInNetworkRawSegment::packetize(uint32_t data_size, uint8_t *network_
         int ip_mtu = 1500;
         int residual_packet_buffer = ip_mtu - 
 			sizeof(click_ip) - sizeof(click_udp) - sizeof(struct stip_transport_header);
-        int pixel_blocks_per_packet = residual_packet_buffer / _proc_Bpb;
+        int pixel_blocks_per_packet = residual_packet_buffer / _Bpb;
 
 	if( packet_size >= ip_mtu ) {
 		click_chatter("Error: packet size is larger than MTU %d\n", ip_mtu);
@@ -140,11 +158,11 @@ Packet * VxSInNetworkRawSegment::packetize(uint32_t data_size, uint8_t *network_
                          * and the last packet may not be the same number of pixel_blocks_per_packet */
 
                         /* count the last blocks */
-                        int last_blocks = (_written_size - sent_size)/_proc_Bpb;
+                        int last_blocks = (_written_size - sent_size)/_Bpb;
 
                         /* change the variables accordingly */
                         pixel_blocks_per_packet = last_blocks;
-                        dxt_send_unit = pixel_blocks_per_packet * _proc_Bpb;
+                        dxt_send_unit = pixel_blocks_per_packet * _Bpb;
                         packet_size = network_header_len  + dxt_send_unit;
                 }
 
@@ -318,8 +336,10 @@ void VxSInNetworkRawBatcher::stip_data_packet_received(struct stip_transport_hea
 VxSInNetworkRawSegment * VxSInNetworkRawBatcher::createNewSegment() 
 {
 
+	g_new_segment_cnt ++;
 	VxSInNetworkRawSegment *s = new VxSInNetworkRawSegment( _segment_size );
-	s->setBytePerPixelBlocks( _src_Bpb, _proc_Bpb );
+	s->setBytePerPixelBlocks( _src_Bpb );
+	s->setWidthHeight( _frame_width, _frame_height );
 	
 	/* 
 	 * for copying the action headers to a segment 
@@ -350,7 +370,7 @@ int VxSInNetworkRawBatcher::pushPacket(struct ofpbuf *ob, const struct ofp_actio
 //	click_ip *ip = (click_ip *)ob->l3;
 //	click_udp *udp = (click_udp *)ob->l4;
 
-        struct  stip_common_header *schdr = (struct stip_common_header *)(ob->l7);
+    struct  stip_common_header *schdr = (struct stip_common_header *)(ob->l7);
 
 	/* STIP protocol version check */
 	if( schdr->version != 0x01 ) {
@@ -370,17 +390,19 @@ int VxSInNetworkRawBatcher::pushPacket(struct ofpbuf *ob, const struct ofp_actio
 	}
 
 	/* at every packet arrival interval, we **try** to send a task */
-	sendToTaskQueue(ob);
+	sendToInputTaskQueue(ob);
 
 	return 0;
 }
 
-int VxSInNetworkRawBatcher::sendToTaskQueue(struct ofpbuf *ob)
+int VxSInNetworkRawBatcher::sendToInputTaskQueue(struct ofpbuf *ob)
 {
 	/* FIXME: here, we have to determine whether performing rate control */
 	while( _segments.size() > 2  ) {
 
 		/* create a task */
+		
+		g_new_task_cnt ++;
 		VxSInNetworkTask *task = new VxSInNetworkTask();
 		if( task == NULL ) {
 			click_chatter("Error: out of memory while allocating VxSInNetworkTask\n");
@@ -432,12 +454,20 @@ int VxSInNetworkRawBatcher::recvFromTaskQueue(Datapath *dp)
 	VxSInNetworkTask *task = _task_queue_outgoing->popTask();
 	VxSInNetworkRawSegment *rawSegment = (VxSInNetworkRawSegment *) task->getSegment();
 
-	Packet *p = rawSegment->packetize(1400, task->getNetworkHeader(), task->getNetworkHeaderLen() );
+	Packet *p = NULL;
+	p = rawSegment->packetize(1400, task->getNetworkHeader(), task->getNetworkHeaderLen() );
 
+
+	Packet *tmp;
+	int iii = 0;
 	while( p != NULL ) {
-		dp->dp_output_port( p, task->getInPort(), task->getOutPort(), 0 );
+		tmp = p;
 		p = p->next();
+		tmp->set_next(NULL);
+		dp->dp_output_port( tmp, task->getInPort(), task->getOutPort(), 0 );
+		iii++;
 	}
+
 	// need to delete the task 
 	/* FIXME: if I delete these two deletes, seg-fault happens !!! */
 	/* FIXME: FIXME: FIXME: Jaeyong, please fix this immediately !!!! */
@@ -446,6 +476,8 @@ int VxSInNetworkRawBatcher::recvFromTaskQueue(Datapath *dp)
 #if JYD == 1
 	click_chatter("JYD ===> delete a segment %p\n", rawSegment );
 #endif
+	g_delete_task_cnt ++;
+	g_delete_segment_cnt ++;
 	delete rawSegment;
 	delete task;
 	return _task_queue_outgoing->size();

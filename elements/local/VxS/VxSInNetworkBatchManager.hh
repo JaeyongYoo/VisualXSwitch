@@ -118,7 +118,7 @@ public:
 	/* 
  	 * send to task incoming queue 
 	 */
-	virtual int sendToTaskQueue(struct ofpbuf *ob) = 0;
+	virtual int sendToInputTaskQueue(struct ofpbuf *ob) = 0;
 
 	/* 
  	 * receive from task incoming queue 

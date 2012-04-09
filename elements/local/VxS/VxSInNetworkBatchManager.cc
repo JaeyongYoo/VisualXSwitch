@@ -24,6 +24,7 @@
 
 CLICK_DECLS
 
+int g_new_batcher_cnt = 0;
 const char *media_type_name[VXS_END_OF_TYPE] = {
 "VXS_MEDIA_TYPE_RAW",
 "VXS_MEDIA_TYPE_DXT",
@@ -150,13 +151,16 @@ VxSInNetworkBatchManager::~VxSInNetworkBatchManager()
 
 VxSInNetworkFlowBatcher * VxSInNetworkBatchManager::createBatcher(int32_t media_type, const struct sw_flow_key *fid)
 {
+//	click_chatter("cnt=%d\n", g_new_batcher_cnt );
 	VxSInNetworkFlowBatcher* re = NULL;
 	switch( media_type ) {
 	case VXS_MEDIA_TYPE_RAW:
+		g_new_batcher_cnt ++;
 		re = new VxSInNetworkRawBatcher( fid, _task_queue_incoming, _task_queue_outgoing );
 	break;
 
 	case VXS_MEDIA_TYPE_DXT:
+		g_new_batcher_cnt ++;
 		re = new VxSInNetworkDXTBatcher( fid, _task_queue_incoming, _task_queue_outgoing );
 	break;
 	
@@ -219,7 +223,7 @@ int VxSInNetworkBatchManager::recvPacket(struct ofpbuf *ob, const struct sw_flow
 int VxSInNetworkBatchManager::sendPacket(Datapath* dp)
 {
 	std::list<VxSInNetworkFlowBatcher *>::iterator ii;
-	int residual;
+	int residual; // remaining queue size
 	int total_residual = 0;
 	for( ii = _batchers.begin(); ii != _batchers.end(); ii ++ ) {
 		VxSInNetworkFlowBatcher *b = *ii;

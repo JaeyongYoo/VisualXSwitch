@@ -363,7 +363,10 @@ enum ofp_action_type {
     OFPAT_SET_TP_SRC,       /* TCP/UDP source port. */
     OFPAT_SET_TP_DST,       /* TCP/UDP destination port. */
     OFPAT_ENQUEUE,          /* Output to queue.  */
-    OFPAT_VXS_DXT,          /* Output to queue.  */
+    OFPAT_VXS_DXTComp,      /* DXT Compress with GPU. */
+    OFPAT_VXS_DXTDecomp,    /* DXT Decompress with GPU  */
+    OFPAT_VXS_FrameResize,  /* Resize RAW frame  */
+    OFPAT_VXS_YUV2RGB,      /* Convert YUV to RGB  */
     OFPAT_VENDOR = 0xffff
 };
 
@@ -437,15 +440,46 @@ struct ofp_action_nw_tos {
 };
 OFP_ASSERT(sizeof(struct ofp_action_nw_tos) == 8);
 
-/* Action header for OFPAT_VXS_DXT. */
+/* Action header for OFPAT_VXS_DXTComp. */
 struct ofp_action_vxs_dxt {
-    uint16_t type;
-    uint16_t len;
-    uint32_t dxt_version;
-    uint32_t dxt_param1;
-    uint32_t dxt_param2;
+    uint16_t type;                  /* OFPAT_VXS_DXTComp. */
+    uint16_t len;                   /* Length is a multiple of 8. */
+    uint32_t dxt_version;           /* DXT_VERSION: 1. CPU; 2. GPU */
+    uint32_t dxt_param1;            /* prepared for future use */
+    uint32_t dxt_param2;            /* prepared for future use */
 };
 OFP_ASSERT(sizeof(struct ofp_action_vxs_dxt) == 16);
+
+/* Action header for OFPAT_VXS_DXTDecomp. */
+struct ofp_action_vxs_dxt_decompress {
+    uint16_t type;                  /* OFPAT_VXS_DXTDecomp. */
+    uint16_t len;                   /* Length is a multiple of 8. */
+    uint32_t dxt_version;           /* DXT_VERSION: 1. CPU; 2. GPU */
+    uint32_t dxt_param1;            /* prepared for future use */
+    uint32_t dxt_param2;            /* prepared for future use */
+};
+OFP_ASSERT(sizeof(struct ofp_action_vxs_dxt_decompress) == 16);
+
+/* Action header for OFPAT_VXS_ResizeFrame */
+struct ofp_action_vxs_frame_resize {
+    uint16_t type;                  /* OFPAT_VXS_FrameResize. */
+    uint16_t len;                   /* Length is a multiple of 8. */
+    uint32_t resize_ratio;          /* DXT_VERSION: 1. CPU; 2. GPU */
+    uint32_t resize_param1;         /* prepared for future use */
+    uint32_t resize_param2;         /* prepared for future use */
+};
+OFP_ASSERT(sizeof(struct ofp_action_vxs_frame_resize) == 16);
+
+/* Action header for OFPAT_VXS_YUV2RGB */
+struct ofp_action_vxs_yuv2rgb {
+    uint16_t type;                  /* OFPAT_VXS_YUV2RGB. */
+    uint16_t len;                   /* Length is a multiple of 8. */
+    uint32_t convert_param1;        /* prepared for future use */
+    uint32_t convert_param2;        /* prepared for future use */
+    uint32_t convert_param3;        /* prepared for future use */
+};
+OFP_ASSERT(sizeof(struct ofp_action_vxs_yuv2rgb) == 16);
+
 
 /* Action header for OFPAT_VENDOR. The rest of the body is vendor-defined. */
 struct ofp_action_vendor_header {

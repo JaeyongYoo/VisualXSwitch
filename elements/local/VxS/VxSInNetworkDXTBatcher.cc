@@ -53,7 +53,7 @@ int VxSInNetworkDXTBatcher::pushPacket(struct ofpbuf *ob, const struct ofp_actio
 	return VxSInNetworkFlowBatcher::pushPacket( ob, ah, actions_len );
 }
 
-int VxSInNetworkDXTBatcher::sendToTaskQueue(struct ofpbuf *)
+int VxSInNetworkDXTBatcher::sendToInputTaskQueue(struct ofpbuf *)
 {
 	return 0;
 }

@@ -317,7 +317,18 @@ ofp_print_action(struct ds *string, const struct ofp_action_header *ah,
 
         of_actions[OFPAT_SET_TP_DST].min_size = sizeof(struct ofp_action_tp_port);
         of_actions[OFPAT_SET_TP_DST].max_size = sizeof(struct ofp_action_tp_port);
+	
+	of_actions[OFPAT_VXS_DXTComp].min_size = sizeof(struct ofp_action_vxs_dxt);
+        of_actions[OFPAT_VXS_DXTComp].max_size = sizeof(struct ofp_action_vxs_dxt);
 
+	of_actions[OFPAT_VXS_DXTDecomp].min_size = sizeof(struct ofp_action_vxs_dxt_decompress);
+        of_actions[OFPAT_VXS_DXTDecomp].max_size = sizeof(struct ofp_action_vxs_dxt_decompress);
+
+	of_actions[OFPAT_VXS_FrameResize].min_size = sizeof(struct ofp_action_vxs_frame_resize);
+        of_actions[OFPAT_VXS_FrameResize].max_size = sizeof(struct ofp_action_vxs_frame_resize);
+
+	of_actions[OFPAT_VXS_YUV2RGB].min_size = sizeof(struct ofp_action_vxs_yuv2rgb);
+        of_actions[OFPAT_VXS_YUV2RGB].max_size = sizeof(struct ofp_action_vxs_yuv2rgb);
 
     if (actions_len < sizeof *ah) {
         ds_put_format(string, "***action array too short for next action***\n");
@@ -434,6 +445,31 @@ ofp_print_action(struct ds *string, const struct ofp_action_header *ah,
         ds_put_format(string, "mod_tp_dst:%d", ntohs(ta->tp_port));
         break;
     }
+
+    case OFPAT_VXS_DXTComp: {
+        struct ofp_action_vxs_dxt *vda = (struct ofp_action_vxs_dxt *)ah;
+        ds_put_format(string, "vxs_dxt:%d", ntohl(vda->dxt_version));
+        break;
+    }
+
+    case OFPAT_VXS_DXTDecomp: {
+        struct ofp_action_vxs_dxt_decompress *vdda = (struct ofp_action_vxs_dxt_decompress *)ah;
+        ds_put_format(string, "vxs_dxt_decompress:%d", ntohl(vdda->dxt_version));
+        break;
+    }
+
+    case OFPAT_VXS_FrameResize: {
+        struct ofp_action_vxs_frame_resize *fra = (struct ofp_action_vxs_frame_resize *)ah;
+        ds_put_format(string, "frame_resize:%d", ntohl(fra->resize_ratio));
+        break;
+    }
+
+    case OFPAT_VXS_YUV2RGB: {
+        struct ofp_action_vxs_yuv2rgb *fvy = (struct ofp_action_vxs_yuv2rgb *)ah;
+        ds_put_format(string, "yuv2rgb:%d", ntohl(fvy->convert_param1));
+        break;
+    }
+
 
     case OFPAT_VENDOR: {
         struct ofp_action_vendor_header *avh 

@@ -29,7 +29,7 @@ public:
 	/* 
  	 * send to task queue
 	 */
-	virtual int sendToTaskQueue(struct ofpbuf *ob);
+	virtual int sendToInputTaskQueue(struct ofpbuf *ob);
 
 	/*
 	 * recv from task queue (outgoing)

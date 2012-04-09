@@ -38,6 +38,8 @@ public:
 	/* run the specific action on the task */
 	int run_action_on_task( VxSInNetworkTask *task, struct ofp_action_header *ah );
 
+	/* send to output task queue (outgoing) */
+	void sendToOutputTaskQueue( VxSInNetworkTask *task, struct ofp_action_header *ah);
 	
 	VxSInNetworkCompute * lookupCompute(const char *name);
 private:

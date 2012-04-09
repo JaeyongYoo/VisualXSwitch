@@ -21,12 +21,12 @@
 #include <unistd.h>
 #include "VxSInNetworkTaskDispatcher.hh"
 #include "VxSInNetworkTaskQueue.hh" 
-
 #include "VxSInNetworkCompute.hh"
 #include "VxSInNetworkComputeDXTC.hh"
 #include "VxSInNetworkComputeDXTD.hh"
 #include "VxSInNetworkComputeFrameResize.hh"
 #include "VxSInNetworkComputeYUV2_to_RGB4.hh"
+#include "../OpenFlow/lib/packets.hh"
 
 #include "VxSInNetworkRawBatcher.hh" /* for debugging */
 
@@ -55,6 +55,7 @@ VxSInNetworkTaskDispatcher::VxSInNetworkTaskDispatcher(VxSInNetworkTaskQueue *t,
 	_task_queue_outgoing = t2;
 	_num_of_live_threads = 0;
 	_on_the_go = 0;
+	sem_init(&_sem_GPU, 0, 1);
 }
 
 VxSInNetworkTaskDispatcher::~VxSInNetworkTaskDispatcher()
@@ -76,6 +77,8 @@ VxSInNetworkTaskDispatcher::~VxSInNetworkTaskDispatcher()
 	for( int i = 0; i<_num_of_live_threads; i++ ) {
 		pthread_join( _thread_handles[i], (void**)&status );
 	}
+
+	sem_destroy(&_sem_GPU);
 }
 
 void VxSInNetworkTaskDispatcher::init_computes()
@@ -133,24 +136,31 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			if( iterations >= 1 ) {
 				VxSInNetworkTask *copied_task = task->clone();
 			
-				/* TODO: modify output port and network header */
 				for( i = 0; i<steps1; i++ ) {
-					copied_task->getNextActionHeader(); /* just remove the actions */
+					/* just remove the actions */
+					if( copied_task->getNextActionHeader() == NULL ) {
+						click_chatter("OOPS: ACTION HEADER GETS NULL!?\n");
+						break;
+					}
+
 				}
 				_task_queue_incoming->pushTask( copied_task );
 			}
 			if( iterations >= 2 ) {
 				VxSInNetworkTask *copied_task = task->clone();
 			
-				/* TODO: modify output port and network header */
 				for( i = 0; i<steps2; i++ ) {
-					copied_task->getNextActionHeader(); /* just remove the actions */
+					/* just remove the actions */
+					if( copied_task->getNextActionHeader() == NULL ) {
+						click_chatter("OOPS: ACTION HEADER GETS NULL!?\n");
+						break;
+					}
+
 				}
 				_task_queue_incoming->pushTask( copied_task );
 			}
 			break;
 		}
-
 
 		case OFPAT_VXS_DXTComp:
 		{
@@ -160,8 +170,12 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			} else { /* task is done */
 				int re;
 
+				sem_wait( &_sem_GPU );
+
 				/* do we need explicit type-casting ? */
 				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
+
+				sem_post( &_sem_GPU );
 
 				task->taskDone();
 				task->setReturnValue( re );
@@ -179,8 +193,12 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			} else { /* task is done */
 				int re;
 
+				sem_wait( &_sem_GPU );
+
 				/* do we need explicit type-casting ? */
 				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
+
+				sem_post( &_sem_GPU );
 
 				task->taskDone();
 				task->setReturnValue( re );
@@ -197,8 +215,12 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			} else { /* task is done */
 				int re;
 
+				sem_wait( &_sem_GPU );
+
 				/* do we need explicit type-casting ? */
 				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
+
+				sem_post( &_sem_GPU );
 
 				task->taskDone();
 				task->setReturnValue( re );
@@ -215,8 +237,12 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			} else { /* task is done */
 				int re;
 
+				sem_wait( &_sem_GPU );
+
 				/* do we need explicit type-casting ? */
 				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
+
+				sem_post( &_sem_GPU );
 
 				task->taskDone();
 				task->setReturnValue( re );
@@ -228,8 +254,44 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 		case OFPAT_OUTPUT:
 		{
 			sendToOutputTaskQueue(task, ah);
+			return 1;
+		}
+
+		case OFPAT_SET_DL_DST:
+		{
+			struct ofp_action_dl_addr *da = (struct ofp_action_dl_addr *)ah;
+			struct eth_header *eh = (struct eth_header*) task->getNetworkHeaders();
+			memcpy(eh->eth_dst, da->dl_addr, sizeof eh->eth_dst);
 			break;
 		}
+		case OFPAT_SET_NW_DST:
+		{
+			struct ofp_action_nw_addr *da = (struct ofp_action_nw_addr *)ah;
+			struct eth_header *eh = (struct eth_header*) task->getNetworkHeaders();
+			struct ip_header *nh = (struct ip_header*) (eh+1);
+
+			if( ntohs(eh->eth_type) == ETH_TYPE_IP ) {
+				nh->ip_dst = da->nw_addr;
+			}
+			break;
+		}
+		case OFPAT_SET_TP_DST:
+		{
+			struct ofp_action_tp_port *ta = (struct ofp_action_tp_port *)ah;
+			struct eth_header *eh = (struct eth_header*) task->getNetworkHeaders();
+			struct ip_header *nh = (struct ip_header*) (eh+1);
+			/**
+			 * NOTE: tcp also has the same structure upto 4 byte 
+			 * and we only use upto 4 byte here
+			 */
+            		struct udp_header *th = (struct udp_header*) (nh+1); 
+
+			if( ntohs(eh->eth_type) == ETH_TYPE_IP ) {
+				th->udp_dst = ta->tp_port;
+			}
+			break;
+		}
+
 	
 		default:
 			click_chatter("Unimplemented of action: %d\n", ah->type );
@@ -280,7 +342,7 @@ int VxSInNetworkTaskDispatcher::__dispatch()
 		
 		struct ofp_action_header *ah;
 		while( (ah = task->getNextActionHeader()) != NULL ) {
-			run_action_on_task( task, ah );
+			if( run_action_on_task( task, ah ) ) break;
 		}
 	}
 

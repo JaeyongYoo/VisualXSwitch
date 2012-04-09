@@ -7,8 +7,6 @@
 
 CLICK_DECLS
 
-#define VXS_MAX_DXT_CUDA_MEM_SIZE 2048*4096*3 /* 3-byte RGB with 4K */
-
 /** 
  * Desc: A base class for in-network processing
  */

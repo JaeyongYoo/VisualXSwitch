@@ -3,6 +3,7 @@
 
 #include <click/config.h>
 #include <click/element.hh>
+#include <semaphore.h>  /* Semaphore */
 #include <pthread.h>
 #include <list>
 
@@ -59,6 +60,8 @@ private:
 	/* thread handlers */
 	pthread_t _thread_handles[VXS_MAX_THREADS];
 
+	/* lock to GPU */
+	sem_t _sem_GPU;
 };
 
 

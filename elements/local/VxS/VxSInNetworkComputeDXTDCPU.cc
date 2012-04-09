@@ -151,6 +151,7 @@ int VxSInNetworkComputeDXTDCPU::compute(VxSInNetworkSegment *segment)
 	/* copy output to segment */
 	memcpy(raw_s->getSegment(), _output, after_processed_size);	
 	raw_s->setWrittenSize( after_processed_size );
+	return 0;
 }
 
 

@@ -1,5 +1,5 @@
 //#include <cutil_inline.h>
-#include </home/lucas/NVIDIA_GPU_Computing_SDK/shared/inc/shrUtils.h>
+#include </home/netcs/NVIDIA_GPU_Computing_SDK/shared/inc/shrUtils.h>
 //#include <shrUtils.h>
 #include <linux/cuda.h>
 //#include <cutil.h>

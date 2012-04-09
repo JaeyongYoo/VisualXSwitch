@@ -12,7 +12,7 @@ CLICK_DECLS
 class VxSInNetworkTaskQueue;
 class Datapath;
 
-#define VXS_MAX_ACTION_HEADER 128
+#define VXS_MAX_ACTION_HEADER 512
 #define VXS_TIMER_INTERVAL 10 /* 10 milli second */
 
 /**
@@ -25,12 +25,17 @@ public:
 	VxSInNetworkSegment();
 	~VxSInNetworkSegment();
 
+	int32_t getActionLen() { return _action_len; };
+	uint8_t *getActionHeader() { return _action_header; };
+	uint8_t *getActionHeaderProgramCounter() { return _action_header_program_counter; };
+	int32_t getActionOffset() { return _action_header_program_counter - _action_header; };
+
 	int setActionHeader( const uint8_t *d, uint32_t size );
 	uint8_t *getNextActionHeader();
 	virtual void print_to_chatter();
 	virtual VxSInNetworkSegment * clone() = 0;
 
-private:
+protected:
 	/* 
 	 * Desc: meta data for actions 
 	 * we use static array rather than using a memory allocation

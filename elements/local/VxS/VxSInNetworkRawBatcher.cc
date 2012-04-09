@@ -117,6 +117,7 @@ uint32_t VxSInNetworkRawSegment::prepareSegment( uint32_t required_size )
 	/* if the size is smaller, then we free and re-allocate */
 	free( _segment );
 	_segment = (uint8_t *) malloc( required_size );
+	_segment_size = required_size;
 	if( _segment > 0 ) return 0;
 	return 1;
 }
@@ -221,7 +222,21 @@ void VxSInNetworkRawSegment::copy(VxSInNetworkRawSegment *raw)
 	_Bpb = raw->getBytePerPixelBlocks();
 	_height = raw->getHeight();
 	_width = raw->getWidth();
+
+	/* 
+	 * copy the action list 
+	 * NOTE: notice that how we handle @_action_header_program_counter
+	 * it is a bit tricky 
+	 */
+	_action_len = raw->getActionLen();
+	memcpy( _action_header, raw->getActionHeader(), VXS_MAX_ACTION_HEADER );
+	if( raw->getActionHeaderProgramCounter() == NULL ) {
+		_action_header_program_counter = NULL;
+	} else {
+		_action_header_program_counter = _action_header + raw->getActionOffset();
+	}
 }
+
 /**
  * implementation of VxSInNetworkRawBatcher
  */
@@ -471,7 +486,6 @@ int VxSInNetworkRawBatcher::recvFromTaskQueue(Datapath *dp)
 	Packet *p = NULL;
 	p = rawSegment->packetize(1400, task->getNetworkHeaders(), task->getNetworkHeaderLen() );
 
-
 	Packet *tmp;
 	int iii = 0;
 	while( p != NULL ) {
@@ -481,6 +495,10 @@ int VxSInNetworkRawBatcher::recvFromTaskQueue(Datapath *dp)
 		dp->dp_output_port( tmp, task->getInPort(), task->getOutPort(), 0 );
 		iii++;
 	}
+
+	VxSInNetworkRawSegment *seg = (VxSInNetworkRawSegment *)task->getSegment();
+
+//	click_chatter("segment segment size=%d width=%d height=%d (packets=%d)\n", seg->getWrittenSize(),  seg->getWidth(), seg->getHeight(), iii);
 
 	// need to delete the task 
 	/* FIXME: if I delete these two deletes, seg-fault happens !!! */

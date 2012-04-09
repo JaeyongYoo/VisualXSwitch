@@ -367,6 +367,7 @@ enum ofp_action_type {
     OFPAT_VXS_DXTDecomp,    /* DXT Decompress with GPU  */
     OFPAT_VXS_FrameResize,  /* Resize RAW frame  */
     OFPAT_VXS_YUV2RGB,      /* Convert YUV to RGB  */
+    OFPAT_VXS_COPY_BRANCH,  /* Copy actions and start from a branch position */
     OFPAT_VENDOR = 0xffff
 };
 
@@ -480,6 +481,15 @@ struct ofp_action_vxs_yuv2rgb {
 };
 OFP_ASSERT(sizeof(struct ofp_action_vxs_yuv2rgb) == 16);
 
+/* Action header for OFPAT_VXS_COPY_BRANCH */
+struct ofp_action_vxs_copy_branch {
+    uint16_t type;                  /* OFPAT_VXS_YUV2RGB. */
+    uint16_t len;                   /* Length is a multiple of 8. */
+    uint32_t num_copy;              /* Number of copies to perform */
+    uint32_t branch_pos1;           /* For copy 1, postion in action list to branch */
+    uint32_t branch_pos2;           /* For copy 2, postion in action list to branch */
+};
+OFP_ASSERT(sizeof(struct ofp_action_vxs_copy_branch) == 16);
 
 /* Action header for OFPAT_VENDOR. The rest of the body is vendor-defined. */
 struct ofp_action_vendor_header {

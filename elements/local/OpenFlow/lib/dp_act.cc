@@ -381,6 +381,10 @@ void init_of_actions()
 	of_actions[OFPAT_VXS_YUV2RGB].max_size = 	sizeof(struct ofp_action_vxs_yuv2rgb);
 	of_actions[OFPAT_VXS_YUV2RGB].validate = 	NULL;
 	of_actions[OFPAT_VXS_YUV2RGB].execute = 	vxs_in_network_procesing;
+	of_actions[OFPAT_VXS_COPY_BRANCH].min_size = 	sizeof(struct ofp_action_vxs_copy_branch);
+	of_actions[OFPAT_VXS_COPY_BRANCH].max_size = 	sizeof(struct ofp_action_vxs_copy_branch);
+	of_actions[OFPAT_VXS_COPY_BRANCH].validate = 	NULL;
+	of_actions[OFPAT_VXS_COPY_BRANCH].execute = 	vxs_in_network_procesing;
 
 	/* OFPAT_VENDOR is not here; since it would blow up the array size. */
 

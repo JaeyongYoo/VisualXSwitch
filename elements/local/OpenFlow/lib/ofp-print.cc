@@ -330,6 +330,9 @@ ofp_print_action(struct ds *string, const struct ofp_action_header *ah,
 	of_actions[OFPAT_VXS_YUV2RGB].min_size = sizeof(struct ofp_action_vxs_yuv2rgb);
         of_actions[OFPAT_VXS_YUV2RGB].max_size = sizeof(struct ofp_action_vxs_yuv2rgb);
 
+	of_actions[OFPAT_VXS_COPY_BRANCH].min_size = sizeof(struct ofp_action_vxs_copy_branch);
+        of_actions[OFPAT_VXS_COPY_BRANCH].max_size = sizeof(struct ofp_action_vxs_copy_branch);
+
     if (actions_len < sizeof *ah) {
         ds_put_format(string, "***action array too short for next action***\n");
         return -1;
@@ -467,6 +470,12 @@ ofp_print_action(struct ds *string, const struct ofp_action_header *ah,
     case OFPAT_VXS_YUV2RGB: {
         struct ofp_action_vxs_yuv2rgb *fvy = (struct ofp_action_vxs_yuv2rgb *)ah;
         ds_put_format(string, "yuv2rgb:%d", ntohl(fvy->convert_param1));
+        break;
+    }
+
+    case OFPAT_VXS_COPY_BRANCH: {
+        struct ofp_action_vxs_copy_branch *vcb = (struct ofp_action_vxs_copy_branch *)ah;
+        ds_put_format(string, "copy_branch:%d/%d/%d", ntohl(vcb->num_copy), ntohl(vcb->branch_pos1), ntohl(vcb->branch_pos2));
         break;
     }
 

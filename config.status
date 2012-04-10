@@ -448,10 +448,10 @@ Copyright (C) 2009 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/yjaeyong/omega-packages/FlowNet/click-2.0-FlowNet-v0.6.1'
+ac_pwd='/home/netcs/VisualXSwitch'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
-AWK='gawk'
+AWK='mawk'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
 ac_need_defaults=:
@@ -622,7 +622,7 @@ fi
 echo 'BEGIN {' >"$tmp/subs1.awk" &&
 cat >>"$tmp/subs1.awk" <<\_ACAWK &&
 S["LTLIBOBJS"]=""
-S["provisions"]="i686 i386 i586 analysis int64 linux pcap wifi"
+S["provisions"]="i686 i386 i586 analysis int64 linux wifi"
 S["POD2MAN"]="pod2man"
 S["TEXI2DVI"]="$(conf_auxdir)/missing texi2dvi"
 S["MAKEINFO"]="$(conf_auxdir)/missing makeinfo"
@@ -633,11 +633,11 @@ S["TOOL_INSTALL_TARGETS"]=" install-click-align install-click-check install-clic
 "-click-mkmindriver install-click-pretty install-click-undead install-click-xform install-click2xml"
 S["CLEAN_TARGETS"]=" clean-userlevel clean-tools"
 S["INSTALL_TARGETS"]=" install-userlevel install-tools"
-S["AWK"]="gawk"
+S["AWK"]="mawk"
 S["PERL"]="perl"
 S["localperl5"]=""
 S["perl5"]="perl"
-S["AUTOCONF"]="autoconf"
+S["AUTOCONF"]="$(conf_auxdir)/missing autoconf"
 S["GMAKE"]="make"
 S["SUBMAKE"]=""
 S["CLICK_BUILD_INSTALL_IF_CHANGED"]="$(CLICK_BUILD_INSTALL) -C"
@@ -655,7 +655,7 @@ S["EXPAT_INCLUDES"]=""
 S["XML2CLICK"]="xml2click"
 S["PROPER_LIBS"]=""
 S["PROPER_INCLUDES"]=""
-S["PCAP_LIBS"]="-lpcap"
+S["PCAP_LIBS"]=""
 S["PCAP_INCLUDES"]=""
 S["TOOL_TARGETS"]=" click-align click-check click-combine click-devirtualize click-fastclassifier click-flatten click-mkmindriver click-pretty click-undead click-xform"\
 " click2xml"
@@ -915,12 +915,6 @@ D["HAVE_NETPACKET_PACKET_H"]=" 1"
 D["CLICK_BINDIR"]=" \"/usr/local/bin\""
 D["CLICK_LIBDIR"]=" \"/usr/local/lib\""
 D["CLICK_DATADIR"]=" \"/usr/local/share/click\""
-D["HAVE_DECL_PCAP_SETNONBLOCK"]=" 1"
-D["HAVE_PCAP"]=" 1"
-D["HAVE_PCAP_INJECT"]=" 1"
-D["HAVE_PCAP_SENDPACKET"]=" 1"
-D["HAVE_PCAP_SETDIRECTION"]=" 1"
-D["HAVE_PCAP_SETNONBLOCK"]=" 1"
 D["HAVE_USERLEVEL_DRIVER"]=" 1"
 D["OFFSETOF_IFR_ADDR_IFREQ"]=" 16"
 D["HAVE_EXPAT"]=" 1"

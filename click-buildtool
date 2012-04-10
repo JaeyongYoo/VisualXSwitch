@@ -30,14 +30,14 @@ gmake=make
 
 verbose=""
 elem2=""
-default_provisions="i686 i386 i586 analysis int64 linux pcap wifi"
+default_provisions="i686 i386 i586 analysis int64 linux wifi"
 driver_provisions=" userlevel"
 
 export LC_COLLATE=C
 trap "exit 1" HUP
 
 # find good versions of awk and grep
-awk="gawk"
+awk="mawk"
 grep="/bin/grep"
 egrep="/bin/grep -E"
 
@@ -1429,7 +1429,7 @@ EOF
   --c|--cf|--cfl|--cfla|--cflag|--cflags|--d|--de|--def|--defs)
      echo   -I/usr/local/include; exit 0;;
   --o|--ot|--oth|--othe|--other|--otherl|--otherli|--otherlib|--otherlibs)
-     echo  -lpcap -ldl   -lrt ;
+     echo   -ldl   -lrt ;
      exit 0;;
   --toolc|--toolcf|--toolcfl|--toolcfla|--toolcflag|--toolcflags)
      echo -DCLICK_TOOL -I/usr/local/include; exit 0;;

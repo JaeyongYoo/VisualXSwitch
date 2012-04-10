@@ -42,7 +42,7 @@ CLICKINCLUDES = -I$(clickincludedir) -I$(clicksrcdir)
 CLICKLDFLAGS = 
 CLICKLDMODULEFLAGS = -shared
 
-CLICKAUTOCONF = autoconf
+CLICKAUTOCONF = $(conf_auxdir)/missing autoconf
 CLICKGMAKE = make
 CLICKINSTALL = /usr/bin/install -c
 

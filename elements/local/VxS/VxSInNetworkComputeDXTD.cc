@@ -28,7 +28,7 @@
 /* in order to avoid compiler warning */
 #undef MAX
 #undef MIN
-#include </home/netcs/NVIDIA_GPU_Computing_SDK/shared/inc/shrUtils.h>
+#include <shrUtils.h>
 
 #define NUM_THREADS 256
 #define MUL(x,y)    (x*y)

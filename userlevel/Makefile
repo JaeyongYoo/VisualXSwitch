@@ -84,9 +84,9 @@ CFLAGS = -g -O2
 CXXFLAGS = -g -O2
 
 DEFS = -DHAVE_CONFIG_H
-INCLUDES = -I$(top_builddir)/include -I$(top_srcdir)/include \
+INCLUDES = -I$(top_builddir)/include -I$(top_srcdir)/include -I/usr/local/cuda/include/ -I$(top_builddir)/CUDA/shared/inc/ \
 	-I$(srcdir) -I$(top_srcdir)  
-LDFLAGS = 
+LDFLAGS = cuda_dxt_processings.o -L/usr/local/cuda/lib/ -L./CUDA/shared/obj/i386/release/ -lcuda -lcudart -gencode=arch=compute_20,code=\"sm_20,compute_20\"
 LIBS =  `$(top_builddir)/click-buildtool --otherlibs` $(ELEMENT_LIBS)
 
 CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CXXFLAGS)

@@ -13,7 +13,7 @@ top_builddir = ../..
 subdir = etc/libclick
 conf_auxdir = $(top_srcdir)
 
-AUTOCONF = autoconf
+AUTOCONF = $(conf_auxdir)/missing autoconf
 ACLOCAL = aclocal -I m4
 PERL = perl
 INSTALL = /usr/bin/install -c

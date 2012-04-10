@@ -13,7 +13,7 @@ top_builddir = .
 subdir = .
 conf_auxdir = $(top_srcdir)
 
-AUTOCONF = autoconf
+AUTOCONF = $(conf_auxdir)/missing autoconf
 # ACLOCAL = aclocal -I m4
 ACLOCAL = :
 PERL = perl
@@ -24,7 +24,7 @@ INSTALL_DATA_IF_CHANGED = $(INSTALL_IF_CHANGED) -m 644
 mkinstalldirs = $(conf_auxdir)/mkinstalldirs
 
 EXTRA_PROVIDES =
-PROVISIONS = i686 i386 i586 analysis int64 linux pcap wifi $(EXTRA_PROVIDES)
+PROVISIONS = i686 i386 i586 analysis int64 linux wifi $(EXTRA_PROVIDES)
 
 prefix = /usr/local
 exec_prefix = ${prefix}
@@ -38,7 +38,7 @@ datadir = /usr/local/share
 clickdatadir = $(datadir)/click
 
 DRIVERS =  userlevel
-OTHER_TARGETS =  tools
+OTHER_TARGETS =  tools cuda
 ALL_TARGETS = $(DRIVERS) $(OTHER_TARGETS)
 INSTALL_TARGETS =  install-userlevel install-tools
 CLEAN_TARGETS =  clean-userlevel clean-tools
@@ -55,6 +55,8 @@ userlevel: Makefile click-buildtool click-compile stamp-h
 	@cd userlevel && $(MAKE) all
 tools: Makefile stamp-h
 	@cd tools && $(MAKE) all
+cuda: Makefile
+	@cd CUDA/shared && $(MAKE)
 
 install-bsdmodule: Makefile click-buildtool stamp-h installch
 	@cd bsdmodule && $(MAKE) install
@@ -77,6 +79,8 @@ clean-userlevel:
 	@cd userlevel && $(MAKE) clean
 clean-tools:
 	@cd tools && $(MAKE) clean
+clean-cuda:
+	@cd CUDA/shared && $(MAKE) clean
 
 install: $(INSTALL_TARGETS) install-local install-doc install-local-include
 install-local: elementmap.xml click-buildtool click-compile config.mk \
@@ -180,7 +184,7 @@ check-filenames:
 	@a=`find . \( -name \*.cc -or -name \*.c \) -print | sed 's/.*\/\(.*\)\.c*$$/\1.o/' | grep -v 'elements\.o' | sort | uniq -d`; \
 	if test -z $$a; then echo OK; else echo "*** warning: duplicate object file names:"; echo "$$a"; fi
 
-clean: $(CLEAN_TARGETS) clean-doc clean-local
+clean: $(CLEAN_TARGETS) clean-doc clean-local clean-cuda
 clean-doc:
 	@cd doc && $(MAKE) clean
 clean-local:

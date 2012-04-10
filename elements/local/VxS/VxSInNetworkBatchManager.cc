@@ -24,83 +24,12 @@
 
 CLICK_DECLS
 
-int g_new_batcher_cnt = 0;
 const char *media_type_name[VXS_END_OF_TYPE] = {
 "VXS_MEDIA_TYPE_RAW",
 "VXS_MEDIA_TYPE_DXT",
 "VXS_MEDIA_TYPE_MPEG2",
 "VXS_MEDIA_TYPE_H264"
 };
-
-/**
- * implementation of VxSInNetworkSegment
- */
-
-VxSInNetworkSegment::VxSInNetworkSegment()
-{
-}
-
-VxSInNetworkSegment::~VxSInNetworkSegment()
-{
-}
-
-int VxSInNetworkSegment::setActionHeader( const uint8_t *d, uint32_t size )
-{
-	if( size >= VXS_MAX_ACTION_HEADER ) {
-		click_chatter("Error: action length too long (limit=%d, action_len=%d)\n", 
-				VXS_MAX_ACTION_HEADER, size);
-		return -1;
-	} 
-	memcpy( _action_header, d, size );
-	_action_len = size;
-	_action_header_program_counter = NULL;
-	return 0;
-}
-
-uint8_t * VxSInNetworkSegment::getNextActionHeader()
-{
-	if( _action_header_program_counter == NULL ) {
-		_action_header_program_counter = _action_header;
-	} else {
-		/* first check */
-		int diff = (int)(_action_header_program_counter - _action_header);
-
-		if( diff >= _action_len ) {
-			/* if we reach here, the actions are completely done */
-			return NULL;
-		}
-
-		struct ofp_action_header *ah = (struct ofp_action_header *)_action_header_program_counter;
-		int16_t length = htons(ah->len);
-
-		if( length == 0 ) return NULL;		
-
-		_action_header_program_counter = _action_header_program_counter + length;
-
-		diff = (int)(_action_header_program_counter - _action_header);
-
-		if( diff >= _action_len ) {
-			/* if we reach here, the actions are completely done */
-			return NULL;
-		}
-	}
-	return _action_header_program_counter;
-}
-
-void VxSInNetworkSegment::print_to_chatter()
-{
-	click_chatter("Segment: action info\n");
-	int total_len = 0;
-	while( total_len < _action_len ) {
-		struct ofp_action_header *ah = (struct ofp_action_header *)(_action_header + total_len);
-		int16_t len = htons(ah->len);
-		int16_t type = htons(ah->type);
-		if( len == 0 ) return;
-		total_len += len;
-		click_chatter("[%d - %d] ", type, len );
-	}
-	click_chatter("\n");
-}
 
 /**
  * implementation of VxSInNetworkFlowBatcher
@@ -151,16 +80,13 @@ VxSInNetworkBatchManager::~VxSInNetworkBatchManager()
 
 VxSInNetworkFlowBatcher * VxSInNetworkBatchManager::createBatcher(int32_t media_type, const struct sw_flow_key *fid)
 {
-//	click_chatter("cnt=%d\n", g_new_batcher_cnt );
 	VxSInNetworkFlowBatcher* re = NULL;
 	switch( media_type ) {
 	case VXS_MEDIA_TYPE_RAW:
-		g_new_batcher_cnt ++;
 		re = new VxSInNetworkRawBatcher( fid, _task_queue_incoming, _task_queue_outgoing );
 	break;
 
 	case VXS_MEDIA_TYPE_DXT:
-		g_new_batcher_cnt ++;
 		re = new VxSInNetworkDXTBatcher( fid, _task_queue_incoming, _task_queue_outgoing );
 	break;
 	

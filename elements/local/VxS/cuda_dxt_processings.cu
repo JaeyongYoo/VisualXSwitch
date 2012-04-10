@@ -13,25 +13,18 @@
 #include <cuda.h>
 #include <cuda_runtime_api.h>
 
-
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/time.h>
 #include <stdint.h>
 #include "dxt_cuda.h"
 __constant__ int constAlpha = 0xff << 24;
-//__constant__ float  constHueColorSpaceMat[9];
-
-//#define NUM_THREADS 256
-//#define MUL(x,y)    (x*y)
-
 
 /* cuda debug mode */
 //#define DEBUG_MODE 
 #define _DEBUG
 cudaError_t error;
 
-//#define NUM_THREADS 64        // Number of threads per block.
 #define IMAGE_WIDTH 1920
 #define IMAGE_HEIGHT 1080
 
@@ -156,7 +149,6 @@ __global__ void ckernel_dxt_compress_from_yuv2_or_rgb4(uint32_t *input, uint16_t
 
 			// perform RGB converting
 			int yuvi[4];
-//			int red[2], green[2], blue[2];
 
 			yuvi[0] = ( (tmp_image >> 8) & 0xff) - 16;	// y1
 			yuvi[1] = ( (tmp_image >> 0) & 0xff) - 128;	// u	
@@ -288,7 +280,6 @@ __device__ void loadColorBlock(const uint * image, uint2 dxtBlocks[NUM_THREADS],
 }
 
 __device__ void decodeDXT1(uint2 dxtBlocks[NUM_THREADS], uint rgbaBlocks[NUM_THREADS][16], int blockOffset, uint limit )
-//__device__ void decodeDXT1(uint2 dxtBlocks[NUM_THREADS], uint * result, int blockOffset, uint limit)
 {
 	const int bid = ( blockIdx.x + blockOffset ) * blockDim.x ;
 	const int idx = threadIdx.x;
@@ -416,27 +407,28 @@ __device__ void scaleColorBlock(const uint * input, uint * output, ushort3 avg_m
 
 	uint source;
 
-        for (int i=0;i<4;i++) {
-                for(int j=0;j<4;j++) {
-                        avg_mask[threadIdx.x].x = 0;
-                        avg_mask[threadIdx.x].y = 0;
-                        avg_mask[threadIdx.x].z = 0;
-                        source = 0;
-                        for(int k=0;k<2;k++) {
-                                for(int l=0;l<2;l++) {
-					source = input[((gid+threadIdx.x)/(orig_width>>3)*8+(2*i)+k)*orig_width + ((gid+threadIdx.x)%(orig_width>>3)*8)+2*j+l];
+	for (int i=0;i<4;i++) {
+		for(int j=0;j<4;j++) {
+			avg_mask[threadIdx.x].x = 0;
+			avg_mask[threadIdx.x].y = 0;
+			avg_mask[threadIdx.x].z = 0;
+			source = 0;
+			for(int k=0;k<2;k++) {
+				for(int l=0;l<2;l++) {
+					source = input[((gid+threadIdx.x)/(orig_width>>3)*8+(2*i)+k)*orig_width + 
+							((gid+threadIdx.x)%(orig_width>>3)*8)+2*j+l];
 
-                                avg_mask[threadIdx.x].x = avg_mask[threadIdx.x].x + ((source >> 16) & 0xff);
-                                avg_mask[threadIdx.x].y = avg_mask[threadIdx.x].y + ((source >> 8) & 0xff);
-                                avg_mask[threadIdx.x].z = avg_mask[threadIdx.x].z + ((source) & 0xff);
+					avg_mask[threadIdx.x].x = avg_mask[threadIdx.x].x + ((source >> 16) & 0xff);
+					avg_mask[threadIdx.x].y = avg_mask[threadIdx.x].y + ((source >> 8) & 0xff);
+					avg_mask[threadIdx.x].z = avg_mask[threadIdx.x].z + ((source) & 0xff);
 				}
 			}
 
-			output[ ((gid+threadIdx.x)/(target_width>>2)*4+i)*target_width + (((gid+threadIdx.x)%(target_width>>2))*4)+j] = (0xff << 24)| ((avg_mask[threadIdx.x].x/4) << 16) | ((avg_mask[threadIdx.x].y/4) << 8) | ((avg_mask[threadIdx.x].z/4) );
+			output[ ((gid+threadIdx.x)/(target_width>>2)*4+i)*target_width + (((gid+threadIdx.x)%(target_width>>2))*4)+j] = 
+				(0xff << 24)| ((avg_mask[threadIdx.x].x/4) << 16) | ((avg_mask[threadIdx.x].y/4) << 8) | ((avg_mask[threadIdx.x].z/4) );
 		}
 	}
 }
-
 
 __global__ void ckernel_frame_resize(uint32_t *input, uint32_t *output, uint32_t total_dxt_blocks, 
 		uint32_t orig_width, uint32_t orig_height, uint32_t target_width, uint32_t target_height,
@@ -455,18 +447,6 @@ __global__ void ckernel_frame_resize(uint32_t *input, uint32_t *output, uint32_t
 	scaleColorBlock(input, output, avg_mask, total_dxt_blocks,
 			orig_width, target_width, blockOffset);
 
-	/*
-	for( i = 0; i<total_pixels; i++ ) {
-		pixel_position = gid * total_pixels + i;
-		// first compute the height 
-		orig_pixel_position = (pixel_position / target_width) * orig_width;
-		// then compute the width 
-		tmp_residual_width = pixel_position % target_width;
-		orig_pixel_position = pixel_position + tmp_residual_width;
-
-		output[pixel_position] = input[orig_pixel_position];
-	}
-	*/
 }
 
 extern "C" int frame_resize(uint32_t *d_data, uint32_t *d_result, uint32_t total_dxt_blocks, 
@@ -492,13 +472,6 @@ extern "C" int frame_resize(uint32_t *d_data, uint32_t *d_result, uint32_t total
 			total_dxt_blocks, orig_width, orig_height, target_width, target_height, j );
         }
 
-	/*
-	uint32_t total_cuda_blocks = total_dxt_blocks / NUM_THREADS;
-	if( total_dxt_blocks % NUM_THREADS ) total_cuda_blocks ++;
-
-	ckernel_frame_resize<<<total_cuda_blocks, NUM_THREADS>>>(d_data, d_result, total_dxt_blocks, 
-			orig_width, orig_height, target_width, target_height );
-	*/
 	cudaThreadSynchronize();
 	return 0;
 }

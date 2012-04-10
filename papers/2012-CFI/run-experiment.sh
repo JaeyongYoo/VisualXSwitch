@@ -7,7 +7,7 @@ if ! [ `whoami` == "root" ]; then
 fi
 
 
-__CLICK=/home/netcs/packages/icc-sdn/click-2.0-FlowNet-v0.6.1/userlevel/click
+__CLICK=/home/yjaeyong/VisualXSwitch/userlevel/click
 __SEC_CHAN=/home/netcs/packages/icc-sdn/openflow-1.0.0/secchan/ofprotocol
 
 # desc:
@@ -54,7 +54,7 @@ generate_click_script() {
 	do
 		echo ""
 		echo "fd$cnt :: FromDevice( $i, SNIFFER false, PROMISC true, HEADROOM 34, CAPTURE LINUX );"
-		echo "td$cnt ::Print(\"$i\", LENGTH 150)-> ToDevice( $i, DEBUG 0 );"
+		echo "td$cnt :: ToDevice( $i, DEBUG 0 );"
 
 		cnt=$(($cnt+1))
 	done
@@ -67,7 +67,7 @@ generate_click_script() {
 	offseted_cnt=2;
 	for i in $interfaces
 	do
-		echo "fd$cnt -> [$offseted_cnt]dp[$offseted_cnt] -> Queue(100)-> td$cnt;"
+		echo "fd$cnt -> [$offseted_cnt]dp[$offseted_cnt] -> Queue(10000)-> td$cnt;"
 
 		cnt=$(($cnt+1))
 		offseted_cnt=$(($offseted_cnt+1))
@@ -88,7 +88,7 @@ $__SEC_CHAN unix:/var/run/dp0.sock tcp:210.125.84.74:6655 &> /tmp/ofprotocol-out
 sleep 2
 
 generate_click_script de:ad:be:ef:00:00 192.168.0.1 1  eth3 eth5 eth1 eth0 > /tmp/tmp.click
-$__CLICK $1 2>&1 1> output | tee /tmp/tmp
+$__CLICK /tmp/tmp.click 2>&1 1> output | tee /tmp/tmp
 #gdb $__CLICK
 
 

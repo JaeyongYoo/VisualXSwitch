@@ -33,7 +33,7 @@ CLICK_DECLS
 
 /* XXX: if you include this into FlowNet build tree, delete the below two functions */
 /* supposed to receive IP hdr including packet */
-static void checksumIP( Packet* p, int offset )
+void checksumIP_v2( Packet* p, int offset )
 {
         click_ip* iphdr = (click_ip*)(p->data() + offset);
         unsigned hlen;
@@ -44,7 +44,7 @@ static void checksumIP( Packet* p, int offset )
 }
 
 /* supposed to receive IP hdr including packet */
-static void checksumUDP( Packet* p, int offset )
+void checksumUDP_v2( Packet* p, int offset )
 {
         click_ip* iphdr = (click_ip*) (p->data() + offset);
         click_udp* udphdr = (click_udp*)(p->data() + sizeof(click_ip) + offset);
@@ -185,8 +185,8 @@ Packet * VxSInNetworkRawSegment::packetize(uint32_t data_size, uint8_t *network_
                         dxt_send_unit );
 
 
-                checksumIP( p, sizeof(click_ether) );
-                checksumUDP( p, sizeof(click_ether) );
+                checksumIP_v2( p, sizeof(click_ether) );
+                checksumUDP_v2( p, sizeof(click_ether) );
 
                 sent_blocks += pixel_blocks_per_packet;
                 sent_size += dxt_send_unit;

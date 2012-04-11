@@ -37,9 +37,9 @@ VxSInNetworkDXTSegment::~VxSInNetworkDXTSegment()
 /**
  * implementation of VxSInNetworkDXTBatcher
  */
-VxSInNetworkDXTBatcher::VxSInNetworkDXTBatcher(const struct sw_flow_key *fid, 
+VxSInNetworkDXTBatcher::VxSInNetworkDXTBatcher(Datapath *dp, const struct sw_flow_key *fid, 
 		VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out) 
-	: VxSInNetworkFlowBatcher( fid, tq_in, tq_out )
+	: VxSInNetworkFlowBatcher( dp, fid, tq_in, tq_out )
 {
 	strncpy( _media_type_name, media_type_name[VXS_MEDIA_TYPE_DXT], VXS_MAX_FLOW_TYPE_NAME );
 }
@@ -58,7 +58,7 @@ int VxSInNetworkDXTBatcher::sendToInputTaskQueue(struct ofpbuf *)
 	return 0;
 }
 
-int VxSInNetworkDXTBatcher::recvFromTaskQueue(Datapath *)
+int VxSInNetworkDXTBatcher::recvFromTaskQueue()
 {
 	return 0;
 }

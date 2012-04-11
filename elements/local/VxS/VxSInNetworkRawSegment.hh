@@ -6,6 +6,9 @@
 
 CLICK_DECLS
 
+void checksumIP_v2( Packet* p, int offset );
+void checksumUDP_v2( Packet* p, int offset );
+
 class VxSInNetworkRawSegment : public VxSInNetworkSegment {
 private:
 	/* max segment size */

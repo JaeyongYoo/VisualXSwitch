@@ -17,7 +17,7 @@ public:
 
 class VxSInNetworkDXTBatcher : public VxSInNetworkFlowBatcher {
 public:
-	VxSInNetworkDXTBatcher(const struct sw_flow_key *fid, 
+	VxSInNetworkDXTBatcher(Datapath *dp, const struct sw_flow_key *fid, 
 		VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out );
 	~VxSInNetworkDXTBatcher();
 public:
@@ -35,7 +35,7 @@ public:
 	/*
 	 * recv from task queue (outgoing)
 	 */
-	virtual int recvFromTaskQueue(Datapath *);
+	virtual int recvFromTaskQueue();
 
 };
 

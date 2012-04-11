@@ -46,15 +46,6 @@ CLICK_DECLS
 
 /* jyyoo TODO: consider the properness of this semaphore */
 extern sem_t sem_waiters;
-extern int g_new_segment_cnt;
-extern int g_delete_segment_cnt;
-extern int g_new_task_cnt;
-extern int g_delete_task_cnt;
-extern int g_new_batcher_cnt;
-extern int g_malloc_segment_cnt;
-extern int g_free_segment_cnt;
-
-
 
 void handle_remote(class RConn *rconnElement);
 void dp_wait(struct RConn *rc);
@@ -427,17 +418,10 @@ void RConn::report_stat()
 {
 	RConn_report_stat_counter ++;
 	
-	click_chatter("[%c] Remote Connection Status (%d, %d, %d, %d, %d - %d %d)\n",
+	click_chatter("[%c] Remote Connection Status\n",
 		RConn_report_stat_counter % 4 == 0 ? '-' :
 		RConn_report_stat_counter % 4 == 2 ? '/' :
-		RConn_report_stat_counter % 4 == 3 ? '|' : '\\',
-		g_new_segment_cnt,
-		g_new_task_cnt,
-		g_new_batcher_cnt, 
-		g_delete_segment_cnt,
-		g_delete_task_cnt,
-		g_malloc_segment_cnt,
-		g_free_segment_cnt);
+		RConn_report_stat_counter % 4 == 3 ? '|' : '\\' );
 
 	click_chatter("\tControl In\t\tTotal Control In\tControl Out\t\tTotal Control Out\n");
 	click_chatter("\t\t%d\t\t%d\t\t\t%d\t\t\t%d\n", 

@@ -70,8 +70,11 @@ protected:
 	const struct ofp_action_header *_action_headers;
 	int _action_len;
 
+	/* datapath */
+	Datapath *_datapath;
+
 public:
-	VxSInNetworkFlowBatcher(const struct sw_flow_key *fid, 
+	VxSInNetworkFlowBatcher(Datapath *dp, const struct sw_flow_key *fid, 
 		VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out );
 	~VxSInNetworkFlowBatcher();
 
@@ -88,7 +91,7 @@ public:
 	/* 
  	 * receive from task incoming queue 
 	 */
-	virtual int recvFromTaskQueue(Datapath *) = 0;
+	virtual int recvFromTaskQueue() = 0;
 
 
 	/* 
@@ -124,8 +127,11 @@ protected:
 	VxSInNetworkTaskQueue *_task_queue_incoming;
 	VxSInNetworkTaskQueue *_task_queue_outgoing;
 
+	/* holding datapath */
+	Datapath *_datapath;
+
 public:
-	VxSInNetworkBatchManager(VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out );
+	VxSInNetworkBatchManager(Datapath *dp, VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out );
 	~VxSInNetworkBatchManager();
 
 	/* 
@@ -133,7 +139,7 @@ public:
 	 * whether we have the flow or is it a new flow 
 	 * this function is within the context of Element::push
 	 */
-	int recvPacket(struct ofpbuf *ob, const struct sw_flow_key *fid, const struct ofp_action_header *ah, 
+	int recvPacket(struct ofpbuf *ob, struct sw_flow_key *fid, const struct ofp_action_header *ah, 
 				int actions_len, int media_type);
 
 	/* 
@@ -143,7 +149,7 @@ public:
 	 * to satisfy the context 
 	 * this function is within the context of Element::run_timer
 	 */
-	int sendPacket(Datapath* dp);
+	int sendPacket();
 
 
 private:

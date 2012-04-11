@@ -169,7 +169,7 @@ strip_vlan(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key 
     return 0;
 }
 
-static uint32_t
+uint32_t
 set_dl_addr(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key *key UNUSED, 
         const struct ofp_action_header *ah, size_t actions_len UNUSED )
 {
@@ -184,7 +184,7 @@ set_dl_addr(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key
     return 0;
 }
 
-static uint32_t
+uint32_t
 set_nw_addr(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key *key, 
         const struct ofp_action_header *ah, size_t actions_len UNUSED )
 {
@@ -244,7 +244,7 @@ set_nw_tos(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key 
     return 0;
 }
 
-static uint32_t
+uint32_t
 set_tp_port(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key *key, 
         const struct ofp_action_header *ah, size_t actions_len UNUSED )
 {
@@ -278,20 +278,27 @@ set_tp_port(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key
 static uint32_t vxs_in_network_procesing( Datapath *dp, struct ofpbuf *buffer, struct sw_flow_key *key, 
         const struct ofp_action_header *ah, size_t actions_len )
 {
-//	struct ofp_action_vxs_dxt *ta = (struct ofp_action_vxs_dxt *)ah;
 	
 	/* validate the flow with given key as if it is IP and etc. */
 	uint16_t eth_proto = ntohs(key->flow.dl_type);
 	uint8_t nw_proto = key->flow.nw_proto;
 
 	if (eth_proto == ETH_TYPE_IP && nw_proto == IP_TYPE_UDP ) {
-		if( dp->vxsManager.recvPacket( buffer, key, ah, actions_len, VXS_MEDIA_TYPE_RAW ) == 0 ) {
+		int re;
+		/**
+		 * recvPacket function returns 0 when success (need to free packet by returning 1)
+		 * 			returns -1 when failure 
+		 */ 
+		re = dp->vxsManager.recvPacket( buffer, key, ah, actions_len, VXS_MEDIA_TYPE_RAW );
+
+		if( re == 0 ) {
 			/* if we succeeded, we need to destroy this packet 
 			 * by returnning 1, it automatically frees this buffer
 			 */
 			return 1;
 		} else {
 			click_chatter("JYD VXS fails!!!\n");
+			return -1;
 		}
 	}
  	return 0;
@@ -559,7 +566,7 @@ void execute_actions(class Datapath *dp, struct ofpbuf *buffer,
 
 			if (type < ARRAY_SIZE(of_actions)) {
 				/* if execute_ofpat returns non-zero, discard this packet immediately */
-				if( execute_ofpat(dp, buffer, key, ah, type, actions_len) != 0 ) {
+				if( execute_ofpat(dp, buffer, key, ah, type, actions_len) == 1 ) {
 					ofpbuf_delete(buffer);
 					return;
 				}

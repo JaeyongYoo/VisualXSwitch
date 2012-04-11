@@ -26,6 +26,7 @@
 #include "VxSInNetworkRawBatcher.hh"
 #include "VxSInNetworkTaskQueue.hh"
 #include "../OpenFlow/lib/ofpbuf.hh"
+#include "../OpenFlow/lib/dp_act.hh"
 #include "../OpenFlow/datapath.hh"
 #include "STIP.h"
         
@@ -34,9 +35,9 @@ CLICK_DECLS
 /**
  * implementation of VxSInNetworkRawBatcher
  */
-VxSInNetworkRawBatcher::VxSInNetworkRawBatcher(const struct sw_flow_key *fid, 
+VxSInNetworkRawBatcher::VxSInNetworkRawBatcher(Datapath *dp, const struct sw_flow_key *fid, 
 	VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out) 
-	: VxSInNetworkFlowBatcher( fid, tq_in, tq_out )
+	: VxSInNetworkFlowBatcher( dp, fid, tq_in, tq_out )
 {
 	_segment_size = 0;
 	strncpy( _media_type_name, media_type_name[VXS_MEDIA_TYPE_RAW], VXS_MAX_FLOW_TYPE_NAME );
@@ -45,10 +46,10 @@ VxSInNetworkRawBatcher::VxSInNetworkRawBatcher(const struct sw_flow_key *fid,
 VxSInNetworkRawBatcher::~VxSInNetworkRawBatcher()
 {
 }
-void VxSInNetworkRawBatcher::stip_initiation_packet_received(struct stip_initiation_header *sihdr)
+void VxSInNetworkRawBatcher::stip_initiation_packet_received(struct stip_initiation_header *sihdr, 
+	struct ofpbuf *ob, const struct ofp_action_header *ah, int actions_len)
 {
-	if( _initiated == true )
-	{
+	if( _initiated == true ) {
 		click_chatter("New flow arrived: re-initiated\n");
 	}
 
@@ -89,8 +90,78 @@ void VxSInNetworkRawBatcher::stip_initiation_packet_received(struct stip_initiat
 
 	/* by default, we set the segment_size as the byte-size of a video frame */
 	_segment_size = _max_pixel_blocks * _src_Bpb;
-	click_chatter("[this=%p] _segment_size %d  = %d * %d\n", this, _segment_size, _max_pixel_blocks, _src_Bpb );
 
+	stip_process_initiation_packet( sihdr, ob, ah, actions_len );
+}
+
+void VxSInNetworkRawBatcher::stip_process_initiation_packet(struct stip_initiation_header *sihdr, 
+	struct ofpbuf *ob, const struct ofp_action_header *actions, int actions_len)
+{
+        uint8_t *p = (uint8_t *)actions;
+	while (actions_len > 0) {
+		struct ofp_action_header *ah = (struct ofp_action_header *)p;
+		size_t len = htons(ah->len);
+
+		switch(ntohs(ah->type)) {
+			case OFPAT_OUTPUT: 
+			{
+				struct ofp_action_output *oa = (struct ofp_action_output *)ah;
+				int32_t out_port = ntohs(oa->port);
+				uint16_t in_port = ntohs(_flow_id.flow.in_port);
+
+				Packet* packet = ofpbuf_to_packet( ob );
+
+				/* recompute checksum here */
+				/* FIXME: do not check sum here, we should do at VXS FrameResize */
+		                checksumIP_v2( packet, sizeof(click_ether) );
+        		        checksumUDP_v2( packet, sizeof(click_ether) );
+
+				_datapath->dp_output_port(packet, in_port, out_port, 0);
+
+				break;
+			}
+			case OFPAT_VXS_DXTComp:
+			{
+				break;
+			}
+			case OFPAT_VXS_DXTDecomp:
+			{
+				break;
+			}
+			case OFPAT_VXS_FrameResize:
+			{
+				/* TODO: also re-do the UDP/IP checksum */
+				
+				/* TODO: frame resize should be paramatized */
+				sihdr->frame_width /= 2;
+				sihdr->frame_height /= 2;
+				break;
+			}
+			case OFPAT_VXS_YUV2RGB:
+			{
+				break;
+			}
+			case OFPAT_SET_DL_DST:
+			{
+				set_dl_addr(NULL, ob, &_flow_id, ah, htons(ah->len));
+				break;
+			}
+			case OFPAT_SET_NW_DST:
+			{
+				set_nw_addr(NULL, ob, &_flow_id, ah, htons(ah->len));
+				break;
+			}
+			case OFPAT_SET_TP_DST:
+			{
+				set_tp_port(NULL, ob, &_flow_id, ah, htons(ah->len));
+				break;
+			}
+			default:
+				break;
+		}
+		p += len;
+		actions_len -= len;
+	}
 }
 
 void VxSInNetworkRawBatcher::stip_data_packet_received(struct stip_transport_header *shdr)
@@ -107,32 +178,16 @@ void VxSInNetworkRawBatcher::stip_data_packet_received(struct stip_transport_hea
 		/* we have no segment at all, create one */ 
 		s = createNewSegment();
 		_segments.push_back( s );
-#if JYD == 1
-		click_chatter("JYD ====> Push segment: %p\n", s );
-		list_all_segments();
-#endif
-
 	} else {
-		bool print_this = false;	
 		s = _segments.back();
 		if( s->isFull() ) {
 			s = createNewSegment();
-			print_this = true;
-
 		} else {
 			/* XXX: to make the consistency of "push_back" */
 			_segments.pop_back();
 		}
 		_segments.push_back( s );
-
-		if( print_this ) {
-#if JYD == 1
-			click_chatter("JYD ====> Push segment: %p\n", s );
-			list_all_segments();
-#endif
-		}
 	}
-
 
 	/* insert data into segment */
 	uint32_t len = s->push( data, data_size );
@@ -145,15 +200,7 @@ void VxSInNetworkRawBatcher::stip_data_packet_received(struct stip_transport_hea
 		s = createNewSegment();
 		s->push( data + len, residual );
 		_segments.push_back( s );
-
-#if JYD == 1
-		click_chatter("JYD ====> Push segment: %p\n", s );
-		list_all_segments();
-#endif
-
 	}
-
-
 }
 
 VxSInNetworkRawSegment * VxSInNetworkRawBatcher::createNewSegment() 
@@ -174,8 +221,15 @@ VxSInNetworkRawSegment * VxSInNetworkRawBatcher::createNewSegment()
 	return s;
 }
 
+/**
+ * pushPacket function returns 0 when success (need to free packet by returning 1)
+ *			returns 2 when success (need to forward the packet)
+ * 			returns -1 when failure 
+ * TODO: make 0, -1, 2 kind of constants as macros
+ */ 
 int VxSInNetworkRawBatcher::pushPacket(struct ofpbuf *ob, const struct ofp_action_header *ah, int actions_len)
 {
+	struct  stip_common_header *schdr;
 	int re = VxSInNetworkFlowBatcher::pushPacket( ob, ah, actions_len );
 	if( re ) return re;
 
@@ -185,13 +239,7 @@ int VxSInNetworkRawBatcher::pushPacket(struct ofpbuf *ob, const struct ofp_actio
 		return -1;
 	}
 
-	/* although @ob is openflow-defined packet structure, we use 
-	 * click-network-headers for the convenience of writing codes */
-//	click_ether *ether = (click_ether *)ob->l2; /* delete me if not using */
-//	click_ip *ip = (click_ip *)ob->l3;
-//	click_udp *udp = (click_udp *)ob->l4;
-
-    struct  stip_common_header *schdr = (struct stip_common_header *)(ob->l7);
+	schdr = (struct stip_common_header *)(ob->l7);
 
 	/* STIP protocol version check */
 	if( schdr->version != 0x01 ) {
@@ -201,7 +249,8 @@ int VxSInNetworkRawBatcher::pushPacket(struct ofpbuf *ob, const struct ofp_actio
 
 	/* if this packet is initiation packet */
 	if( schdr->hdr_len == sizeof(struct stip_initiation_header) ) {
-		stip_initiation_packet_received( (struct stip_initiation_header *)schdr );
+		stip_initiation_packet_received( (struct stip_initiation_header *)schdr, ob, ah, actions_len);
+		return 0; /* this is a nasty hardcode for handling initiation packet */
 	} else {
 		if( _initiated == false ) {
 			click_chatter("We may miss the initiation packet for DXT\n");
@@ -218,7 +267,7 @@ int VxSInNetworkRawBatcher::pushPacket(struct ofpbuf *ob, const struct ofp_actio
 
 int VxSInNetworkRawBatcher::sendToInputTaskQueue(struct ofpbuf *ob)
 {
-	/* FIXME: here, we have to determine whether performing rate control */
+	/* TODO: here, we have to determine whether performing rate control */
 	while( _segments.size() > 2  ) {
 
 		/* create a task */
@@ -231,25 +280,11 @@ int VxSInNetworkRawBatcher::sendToInputTaskQueue(struct ofpbuf *ob)
 		
 		VxSInNetworkRawSegment *r_seg = _segments.front();
 
-
 		task->set( r_seg, this, ob, network_header_len  );
-
-#if JYD == 1
-		click_chatter("JYD ====> before PoP segment: %p\n", r_seg );
-		list_all_segments();
-#endif
 	
 		/* remove the segment */
 		_segments.pop_front();
 		
-#if JYD == 1
-		click_chatter("JYD ====> PoP segment: %p\n", r_seg );
-		list_all_segments();
-#endif
-	
-
-//		task->print_to_chatter();
-
 		/* 
 		 * send to task queue 
 		 * XXX: be aware that this is a blocking function 
@@ -265,7 +300,7 @@ int VxSInNetworkRawBatcher::sendToInputTaskQueue(struct ofpbuf *ob)
  *
  * Return value is the number of residual tasks 
  */
-int VxSInNetworkRawBatcher::recvFromTaskQueue(Datapath *dp)
+int VxSInNetworkRawBatcher::recvFromTaskQueue()
 {
 	if( _task_queue_outgoing->size() == 0 ) return 0;
 	/* here, we have to determine how many tasks do we send?
@@ -282,22 +317,10 @@ int VxSInNetworkRawBatcher::recvFromTaskQueue(Datapath *dp)
 		tmp = p;
 		p = p->next();
 		tmp->set_next(NULL);
-		dp->dp_output_port( tmp, task->getInPort(), task->getOutPort(), 0 );
+		_datapath->dp_output_port( tmp, task->getInPort(), task->getOutPort(), 0 );
 		iii++;
 	}
 
-	VxSInNetworkRawSegment *seg = (VxSInNetworkRawSegment *)task->getSegment();
-
-//	click_chatter("segment segment size=%d width=%d height=%d (packets=%d)\n", seg->getWrittenSize(),  seg->getWidth(), seg->getHeight(), iii);
-
-	// need to delete the task 
-	/* FIXME: if I delete these two deletes, seg-fault happens !!! */
-	/* FIXME: FIXME: FIXME: Jaeyong, please fix this immediately !!!! */
-	/* XXX: I think it is fixed, delete all these comments!! */
-
-#if JYD == 1
-	click_chatter("JYD ===> delete a segment %p\n", rawSegment );
-#endif
 	delete rawSegment;
 	delete task;
 	return _task_queue_outgoing->size();

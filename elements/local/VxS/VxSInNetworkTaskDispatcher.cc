@@ -155,7 +155,6 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 						click_chatter("OOPS: ACTION HEADER GETS NULL!?\n");
 						break;
 					}
-
 				}
 				_task_queue_incoming->pushTask( copied_task );
 			}
@@ -209,6 +208,7 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 
 		case OFPAT_VXS_FrameResize:
 		{
+			/* TODO: frame resize should be paramatized */
 			VxSInNetworkCompute *c = lookupCompute("FRAME_RESIZE");
 			if( c == NULL ) {
 				click_chatter("Error: CUDA_DXTC not found\n");
@@ -264,6 +264,7 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			memcpy(eh->eth_dst, da->dl_addr, sizeof eh->eth_dst);
 			break;
 		}
+
 		case OFPAT_SET_NW_DST:
 		{
 			struct ofp_action_nw_addr *da = (struct ofp_action_nw_addr *)ah;
@@ -275,6 +276,7 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			}
 			break;
 		}
+
 		case OFPAT_SET_TP_DST:
 		{
 			struct ofp_action_tp_port *ta = (struct ofp_action_tp_port *)ah;
@@ -291,7 +293,6 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			}
 			break;
 		}
-
 	
 		default:
 			click_chatter("Unimplemented of action: %d\n", ah->type );

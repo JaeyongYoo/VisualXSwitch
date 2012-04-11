@@ -41,3 +41,7 @@ CHANGELOG: This is a short log for the changes in each version.
 	- OpenFlow applies patches for 64bit architecture. For this, we move from shallow copy to deep copy of OpenFlow-Click-Packet-Translation 
 
 	- Got rid of CD_Proportional and make another type of CD (CD_Direct) that is one and the only compatible one to VcBWShapeProportional
+
+* added a new project (VxS: VisualXSwitch)
+	
+	- preliminary prototype of a networking switch that supports in-network processing (supporting GPU) for handling multimedia flows

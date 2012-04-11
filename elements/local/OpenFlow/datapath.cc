@@ -728,7 +728,7 @@ static void stats_done(void *cb_)
 
 
 Datapath::Datapath(): base_timer(this), vxs_timer(this),
-	vxsManager(&taskQueueIncoming,&taskQueueOutgoing), 
+	vxsManager(this, &taskQueueIncoming,&taskQueueOutgoing), 
 	vxsDispatcher(&taskQueueIncoming, &taskQueueOutgoing)
 {
 	strcpy(_mfr_desc, "Stanford University");
@@ -1081,7 +1081,7 @@ void Datapath::run_timer(Timer* t)
 		/* TODO: report interval-based status */
 
         } else if( t == &vxs_timer ) {
-		vxsManager.sendPacket( this );
+		vxsManager.sendPacket();
                 t->schedule_after_msec( VXS_TIMER_INTERVAL );
 	}
 }
@@ -1207,19 +1207,6 @@ void Datapath::output_packet(struct ofpbuf *buffer, uint16_t out_port, uint32_t 
 {
 	DEBUG_TRACE_FUNCTION_CALL;
 	Packet* packet = ofpbuf_to_packet( buffer );
-
-#ifdef JY_DEBUG_NO
-	if( packet->length() == 128 ) {
-		printf("=> Packet OutBuffer [size:%d sizeof: %d]", 
-				buffer->allocated, sizeof(buffer->base) );  
-		int i;
-		for(i=0; i < (buffer->allocated < 80 ? buffer->allocated : 80); i++) { 
-			if( i%16==0 ) printf("\n\t");  
-			printf("%x ", *( ((uint8_t*)buffer->base)+i) );  
-		} 
-		printf("\n");
-	}
-#endif
 	ofpbuf_delete(buffer);
 	return output_packet( packet, out_port, queue_id );
 }

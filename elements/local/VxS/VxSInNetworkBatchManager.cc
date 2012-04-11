@@ -34,9 +34,10 @@ const char *media_type_name[VXS_END_OF_TYPE] = {
 /**
  * implementation of VxSInNetworkFlowBatcher
  */
-VxSInNetworkFlowBatcher::VxSInNetworkFlowBatcher(const struct sw_flow_key *fid, 
+VxSInNetworkFlowBatcher::VxSInNetworkFlowBatcher(Datapath *dp, const struct sw_flow_key *fid, 
 	VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out )
 {
+	_datapath = dp;
 	memcpy( &_flow_id, fid, sizeof(_flow_id) );
 	_task_queue_incoming = tq_in;
 	_task_queue_outgoing = tq_out;
@@ -62,8 +63,9 @@ int VxSInNetworkFlowBatcher::isTheSameFlow(const struct sw_flow_key *fid)
 /**
  * implementation of VxSInNetworkBatchManager
  */
-VxSInNetworkBatchManager::VxSInNetworkBatchManager(VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out )
+VxSInNetworkBatchManager::VxSInNetworkBatchManager(Datapath *dp, VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out )
 {
+	_datapath = dp;
 	_task_queue_incoming = tq_in;
 	_task_queue_outgoing = tq_out;
 }
@@ -83,11 +85,11 @@ VxSInNetworkFlowBatcher * VxSInNetworkBatchManager::createBatcher(int32_t media_
 	VxSInNetworkFlowBatcher* re = NULL;
 	switch( media_type ) {
 	case VXS_MEDIA_TYPE_RAW:
-		re = new VxSInNetworkRawBatcher( fid, _task_queue_incoming, _task_queue_outgoing );
+		re = new VxSInNetworkRawBatcher( _datapath, fid, _task_queue_incoming, _task_queue_outgoing );
 	break;
 
 	case VXS_MEDIA_TYPE_DXT:
-		re = new VxSInNetworkDXTBatcher( fid, _task_queue_incoming, _task_queue_outgoing );
+		re = new VxSInNetworkDXTBatcher( _datapath, fid, _task_queue_incoming, _task_queue_outgoing );
 	break;
 	
 	default:
@@ -114,8 +116,12 @@ VxSInNetworkFlowBatcher * VxSInNetworkBatchManager::searchBatcher(const struct s
 	}
 	return NULL;
 }
-
-int VxSInNetworkBatchManager::recvPacket(struct ofpbuf *ob, const struct sw_flow_key *fid, 
+/**
+ * recvPacket function returns 0 when success (need to free packet by returning 1)
+ *			returns 2 when success (need to forward the packet)
+ * 			returns -1 when failure 
+ */ 
+int VxSInNetworkBatchManager::recvPacket(struct ofpbuf *ob, struct sw_flow_key *fid, 
 	const struct ofp_action_header *ah, int actions_len, int media_type)
 {
 	/* first, validate if the input params are ok */
@@ -146,14 +152,14 @@ int VxSInNetworkBatchManager::recvPacket(struct ofpbuf *ob, const struct sw_flow
 	return b->pushPacket( ob, ah, actions_len );
 }
 
-int VxSInNetworkBatchManager::sendPacket(Datapath* dp)
+int VxSInNetworkBatchManager::sendPacket()
 {
 	std::list<VxSInNetworkFlowBatcher *>::iterator ii;
 	int residual; // remaining queue size
 	int total_residual = 0;
 	for( ii = _batchers.begin(); ii != _batchers.end(); ii ++ ) {
 		VxSInNetworkFlowBatcher *b = *ii;
-		residual = b->recvFromTaskQueue( dp );
+		residual = b->recvFromTaskQueue();
 		/* 
 		 * TODO: determines the next-call time based on the 
 		 * residual number of tasks

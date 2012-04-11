@@ -15,12 +15,11 @@ class VxSInNetworkTaskQueue;
  */
 class VxSInNetworkRawBatcher : public VxSInNetworkFlowBatcher {
 public:
-	VxSInNetworkRawBatcher(const struct sw_flow_key *fid, 
+	VxSInNetworkRawBatcher(Datapath *dp, const struct sw_flow_key *fid, 
 		VxSInNetworkTaskQueue *tq_in, VxSInNetworkTaskQueue *tq_out );
 	~VxSInNetworkRawBatcher();
 
 public:
-
         /* 
          * batch a packet
          */
@@ -34,10 +33,13 @@ public:
 	/*
 	 * recv from task queue (outgoing)
 	 */
-	virtual int recvFromTaskQueue(Datapath *);
+	virtual int recvFromTaskQueue();
 protected:
 	VxSInNetworkRawSegment * createNewSegment();
-	void stip_initiation_packet_received(struct stip_initiation_header *sihdr);
+	void stip_initiation_packet_received(struct stip_initiation_header *sihdr, 
+		struct ofpbuf *ob, const struct ofp_action_header *ah, int actions_len);
+	void stip_process_initiation_packet(struct stip_initiation_header *sihdr, 
+		struct ofpbuf *ob, const struct ofp_action_header *ah, int actions_len);
 	void stip_data_packet_received(struct stip_transport_header *shdr);
 
 private: // for debugging purpose

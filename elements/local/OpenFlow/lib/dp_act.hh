@@ -45,6 +45,14 @@ class Of_DpAct {
 
 #define ACT_VALIDATION_OK ((uint16_t)-1)
 
+/* in order to use them outside of this source code */
+uint32_t set_tp_port(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key *key, 
+        const struct ofp_action_header *ah, size_t actions_len UNUSED );
+uint32_t set_nw_addr(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key *key, 
+        const struct ofp_action_header *ah, size_t actions_len UNUSED );
+uint32_t set_dl_addr(class Datapath *dp UNUSED, struct ofpbuf *buffer, struct sw_flow_key *key UNUSED,
+        const struct ofp_action_header *ah, size_t actions_len UNUSED );
+
 
 void init_of_actions();
 uint16_t validate_actions(class Datapath *, const struct sw_flow_key *,

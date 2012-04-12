@@ -438,12 +438,6 @@ __global__ void ckernel_frame_resize(uint32_t *input, uint32_t *output, uint32_t
 	// temporal variable for 2x2 average mask
 	__shared__ ushort3 avg_mask[NUM_THREADS];
 
-	int i;
-	int total_pixels = 16;
-	int pixel_position; /* target_pixel position */
-	int orig_pixel_position;
-	int tmp_residual_width;
-
 	scaleColorBlock(input, output, avg_mask, total_dxt_blocks,
 			orig_width, target_width, blockOffset);
 
@@ -458,7 +452,6 @@ extern "C" int frame_resize(uint32_t *d_data, uint32_t *d_result, uint32_t total
 
 	//uint mpcount = deviceProp.multiProcessorCount;
         uint mpcount = 16;
-        const uint memSize = IMAGE_WIDTH * IMAGE_HEIGHT / 2;
 
         // Determine launch configuration and run timed computation numIterations times
         uint blocks = ((target_width + 3) / 4) * ((target_height + 3) / 4); // rounds up by 1 block in each dim if %4 != 0

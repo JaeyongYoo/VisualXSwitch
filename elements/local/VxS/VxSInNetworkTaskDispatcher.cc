@@ -161,6 +161,32 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 			break;
 		}
 
+		case OFPAT_VXS_YUV2RGB_DXTC:
+		{
+			VxSInNetworkCompute *c = lookupCompute("CUDA_DXTC");
+			if( c == NULL ) {
+				click_chatter("Error: CUDA_DXTC not found\n");
+			} else { /* task is done */
+				int re;
+
+				sem_wait( &_sem_GPU );
+
+				/* TODO: make this input mode thing as parametric form of OFPAT_VXS_DXTComp */
+				((VxSInNetworkComputeDXTC *)c)->set_input_mode( 1 ); /* rgb4 */
+
+				/* do we need explicit type-casting ? */
+				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );
+
+				sem_post( &_sem_GPU );
+
+				task->taskDone();
+				task->setReturnValue( re );
+
+				s = (VxSInNetworkRawSegment *)task->getSegment();
+			}
+			break;
+		}
+
 		case OFPAT_VXS_DXTComp:
 		{
 			VxSInNetworkCompute *c = lookupCompute("CUDA_DXTC");
@@ -170,6 +196,8 @@ int VxSInNetworkTaskDispatcher::run_action_on_task( VxSInNetworkTask *task, stru
 				int re;
 
 				sem_wait( &_sem_GPU );
+
+				((VxSInNetworkComputeDXTC *)c)->set_input_mode( 0 ); /* rgb4 */
 
 				/* do we need explicit type-casting ? */
 				re = ((VxSInNetworkComputeDXTC *)c)->compute( task->getSegment() );

@@ -365,6 +365,7 @@ enum ofp_action_type {
     OFPAT_ENQUEUE,          /* Output to queue.  */
     OFPAT_VXS_DXTComp,      /* DXT Compress with GPU. */
     OFPAT_VXS_DXTDecomp,    /* DXT Decompress with GPU  */
+    OFPAT_VXS_YUV2RGB_DXTC, /* DXT Compress with GPU. */
     OFPAT_VXS_FrameResize,  /* Resize RAW frame  */
     OFPAT_VXS_YUV2RGB,      /* Convert YUV to RGB  */
     OFPAT_VXS_COPY_BRANCH,  /* Copy actions and start from a branch position */
@@ -450,6 +451,16 @@ struct ofp_action_vxs_dxt {
     uint32_t dxt_param2;            /* prepared for future use */
 };
 OFP_ASSERT(sizeof(struct ofp_action_vxs_dxt) == 16);
+
+/* Action header for OFPAT_VXS_YUV2RGB_DXTC. */
+struct ofp_action_vxs_yuv2rgb_dxtc {
+    uint16_t type;                  /* OFPAT_VXS_YUV2RGB_DXTC. */
+    uint16_t len;                   /* Length is a multiple of 8. */
+    uint32_t convert_param1;        /* prepared for future use */
+    uint32_t dxt_version;           /* DXT_VERSION: 1. CPU; 2. GPU */
+    uint32_t dxt_param1;            /* prepared for future use */
+};
+OFP_ASSERT(sizeof(struct ofp_action_vxs_yuv2rgb_dxtc) == 16);
 
 /* Action header for OFPAT_VXS_DXTDecomp. */
 struct ofp_action_vxs_dxt_decompress {

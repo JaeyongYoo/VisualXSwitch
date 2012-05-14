@@ -36,7 +36,7 @@
 
 CLICK_DECLS
 
-extern "C" void dxt_compress_from_yuv2(uint32_t *d_data, uint32_t *d_result, uint32_t total_dxt_blocks);
+extern "C" void dxt_compress_from_yuv2_or_rgb4(uint32_t *d_data, uint32_t *d_result, uint32_t total_dxt_blocks, uint32_t yuv2);
 
 VxSInNetworkComputeDXTC::VxSInNetworkComputeDXTC(const char *name) : VxSInNetworkCompute(name)
 {
@@ -55,6 +55,7 @@ VxSInNetworkComputeDXTC::VxSInNetworkComputeDXTC(const char *name) : VxSInNetwor
 				VXS_MAX_DXT_CUDA_MEM_SIZE, cudaGetErrorString(err));
 	}
 
+	_input_mode = 0; /* default input mode = rgb4 */
 }
 
 VxSInNetworkComputeDXTC::~VxSInNetworkComputeDXTC()
@@ -73,7 +74,7 @@ int VxSInNetworkComputeDXTC::compute(VxSInNetworkSegment *segment)
 		return -1;
 	}
 
-	dxt_compress_from_yuv2( _cuda_input, _cuda_output, raw_s->getCurrentNumPixelBlocks() );
+	dxt_compress_from_yuv2_or_rgb4( _cuda_input, _cuda_output, raw_s->getCurrentNumPixelBlocks(), _input_mode );
 
 	raw_s->setBytePerPixelBlocks( 8 ); /* 1 pixel block of DXT-compressed is 8 byte */
 	int after_processed_size = raw_s->getMaxNumPixelBlocks() * raw_s->getBytePerPixelBlocks() /* byte per pixel */;
@@ -92,7 +93,6 @@ int VxSInNetworkComputeDXTC::compute(VxSInNetworkSegment *segment)
 		
 	return 0;
 }
-
 
 CLICK_ENDDECLS
 ELEMENT_PROVIDES(VxSInNetworkComputeDXTC)

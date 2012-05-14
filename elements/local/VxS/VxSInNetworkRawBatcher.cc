@@ -46,6 +46,7 @@ VxSInNetworkRawBatcher::VxSInNetworkRawBatcher(Datapath *dp, const struct sw_flo
 VxSInNetworkRawBatcher::~VxSInNetworkRawBatcher()
 {
 }
+
 void VxSInNetworkRawBatcher::stip_initiation_packet_received(struct stip_initiation_header *sihdr, 
 	struct ofpbuf *ob, const struct ofp_action_header *ah, int actions_len)
 {
@@ -166,6 +167,14 @@ void VxSInNetworkRawBatcher::stip_process_initiation_packet(struct stip_initiati
 
 void VxSInNetworkRawBatcher::stip_data_packet_received(struct stip_transport_header *shdr)
 {
+	if( shdr->pblock_idx == 0 ) { /* this is the first packet */
+		struct timeval tv;
+		gettimeofday( &tv, NULL );
+		click_chatter("FRAME_FIRST_PACKET_IN %d.%06d %d\n", 
+			tv.tv_sec, tv.tv_usec,
+			shdr->frame_idx );
+	}
+
 	/* we can do the following because stip header size is constant */
 	uint8_t *data = (uint8_t *)(shdr+1);
 	uint32_t data_size = shdr->pblock_count * _src_Bpb; /* source Bytes per block (pixel) */
@@ -310,6 +319,17 @@ int VxSInNetworkRawBatcher::recvFromTaskQueue()
 
 	Packet *p = NULL;
 	p = rawSegment->packetize(1400, task->getNetworkHeaders(), task->getNetworkHeaderLen() );
+
+	if( true ) { /* this is the first packet sent */
+
+		struct stip_transport_header *shdr = (struct stip_transport_header *) 
+			(task->getNetworkHeaders() + 14 /* ether */ + 20 /* ip */ + 8 /* udp */);
+		struct timeval tv;
+		gettimeofday( &tv, NULL );
+		click_chatter("FRAME_FIRST_PACKET_OUT %d.%06d %d\n", 
+			tv.tv_sec, tv.tv_usec,
+			shdr->frame_idx );
+	}
 
 	Packet *tmp;
 	int iii = 0;

@@ -251,7 +251,21 @@ __global__ void ckernel_dxt_compress_from_yuv2_or_rgb4(uint32_t *input, uint16_t
 	output[gid].y = tmp;	
 }
 
-extern "C" void dxt_compress_from_yuv2(uint32_t *d_data, uint32_t *d_result, uint32_t total_dxt_blocks)
+extern "C" void dxt_compress_from_yuv2_or_rgb4(uint32_t *d_data, uint32_t *d_result, uint32_t total_dxt_blocks, uint32_t yuv2)
+{	
+	uint32_t total_cuda_blocks = total_dxt_blocks / NUM_THREADS;
+	if( total_dxt_blocks % NUM_THREADS ) total_cuda_blocks ++;
+
+	ckernel_dxt_compress_from_yuv2_or_rgb4<<<total_cuda_blocks, NUM_THREADS>>>(d_data, 
+			yuv2, /* 1 indicates yuv2; 0 indicates rgb4 */
+			(uint2*)d_result, 
+			0, 
+			total_dxt_blocks);
+
+	cudaThreadSynchronize();
+}
+
+extern "C" void dxt_compress_from_rgb4(uint32_t *d_data, uint32_t *d_result, uint32_t total_dxt_blocks)
 {	
 	uint32_t total_cuda_blocks = total_dxt_blocks / NUM_THREADS;
 	if( total_dxt_blocks % NUM_THREADS ) total_cuda_blocks ++;

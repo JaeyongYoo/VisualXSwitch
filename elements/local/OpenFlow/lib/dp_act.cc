@@ -380,6 +380,10 @@ void init_of_actions()
 	of_actions[OFPAT_VXS_DXTDecomp].max_size = 	sizeof(struct ofp_action_vxs_dxt_decompress);
 	of_actions[OFPAT_VXS_DXTDecomp].validate = 	NULL;
 	of_actions[OFPAT_VXS_DXTDecomp].execute = 	vxs_in_network_procesing;
+	of_actions[OFPAT_VXS_YUV2RGB_DXTC].min_size = 	sizeof(struct ofp_action_vxs_yuv2rgb_dxtc);
+	of_actions[OFPAT_VXS_YUV2RGB_DXTC].max_size = 	sizeof(struct ofp_action_vxs_yuv2rgb_dxtc);
+	of_actions[OFPAT_VXS_YUV2RGB_DXTC].validate = 	NULL;
+	of_actions[OFPAT_VXS_YUV2RGB_DXTC].execute = 	vxs_in_network_procesing;
 	of_actions[OFPAT_VXS_FrameResize].min_size = 	sizeof(struct ofp_action_vxs_frame_resize);
 	of_actions[OFPAT_VXS_FrameResize].max_size = 	sizeof(struct ofp_action_vxs_frame_resize);
 	of_actions[OFPAT_VXS_FrameResize].validate = 	NULL;
